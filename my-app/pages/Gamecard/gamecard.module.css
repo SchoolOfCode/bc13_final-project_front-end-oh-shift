@@ -1,0 +1,23 @@
+.gameCharacteristics{
+    width:600px;
+    height: 50px;
+    background-color: white;
+    color: red;
+}
+.gamecardHead{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.button{
+    justify-content: flex-end;
+
+}
+.tags{
+    background-color: blue;
+}
+
+
+.gameTitle{
+    flex-wrap: wrap;
+}
