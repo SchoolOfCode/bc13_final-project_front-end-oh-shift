@@ -2,7 +2,9 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
-import Gamecard from './Gamecard/gamecard'
+// import Gamecard from '../components/Gamecard/gamecard.js'
+import Header from '../components/Header/Header'
+import Homebody from '../components/HomeBody/homebody'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,8 +19,9 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <div>
-        <Gamecard/>
-        
+        <Header></Header>
+        <Homebody></Homebody>
+        {/* <Gamecard/> */}
         </div>
       </main>
     </>
