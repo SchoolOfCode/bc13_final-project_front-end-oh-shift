@@ -8,6 +8,7 @@
     height: 200px;
     border-style: solid;
     border-color: white;
+   /* background-image: url({props.game.artwork_image_url}); */
 }
 .tagsButtonContainer{
     display: flex;
