@@ -1,23 +1,37 @@
-.gameCharacteristics{
-    width:600px;
-    height: 50px;
-    background-color: white;
-    color: red;
+.card{
+    margin: 20px 0px 20px 0px;
+    font-size: xx-small;
+    text-size-adjust: 5px;
+    background-color: orange;
+    border-radius: 10px;
+    width: 370px;
+    height: 200px;
+    border-style: solid;
+    border-color: white;
 }
-.gamecardHead{
+.tagsButtonContainer{
     display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-}
-.button{
-    justify-content: flex-end;
+    justify-content: space-around;
 
 }
-.tags{
-    background-color: blue;
-}
 
+.descriptors{
+    background-color: navy;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 9px;
+}
 
 .gameTitle{
-    flex-wrap: wrap;
+margin: 20px 0px 0px 20px;
+font-size: small;
+}
+
+.gameInformation{
+ margin: 7px 20px 0px 20px;
+}
+
+.readMoreButton{
+    text-align: center;
+    margin: 25px 0px 0px 0px;
 }
