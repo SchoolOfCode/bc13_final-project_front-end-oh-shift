@@ -18,7 +18,7 @@ function Gamecard(props) {
     //   <div className={styles.gameInformation}>
     //     <p>{props.game.description}</p>
     // </div>
-    <div>
+    <div>–
       <div className={styles.readMoreButton}>
         <button className={styles.button}>Read More</button>
       </div>
