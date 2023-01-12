@@ -4,7 +4,9 @@ import Link from "next/link"
 function Homebody() {
   return (
     <div>
-      <h1>Welcome!</h1>
+      <h1 className="text-3xl font-bold underline">
+        Welcome!
+      </h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a
         arcu quam. Vestibulum id convallis nulla, in varius felis. Nunc purus
@@ -12,6 +14,7 @@ function Homebody() {
         ultrices risus. Orci varius natoque penatibus et magnis dis parturient
         montes, nascetur ridiculus mus. Quisque eget ligula diam.
       </p>
+  
       <button>
         <Link href="/Games">View Games</Link>
       </button>
