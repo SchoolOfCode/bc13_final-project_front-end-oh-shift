@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../components/Header/Header";
 import Gamecard from "../components/Gamecard/gamecard";
+import Pagination from "../components/Footer/footer";
 
 function Games(){
 /* 
@@ -10,7 +11,7 @@ function Games(){
         <>
         <Header></Header>
         <Gamecard ></Gamecard>
-        
+        <Pagination></Pagination>
         </>
     )
 }
