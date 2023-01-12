@@ -2,7 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* .btn-secondary {
+@apply text-black rounded-4;
+} */
 
+@layer components {
+  .btn-secondary {
+   @apply text-black rounded;
+  }
+}
 
 
 

@@ -16,7 +16,6 @@ function Homebody() {
       {/* <button className={styles.viewGames}> */}
       <button
         className="btn btn-active btn-primary"
-        style={{ color: "white", borderRadius: "3px", fontFamily: "openSans" }}
       >
         <Link href="/Games">View Games</Link>
       </button>
