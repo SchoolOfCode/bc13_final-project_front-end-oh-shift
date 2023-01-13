@@ -63,16 +63,40 @@ function Homebody() {
           />
         </div>
       </div>
-      <h1 className="text-3xl font-bold ">Welcome to Stokka</h1>
-      <h2>Are you looking for a board game to play?</h2>
-      <p>
-        Stokka is an online board games library that will help you find the
-        perfect match for each occasion!
-      </p>
+      <div
+        clasName="styles.textContent"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "20px",
+        }}
+      >
+        <h1
+          className="text-3xl font-bold"
+          style={{ color: "#50FFB1", fontFamily: "opensans" }}
+        >
+          Welcome to Stokka
+        </h1>
+        <h2 style={{ color: "#00272B", fontFamily: "opensans" }}>
+          Are you looking for a board game to play?
+        </h2>
+        <h3 style={{ fontFamily: "montserrat", textAlign: "center" }}>
+          Stokka is an online board games library that will help you find the
+          perfect match for each occasion!
+        </h3>
+      </div>
       {/* <button className={styles.viewGames}> */}
-      <button className="btn btn-active btn-primary">
-        <Link href="/Games">View Games</Link>
-      </button>
+      <div
+        className="viewGames"
+        style={{ display: "flex", justifyContent: "center" }}
+      >
+        <button style={{marginTop:"20px"}}
+          className="btn btn-active btn-primary rounded"
+        >
+          <Link href="/Games">View Games</Link>
+        </button>
+      </div>
     </div>
   );
 }
