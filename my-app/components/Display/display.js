@@ -6,6 +6,7 @@ import GamecardList from '../GameCardLIst/gamCardList'
 function Display() {
   return (
   <>
+  
     <div><FilterBar/></div>
     <GamecardList></GamecardList>
     
