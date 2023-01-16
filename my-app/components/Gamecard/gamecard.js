@@ -1,12 +1,9 @@
 import styles from "./gamecard.module.css";
 import { useState } from "react";
-
-
-
-
-
-
-function Gamecard(props) {
+import Badge
+ from "../Badge/Badge";
+function Gamecard({game}) {
+  //CARD ANIMATION - T TRY LATER
   // const [selectedId, setSelectedId] = useState(null);
 
   // {
@@ -27,8 +24,10 @@ function Gamecard(props) {
   //     </motion.div>
   //   )}
   // </AnimatePresence>;
+  //CARD ANIMATION - TO TRY LATER
   return (
-    
+
+    //IKRAM AND ISAAC CARD
     // <div className={styles.card}>
     //   <div className={styles.tagsButtonContainer}>
     //     {/* <img src={props.game.artwork_image_url}></img> */}
@@ -46,24 +45,26 @@ function Gamecard(props) {
     //   <div className={styles.gameInformation}>
     //     <p>{props.game.description}</p>
     // </div>
+      // <div className={styles.readMoreButton}>
+      //   <button className={styles.button}>Read More</button>
+      // </div>
 
-    <div>
-      <div className="card w-96 bg-base-100 shadow-xl image-full">
-        <figure>
-          <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">Buy Now</button>
-          </div>
-        </div>
-      </div>
-      <div className={styles.readMoreButton}>
-        <button className={styles.button}>Read More</button>
-      </div>
+      //SOPHIE CARD
+      <div>
+  <div className="card w-96 bg-base-100 shadow-xl image-full">
+  <figure><img src={game.artwork_image_url} alt={game.title} /></figure>
+  <div className="card-body">
+        {game.genre.map((gameGenre) =>
+        (<Badge genre={gameGenre}/>)
+        )}
+    <h2 className="card-title">{game.title}</h2>
+    <p>{game.description}</p>
+    <div className="card-actions justify-end">
+      <button className="btn btn-primary"><a href={`/games/${game.id}`}>View</a></button>
     </div>
+  </div>
+</div>
+</div>
   );
 }
 
