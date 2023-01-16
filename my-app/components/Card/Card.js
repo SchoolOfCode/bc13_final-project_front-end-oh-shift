@@ -4,7 +4,12 @@ export default function Card({game}){
     return(
 <div className="card w-96 bg-base-100 shadow-xl image-full">
   <figure><img src={game.artwork_image_url} alt={game.title} /></figure>
-  <div className="card-body">
+  <div className="card-body" 
+  style={{ display: "flex", flexDirection: "column-reverse", background:"blue"
+
+   }}
+  className="drawer-content"
+  >
         {game.genre.map((gameGenre) =>
         (<Badge genre={gameGenre}/>)
         )}

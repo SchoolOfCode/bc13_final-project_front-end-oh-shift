@@ -1,12 +1,15 @@
 import React from 'react';
 import Dropdown from '../Select/Select.js'
 
-function FiterBar() {
+
+function FiterBar() 
+{
+
   return (
     <div className="drawer">
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
       <div
-        style={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}
+        style={{ display: "flex", justifyContent: "center", marginTop: "2rem"  }}
         className="drawer-content"
       >
         <label htmlFor="my-drawer" className="btn btn-secondary drawer-button">
@@ -55,7 +58,9 @@ function FiterBar() {
         </ul>
       </div>
     </div>
+   // )
   );
 }
+
 
 export default FiterBar

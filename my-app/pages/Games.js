@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../components/Header/Header";
-import Pagination from "../components/Footer/footer";
+import Pagination from '../components/Footer/footer';
 import Display from "../components/Display/display";
 import Gamecard from "../components/Gamecard/gamecard";
 function Games(){
