@@ -1,23 +1,17 @@
 import React from "react";
 import Gamecard from "../Gamecard/gamecard";
 import { useState, useEffect } from "react";
+import Card from "../Card/Card.js";
 
-function GamecardList() {
-  const [games, setGames] = useState([]);
+function GamecardList({games}) {
+console.log('gamCardList', games)
 
-  async function getData() {
-    const res = await fetch("");
-    const data = await res.json();
-    setGames(data.payload);
-  }
-  useEffect(() => {
-    getData();
-  }, []);
   return (
     <div>
       {games.map((game) => (
-        <Gamecard game={game} />
+        <Card game={game} key={game.id}/>
       ))}
+
     </div>
   );
 }

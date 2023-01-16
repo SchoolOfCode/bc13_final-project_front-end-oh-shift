@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import Dropdown from '../Select/Select.js'
 
 function FiterBar() {
   return (
@@ -16,10 +17,24 @@ function FiterBar() {
         <label htmlFor="my-drawer" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 bg-base-100 text-base-content">
           <li>
-            <a>No. of Players</a>
+            <Dropdown options={[
+              { value: '1', label: '1' },
+              { value: '2', label: '2' },
+              { value: '3', label: '3' }]}
+              dropdownName='No. of Players'
+              onChange={(inputValue)=>{console.log('onChange', inputValue)}}
+              isMulti={false}
+            />
           </li>
           <li>
-            <a>Difficulty</a>
+          <Dropdown options={[
+              { value: 'easy', label: 'Easy' },
+              { value: 'intermediate', label: 'Intermediate' },
+              { value: 'expert', label: 'Expert' }]}
+              dropdownName='Difficulty'
+              onChange={(inputValue)=>{console.log('onChange', inputValue)}}
+              isMulti={true}
+              />
           </li>
           <li>
             <a>Age</a>
