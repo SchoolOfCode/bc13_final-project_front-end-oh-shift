@@ -1,5 +1,4 @@
 import styles from "./gamecard.module.css";
-import { useState } from "react";
 import Badge
  from "../Badge/Badge";
 function Gamecard({game}) {
@@ -52,15 +51,14 @@ function Gamecard({game}) {
 
       //SOPHIE CARD
       <div>
-      <h1>Hello</h1>
 
   <div className="card w-96 bg-base-100 shadow-xl image-full">
   <figure>
-  <img src="https://cdn.shopify.com/s/files/1/0263/6460/8590/products/monopoly_BoxVisual_Liverpool_2019_MP03-HR_1024x1024@2x.jpg?v=1580313804" alt={game?.title} /></figure>
+  <img src={game.artwork_image_url} alt={game?.title} /></figure>
   <div className="card-body">
         {game.genre?.map((gameGenre) => {
         console.log(game.genre)
-        return ("<Badge key={gameGenre} genre={gameGenre}/>")}
+        return (<Badge key={gameGenre} genre={gameGenre}/>)}
         )}
     <h2 className="card-title">{game.title}</h2>
     <p>{game.description}</p>
