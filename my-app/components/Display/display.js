@@ -1,6 +1,7 @@
 import { stringify } from "postcss";
 import { React, useState } from "react";
-import FilterBar from "../FilterBar/filterBar";
+//import FilterBar from "../FilterBar/filterBar";
+import filterSidebar from "../FilterBar/filterSidebar";
 import GameCardList from "../GameCardLIst/gameCardList";
 import dummydata from "../dummydata.json";
 // function Display() {
@@ -30,18 +31,26 @@ import dummydata from "../dummydata.json";
 //   getData();
 // }, []);
 function Display() {
-  const games = dummydata.payload
+  const games = dummydata.payload;
   console.log("Dummy Data: " + dummydata.payload[0].minimum_age);
 
-  return (games) ? 
-    (<>
+  return games ? (
+    <>
+      {/* <div><FilterBar /></div> */}
       <div>
-        <FilterBar />
+        <div>
+          <button id="filter-button">Filter By</button>
+        </div>
+        <filterSidebar />
       </div>
       <GameCardList games={games}></GameCardList>
-    </>)
-     : <p>Sorry, no results found. Lower your standards and reduce your filter options!</p>
-  ;
+    </>
+  ) : (
+    <p>
+      Sorry, no results found. Lower your standards and reduce your filter
+      options!
+    </p>
+  );
 }
 
 export default Display;
