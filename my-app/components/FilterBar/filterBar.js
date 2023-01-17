@@ -1,5 +1,5 @@
 import React from 'react'
-import Dropdown from "../Select/Select.js";
+import Dropdown from "../Dropdown/Dropdown.js";
 
 function FilterBar() {
   return (

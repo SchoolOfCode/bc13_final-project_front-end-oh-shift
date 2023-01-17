@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import Header from '../components/Header/Header'
-import Homebody from '../components/HomeBody/homebody'
+import HomePage from '../components/HomePage/HomePage'
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -22,7 +22,7 @@ export default function Home() {
       <div className={styles.cardComponentSection}>
         <div>
         <Header></Header>
-        <Homebody></Homebody>
+        <HomePage></HomePage>
         </div>
         </div>
       </main>

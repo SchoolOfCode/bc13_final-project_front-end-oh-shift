@@ -1,8 +1,8 @@
 import React from "react";
 import Link from "next/link";
-import styles from "../../styles/Homebody.module.css";
+import styles from "../../styles/HomePage.module.css";
 
-function Homebody() {
+function HomePage() {
   return (
     <div className="landing-content">
       <div className="carousel carousel-center max-w-md p-4 space-x-4 bg-neutral rounded-box">
@@ -101,4 +101,4 @@ function Homebody() {
   );
 }
 
-export default Homebody;
+export default HomePage;
