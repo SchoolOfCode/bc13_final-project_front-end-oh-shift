@@ -4,14 +4,14 @@ import Gamecard from "../Gamecard/gamecard";
 function GameCardList({games}) {
 console.log('gamCardList', games)
 
-  return (
-    <div>
+  return (games) ? (
+    <>
+      <div>
       {games.map((game) => (
         <Gamecard game={game} key={game.id}/>
       ))}
-
-    </div>
-  );
+      </div>
+    </>) : ''
 }
 
 export default GameCardList;

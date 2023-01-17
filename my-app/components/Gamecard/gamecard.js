@@ -2,53 +2,9 @@ import styles from "./gamecard.module.css";
 import Badge
  from "../Badge/Badge";
 function Gamecard({game}) {
-  //CARD ANIMATION - T TRY LATER
-  // const [selectedId, setSelectedId] = useState(null);
 
-  // {
-  //   items.map((item) => (
-  //     <motion.div layoutId={item.id} onClick={() => setSelectedId(item.id)}>
-  //       <motion.h5>{item.subtitle}</motion.h5>
-  //       <motion.h2>{item.title}</motion.h2>
-  //     </motion.div>
-  //   ));
-  // }
-
-  // <AnimatePresence>
-  //   {selectedId && (
-  //     <motion.div layoutId={selectedId}>
-  //       <motion.h5>{item.subtitle}</motion.h5>
-  //       <motion.h2>{item.title}</motion.h2>
-  //       <motion.button onClick={() => setSelectedId(null)} />
-  //     </motion.div>
-  //   )}
-  // </AnimatePresence>;
-  //CARD ANIMATION - TO TRY LATER
   console.log(game)
   return (
-
-    //IKRAM AND ISAAC CARD
-    // <div className={styles.card}>
-    //   <div className={styles.tagsButtonContainer}>
-    //     {/* <img src={props.game.artwork_image_url}></img> */}
-    //     <p className={styles.descriptors}>{props.game.difficulty} </p>
-    //     <p className={styles.descriptors}>{props.game.duration}</p>
-    //     <p className={styles.descriptors}>{props.game.genre}</p>
-    //     <p className={styles.descriptors}>{props.game.number_of_players}</p>
-    //     <p className={styles.descriptors}>{props.game.age}</p>
-    //     <p className={styles.descriptors}>{props.game.rating}</p>
-    //   </div>
-
-    //   <div className={styles.gameTitle}>
-    //     <h1>{props.game.title}</h1>
-    //   </div>
-    //   <div className={styles.gameInformation}>
-    //     <p>{props.game.description}</p>
-    // </div>
-      // <div className={styles.readMoreButton}>
-      //   <button className={styles.button}>Read More</button>
-      // </div>
-
       //SOPHIE CARD
       <div >
 <div className="cardcontainer" style={{marginBottom:"2rem"}}>
