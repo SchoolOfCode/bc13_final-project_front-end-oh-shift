@@ -11,9 +11,6 @@ function Games(){
       <>
         <Header></Header>
         <Display></Display>
-        {/* <Gamecard></Gamecard>
-        <Gamecard></Gamecard>
-        <Gamecard></Gamecard> */}
         <Pagination></Pagination>
       </>
     );

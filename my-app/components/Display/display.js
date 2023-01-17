@@ -33,15 +33,15 @@ function Display() {
   const games = dummydata.payload
   console.log("Dummy Data: " + dummydata.payload[0].minimum_age);
 
-  return (
-    <>
+  return (games) ? 
+    (<>
       <div>
         <FilterBar />
       </div>
       <GameCardList games={games}></GameCardList>
-    </>
-    // : <p>Sorry, no results found. Lower your standards and reduce your filter options!</p>
-  );
+    </>)
+     : <p>Sorry, no results found. Lower your standards and reduce your filter options!</p>
+  ;
 }
 
 export default Display;
