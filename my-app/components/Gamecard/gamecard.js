@@ -52,7 +52,7 @@ function Gamecard({game}) {
       //SOPHIE CARD
       <div >
 <div className="cardcontainer" style={{marginBottom:"2rem"}}>
-  <div className="card w-96 shadow-xl image-full">
+  <div className="card w-96 shadow-xl image-full" id="cardgame">
   <figure>
   <img src={game.artwork_image_url} alt={game?.title} /></figure>
   <div className="card-body">
