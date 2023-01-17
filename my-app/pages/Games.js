@@ -1,19 +1,19 @@
 import React from "react";
 import Header from "../components/Header/Header";
-import Gamecard from "../components/Gamecard/gamecard";
-import Pagination from "../components/Footer/footer";
-
+import Pagination from '../components/Footer/footer';
+import Display from "../components/Display/display";
+// import Gamecard from "../components/Gamecard/gamecard";
 function Games(){
 /* 
 
 */
-    return ( 
-        <>
+    return (
+      <>
         <Header></Header>
-        <Gamecard ></Gamecard>
+        <Display></Display>
         <Pagination></Pagination>
-        </>
-    )
+      </>
+    );
 }
 
 export default Games
