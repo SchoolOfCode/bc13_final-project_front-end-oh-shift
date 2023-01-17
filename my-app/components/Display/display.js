@@ -3,9 +3,10 @@ import axios from "axios"
 import FilterBar from "../FilterBar/filterBar"
 import { useState, useEffect } from 'react';
 import GameCardList from "../GameCardLIst/gameCardList"
+import dummydata from '../dummydata.json'
 // function Display() {
 
-  // const [games, setGames] = useState();
+//const [games, setGames] = useState([]);
   // const [genreFilter, setGenreFilter] = useState('');
   // const [numberOfPlayersFilter, setNumberOfPlayersFilter] = useState('');
 
@@ -31,25 +32,26 @@ import GameCardList from "../GameCardLIst/gameCardList"
   // }, []);
   function Display(){
 // function getData(){
-// const [ games, setGames ] = useState ("")
-const axiosTest = () => {
- axios.get ("https://oh-shift.onrender.com/api/games/").then((res) => {
-setGames (res.data.payload)
- });
-};
-useEffect(()=> {
-  axiosTest();
-}, [])
+// const [ games, setGames ] = useState (dummydata.payload)
+console.log(dummydata)
+//const axiosTest = () => {
+ //axios.get ("https://oh-shift.onrender.com/api/games").then((res) => {
+//setGames (res.data.payload)
+ //});
+//};
+// useEffect(()=> {
+//   axiosTest();
+// }, [])
   return (
-    (games) ? 
+//     (games) ? 
   <>
   
     <div><FilterBar/></div>
-    <GameCardList games={games}></GameCardList>
+    <GameCardList games={dummydata.payload}></GameCardList>
     
 </>
-: <p>Sorry, no results found. Lower your standards and reduce your filter options!</p>
-  )
+// : <p>Sorry, no results found. Lower your standards and reduce your filter options!</p>
+   )
 }
   
 
