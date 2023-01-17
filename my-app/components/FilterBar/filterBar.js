@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Dropdown from "../Dropdown/Dropdown.js";
+import GameCardList from '../GameCardLIst/gameCardList.js';
+import { useState } from 'react';
 
-function FilterBar() {
+function FilterBar({games}) {
+
   return (
     <div className="drawer">
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
@@ -9,9 +12,13 @@ function FilterBar() {
         style={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}
         className="drawer-content"
       >
+      <div>
         <label htmlFor="my-drawer" className="btn btn-secondary drawer-button">
           Filter By
         </label>
+        <GameCardList games={games}/>
+      </div>
+        
       </div>
 
       <div className="drawer-side">
