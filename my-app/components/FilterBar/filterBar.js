@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Dropdown from "../Dropdown/Dropdown.js";
 import GameCardList from '../GameCardLIst/gameCardList.js';
-import { useState } from 'react';
 
 function FilterBar({games}) {
 
