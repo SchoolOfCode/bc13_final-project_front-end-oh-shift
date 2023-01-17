@@ -1,4 +1,4 @@
-import styles from "./gamecard.module.css";
+import styles from "./Gamecard.module.css";
 import Badge
  from "../Badge/Badge";
 function Gamecard({game}) {
@@ -50,11 +50,12 @@ function Gamecard({game}) {
       // </div>
 
       //SOPHIE CARD
-      <div >
-<div className="cardcontainer" style={{marginBottom:"2rem"}}>
-  <div className="card w-96 shadow-xl image-full" id="cardgame">
-  <figure>
-  <img src={game.artwork_image_url} alt={game?.title} /></figure>
+      <div className={styles.background} >
+<div className="figure" style={{marginBottom:"2rem"}}>
+  {/* <div className="card w-96 shadow-xl image-full"> */}
+
+  <figure className={styles.figure}>
+  <img className="img" src={game.artwork_image_url} alt={game?.title} /></figure>
   <div className="card-body">
   <div className="badges">
         <Badge key={game.minimum_players} label={`${game.minimum_players}-${game.maximum_players} players`}/>
@@ -75,7 +76,7 @@ function Gamecard({game}) {
   </div>
 </div>
 </div>
-</div>
+// </div>
   );
 }
 
