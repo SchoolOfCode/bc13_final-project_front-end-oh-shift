@@ -1,5 +1,5 @@
-export default function Badge({genre}){
+export default function Badge({label}){
     return(
-    <span className="badge">{genre}</span>
+    <span className="badge">{label}</span>
     )
 }

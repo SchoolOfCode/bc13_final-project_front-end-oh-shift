@@ -56,9 +56,13 @@ function Gamecard({game}) {
   <figure>
   <img src={game.artwork_image_url} alt={game?.title} /></figure>
   <div className="card-body">
+        <Badge key={game.minimum_players} label={`${game.minimum_players}-${game.maximum_players} players`}/>
+        <Badge key={game.difficulty} label={game.difficulty}/>
+        <Badge key={game.minimum_age} label={`${game.minimum_age}+`}/>
+        <Badge key={game.duration} label={`${game.duration} mins`}/>
         {game.genre?.map((gameGenre) => {
         console.log(game.genre)
-        return (<Badge key={gameGenre} genre={gameGenre}/>)}
+        return (<Badge key={gameGenre} label={gameGenre}/>)}
         )}
     <h2 className="card-title">{game.title}</h2>
     <p>{game.description}</p>
