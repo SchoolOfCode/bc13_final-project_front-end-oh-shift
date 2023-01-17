@@ -1,11 +1,12 @@
 import { stringify } from "postcss";
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import FilterBar from "../FilterBar/filterBar";
 import GameCardList from "../GameCardLIst/gameCardList";
 import dummydata from "../dummydata.json";
-// function Display() {
+function Display() {
 
-//const [games, setGames] = useState([]);
+
+const [games, setGames] = useState([]);
 // const [genreFilter, setGenreFilter] = useState('');
 // const [numberOfPlayersFilter, setNumberOfPlayersFilter] = useState('');
 
@@ -19,28 +20,32 @@ import dummydata from "../dummydata.json";
 //   console.log("this is", games)
 //   console.log(`${fetchUrl}?genre=${genreFilter}&number_of_players=${numberOfPlayersFilter}`)
 // }
+async function getData(){
+  const res = await fetch("https://stokka.onrender.com/api/games/");
+  const data = await res.json()
+  setGames(data.payload)
+  console.log("get data function running", data.payload)
+}
 
-// async function getData(){
-//   const res = await fetch("https://oh-shift.onrender.com/api/games/");
-//   const data = res.json()
-//   setGames(data.payload)
-// }
+useEffect(() => {
+  getData();
+  console.log(games)
+}, []);
+// function Display() {
+//   const games = dummydata.payload
+//   console.log("Dummy Data: " + dummydata.payload[0].minimum_age);
 
-// useEffect(() => {
-//   getData();
-// }, []);
-function Display() {
-  const games = dummydata.payload
-  console.log("Dummy Data: " + dummydata.payload[0].minimum_age);
-
-  return (games) ? 
-    (<>
+  return (
+    <>
       <div>
         <FilterBar />
       </div>
+
+      {(games) ?
       <GameCardList games={games}></GameCardList>
-    </>)
-     : <p>Sorry, no results found. Lower your standards and reduce your filter options!</p>
+     : <p>Sorry, no results found. Lower your standards and reduce your filter options!</p>}
+    </>
+  )
   ;
 }
 
