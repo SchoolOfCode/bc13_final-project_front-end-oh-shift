@@ -1,18 +1,32 @@
-const [difficultyFilter, setDifficultyFilter] = useState([{value: "easy", label: "easy"}, {value: "intermediate", label: "intermediate"}, {value: "hard", label: "hard"}])
-
-async function getFilterData(category){
-    const res = await fetch(`https://stokka.onrender.com/api/games/filters/${category}`);
-    const data = await res.json()
-    // setDifficultyFilter(data.payload)
-
- 
-
-      for each difficulty in the data, create {value: difficulty[0], label: difficulty[0]} push to new array
+import {useState , useEffect} from "react"
+import capitaliseWord from './capitaliseWord.js'
 
 
-      setDifficultyFilter(newarray)
+export async function getFilterData(category){
 
+    const [response, setResponse] = useState('')
+    const [error, setError] = useState("")
 
+    useEffect(()=> {
+        
+        fetch(`https://stokka.onrender.com/api/games/filters/${category}`, {
+            header: {Accept: "application/json" },
+        })
+        .then((res)=> res.json())
+        .then((res)=> setResponse(res.payload))
+        .catch((err)=> setError(err));
+
+    },[category])
+
+    let options = []
+
+    for (let i = 0; i < response.length; i++){
+        let value = response[i][category]
+        options.push({value: value, label: capitaliseWord(value)
+        })
+    }
+    console.log('getFilterData called', options)
+      return options
   }
 
 
