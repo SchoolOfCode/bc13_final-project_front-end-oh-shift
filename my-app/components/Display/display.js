@@ -38,12 +38,8 @@ useEffect(() => {
   return (
     <>
       <div>
-        <FilterBar />
+        <FilterBar games={games}/>
       </div>
-
-      {(games) ?
-      <GameCardList games={games}></GameCardList>
-     : <p>Sorry, no results found. Lower your standards and reduce your filter options!</p>}
     </>
   )
   ;
