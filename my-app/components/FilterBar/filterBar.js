@@ -82,7 +82,12 @@ function FilterBar() {
           >
             Filter By
           </label>
-          <GameCardList games={games} />
+          {console.log('this the game object',games)}
+          {(games.length>0)? 
+          <GameCardList games={games} /> :
+          <p> No games found, please try again
+            </p>
+}
         </div>
       </div>
 
