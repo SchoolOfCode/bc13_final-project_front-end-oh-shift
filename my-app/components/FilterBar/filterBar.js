@@ -18,6 +18,9 @@ function FilterBar() {
     setGames(response)
   }, [response]);
 
+
+
+
   useEffect(() => {
     async function getFilterOptions(category, state) {
       const response = await fetch(
@@ -96,7 +99,20 @@ function capitaliseWord(word){
             />
           </li>
           <li>
-            <a>Age</a>
+          
+            <Dropdown
+              options={[
+                { value: 10, label: '<10' },
+                { value: 12, label: '10+' },
+                { value: 17, label: '13+' },
+                { value:100, label:'18+'}
+              ]}
+              dropdownName="Age"
+              onChange={(inputValue) => {
+                console.log("onChange", inputValue);
+              }}
+              isMulti={false}
+              />
           </li>
           <li>
             <a>Duration</a>
