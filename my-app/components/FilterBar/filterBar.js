@@ -106,6 +106,7 @@ function FilterBar() {
             <Dropdown
               options={difficultyOptions}
               dropdownName="Difficulty"
+              inputValue={selectedDifficulty}
               onChange={(inputValue) => {
                 setselectedDifficulty(inputValue.value)
                 console.log("onChange DIFFICULTY ", inputValue.value);
@@ -166,6 +167,7 @@ function FilterBar() {
             <button
               style={{ height: "2rem", width: "8rem", marginRight: "1rem" }}
               className="btn btn-neutral btn-outline btn-primary"
+              onClick={()=> setSearchClicked(false)}
             >
               Clear
             </button>
