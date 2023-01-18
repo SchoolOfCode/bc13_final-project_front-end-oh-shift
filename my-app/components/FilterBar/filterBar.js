@@ -16,6 +16,7 @@ function FilterBar() {
   const [selectedAge, setSelectedAge] = useState("");
   const [selectedDuration, setSelectedDuration] = useState("");
   const [selectedGenre, setSelectedGenre] = useState("");
+  const [selectedPlayers, setSelectedPlayers] = useState("");
 
   /** Adds on whatever selected difficulty filter value is */
   const [response, error] = useGet(
@@ -33,7 +34,7 @@ function FilterBar() {
   // dependent on onClick function
 
   useEffect(() => {
-    setParameters(`?difficulty=${selectedDifficulty}&age=${selectedAge}&duration=${selectedDuration}&genre=${selectedGenre}`);
+    setParameters(`?difficulty=${selectedDifficulty}&age=${selectedAge}&duration=${selectedDuration}&genre=${selectedGenre}&number_of_players=${selectedPlayers}`);
   }, [searchClicked]);
 
   useEffect(() => {
@@ -91,13 +92,23 @@ function FilterBar() {
           <li>
             <Dropdown
               options={[
+                { value: "", label: "All" },
                 { value: "1", label: "1" },
                 { value: "2", label: "2" },
                 { value: "3", label: "3" },
+                { value: "4", label: "4" },
+                { value: "5", label: "5" },
+                { value: "6", label: "6" },
+                { value: "7", label: "7" },
+                { value: "8", label: "8" },
+                { value: "9", label: "9" },
+                { value: "10", label: "10+" },
+      
               ]}
               dropdownName="No. of Players"
               onChange={(inputValue) => {
-                console.log("onChange", inputValue);
+                setSelectedPlayers(inputValue.value)
+                console.log("This is the players", selectedPlayers);
               }}
               isMulti={false}
             />
