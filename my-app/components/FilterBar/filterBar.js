@@ -1,11 +1,46 @@
 import React, { useState, useEffect } from 'react'
 import Dropdown from "../Dropdown/Dropdown.js";
 import GameCardList from '../GameCardLIst/gameCardList.js';
-import {getFilterData} from '../customHooks/getFilterData'
+import { useGet } from '../customHooks/useGet.js';
+import capitaliseWord from '../customHooks/capitaliseWord.js';
 
-function FilterBar({games}) {
+function FilterBar() {
+  const [difficultyOptions, setDifficultyOptions] = useState([])
+  const [durationOptions, setDurationOptions] = useState([])
+  const [genreOptions, setGenreOptions] = useState([])
+  const [response, error] = useGet(`https://stokka.onrender.com/api/games`)
+  const [games, setGames] = useState([]);
+  const [filterSelection, setFilterSelection] = useState({age: 10, difficulty: 'easy', duration: 240, genre: 'strategy'})
+  
+  useEffect(() => {
+    setGames(response)
+  }, [response]);
 
-  const [difficultyFilter, setDifficultyFilter] = useState([{value: "easy", label: "easy"}, {value: "intermediate", label: "intermediate"}, {value: "hard", label: "hard"}])
+  useEffect(() => {
+		async function getFilterOptions(category, state) {
+			const response = await fetch(
+				`https://stokka.onrender.com/api/games/filters/${category}`,
+				{ method: "GET", headers: { accept: "application/JSON" } }
+			);
+			const data = await response.json();
+        let filters = data.payload;
+        let options = []
+        for (let i = 0; i < filters.length; i++){
+            let value = filters[i][category]
+            let capitalisedValue = capitaliseWord(value)
+            options.push({value: value, label: capitalisedValue
+            })
+    
+          state(options)
+        }      
+		}
+		getFilterOptions('difficulty', setDifficultyOptions);
+    getFilterOptions('duration', setDurationOptions);
+    getFilterOptions('genre', setGenreOptions);
+	}, []);
+
+  // console.log('filterbar component rendering')
+
 
   return (
     <div className="drawer">
@@ -35,30 +70,53 @@ function FilterBar({games}) {
               ]}
               dropdownName="No. of Players"
               onChange={(inputValue) => {
-                console.log("onChange", inputValue);
+                console.log("onChange PLAYER COUNT", inputValue);
               }}
               isMulti={false}
             />
           </li>
           <li>
             <Dropdown
-              options={getFilterData('difficulty')}
+              options={difficultyOptions}
               dropdownName="Difficulty"
               onChange={(inputValue) => {
-                console.log("onChange", inputValue);
+                console.log("onChange DIFFICULTY ", inputValue);
+              }}
+              isMulti={false}
+            />
+          </li>
+          <li>
+          <Dropdown
+              options={[{value: 10, label: '<10'},
+              {value: 12, label: '10+'},
+              {value: 17, label: '13+'},
+              {value: 100, label: '18+'}]}
+              dropdownName="Age"
+              onChange={(inputValue) => {
+                console.log("onChange AGE", inputValue);
+              }}
+              isMulti={false}
+            />
+          </li>
+          <li>
+          <Dropdown
+              options={durationOptions}
+              dropdownName="Duration"
+              onChange={(inputValue) => {
+                console.log("onChange DURATION", inputValue);
               }}
               isMulti={true}
             />
           </li>
           <li>
-            <a>Age</a>
-          </li>
-          <li>
-            <a>Duration</a>
-          </li>
-          <li>
-            <a>Genre</a>
-          </li>
+          <Dropdown
+              options={genreOptions}
+              dropdownName="Genre"
+              onChange={(inputValue) => {
+                console.log("onChange GENRE", inputValue);
+              }}
+              isMulti={true}
+            />          </li>
           <li>
             <a>Review</a>
           </li>
@@ -73,8 +131,7 @@ function FilterBar({games}) {
           >
             <button
               className="btn btn-active btn-primary"
-              style={{ height: "2rem", width: "8rem" }}
-            >
+              style={{ height: "2rem", width: "8rem" }}>
               Search
             </button>
             <button

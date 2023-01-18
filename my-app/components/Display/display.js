@@ -10,12 +10,13 @@ useEffect(() => {
   setGames(response)
 }, [response]);
 
-console.log('this is games', games)
+// console.log('this is games', games)
+// console.log('display component rendering')
 
   return (games) ? (
     <>
       <div>
-        <FilterBar games={response}/>
+        <FilterBar/>
       </div>
     </>) : (<p>Sorry, no games found</p>
   )

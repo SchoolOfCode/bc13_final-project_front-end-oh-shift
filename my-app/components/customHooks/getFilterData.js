@@ -18,15 +18,9 @@ export async function getFilterData(category){
 
     },[category])
 
-    let options = []
 
-    for (let i = 0; i < response.length; i++){
-        let value = response[i][category]
-        options.push({value: value, label: capitaliseWord(value)
-        })
-    }
     console.log('getFilterData called', options)
-      return options
+      return [response, error]
   }
 
 
