@@ -13,6 +13,7 @@ function FilterBar() {
   const [durationOptions, setDurationOptions] = useState([]);
   const [genreOptions, setGenreOptions] = useState([]);
   const [selectedDifficulty, setSelectedDifficulty] = useState("");
+  const [selectedAge, setSelectedAge] = useState("")
 
   /** Adds on whatever selected difficulty filter value is */
   const [response, error] = useGet(
@@ -30,7 +31,7 @@ function FilterBar() {
   // dependent on onClick function
 
   useEffect(() => {
-    setParameters(`?difficulty=${selectedDifficulty}`);
+    setParameters(`?difficulty=${selectedDifficulty}&age=${selectedAge}`);
   }, [searchClicked]);
 
   useEffect(() => {
@@ -120,7 +121,8 @@ function FilterBar() {
               ]}
               dropdownName="Age"
               onChange={(inputValue) => {
-                console.log("onChange", inputValue);
+                setSelectedAge(inputValue.value);
+                console.log("This is the age", selectedAge);
               }}
               isMulti={false}
             />
