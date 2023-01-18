@@ -1,12 +1,11 @@
 .tabs {
   display: flex;
   flex-wrap: wrap;
-  height: 300px;
+  height: 60px;
   width: 500px;
-  background-color: violet;
 }
  
-.label {
+.label  {
   order: 1;
   display: flex;
   justify-content: center;
@@ -14,29 +13,18 @@
   padding: 1rem 2rem;
   margin-right: 0.2rem;
   cursor: pointer;
-  background-color: pink;
+  background-color: #f6f6f6;
   font-weight: bold;
+  font-size: 0.8rem;
   transition: background ease 0.3s;
-}
- 
-.tab {
-  order: 9;
-  flex-grow: 1;
-  width: 100%;
-  height: 100%;
-  display: none;
-  padding: 1rem;
-  background: #fff;
-  padding: 20px;
-  box-shadow: -10px 10px 0px 0px black;
 }
  
 .tabs input[type="radio"] {
   display: none;
 }
  
-.tabs input[type="radio"]:checked + label {
-  background: #fff;
+.inputClass input[type="radio"]:focus + label {
+  background-color: orange;
 }
  
 .tabs input[type="radio"]:checked + label + .tab {

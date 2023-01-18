@@ -25,13 +25,11 @@ function FilterBar({ games }) {
   return (
     <div className="drawer">
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-      <div
-        className="drawer-content"
-      >
+      <div className="drawer-content">
         <div>
           <label
             htmlFor="my-drawer"
-            className="btn btn-secondary drawer-button content-center"
+            className="btn btn-secondary drawer-button"
           >
             Filter By
           </label>
