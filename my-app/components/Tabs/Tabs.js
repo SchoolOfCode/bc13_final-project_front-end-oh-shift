@@ -5,7 +5,7 @@ function Tabs({ setTab }) {
   return (
     <>
       <div className={styles.tabs}>
-        <input type="radio" className={styles.inputClass} id={styles.summary} />
+        <input type="radio" checked="checked" className={styles.inputClass} id={styles.summary} />
         <label className={styles.label} onClick={() => setTab("Summary")} for={styles.summary}>
           Summary
         </label>
