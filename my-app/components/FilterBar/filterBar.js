@@ -1,27 +1,37 @@
-import React, { useState, useEffect, } from 'react'
+import React, { useState, useEffect } from "react";
 import Dropdown from "../Dropdown/Dropdown.js";
-import GameCardList from '../GameCardLIst/gameCardList.js';
-import { useGet } from '../customHooks/useGet.js';
-import { any } from 'prop-types';
+import GameCardList from "../GameCardLIst/gameCardList.js";
+import { useGet } from "../customHooks/useGet.js";
+import { any } from "prop-types";
 
 function FilterBar() {
+  const [games, setGames] = useState([]);
+  const [parameters, setParameters] = useState("");
+  const [searchClicked, setSearchClicked] = useState(false);
 
-  const [games,setGames]=useState([])
+  const [difficultyOptions, setDifficultyOptions] = useState([]);
+  const [durationOptions, setDurationOptions] = useState([]);
+  const [genreOptions, setGenreOptions] = useState([]);
+  const [selectedDifficulty, setSelectedDifficulty] = useState("");
 
-  const [difficultyOptions, setDifficultyOptions] = useState([])
-  const [durationOptions, setDurationOptions] = useState([])
-  const [genreOptions, setGenreOptions] = useState([])
-  const [selectedDifficulty, setSelectedDifficulty]=useState("")
-
-  const [response, error] = useGet(`https://stokka.onrender.com/api/games`)
-
+  /** Adds on whatever selected difficulty filter value is */
+  const [response, error] = useGet(
+    `https://stokka.onrender.com/api/games${parameters}`
+  );
 
   useEffect(() => {
-    setGames(response)
+    setGames(response);
   }, [response]);
 
+  //Function to change URl
+  //line 17- change to deafault URL
+  // old URL + added placeholders
+  // changes URL
+  // dependent on onClick function
 
-
+  useEffect(() => {
+    setParameters(`?difficulty=${selectedDifficulty}`);
+  }, [searchClicked]);
 
   useEffect(() => {
     async function getFilterOptions(category, state) {
@@ -32,30 +42,27 @@ function FilterBar() {
 
       const data = await response.json();
       let filters = data.payload;
-      let options = [{value:'', label:'All'}]
-      for (let i = 0; i < filters.length; i++){
-          let value = filters[i][category]
-          let capitalisedValue = capitaliseWord(value)
-          options.push({value: value, label: capitalisedValue
-          })
-  
-        state(options)
-      }      
+      let options = [{ value: "", label: "All" }];
+      for (let i = 0; i < filters.length; i++) {
+        let value = filters[i][category];
+        let capitalisedValue = capitaliseWord(value);
+        options.push({ value: value, label: capitalisedValue });
+
+        state(options);
+      }
+    }
+    getFilterOptions("difficulty", setDifficultyOptions);
+    getFilterOptions("duration", setDurationOptions);
+    getFilterOptions("genre", setGenreOptions);
+  }, []);
+
+  function capitaliseWord(word) {
+    if (typeof word == "string") {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    } else {
+      return word;
+    }
   }
-  getFilterOptions('difficulty', setDifficultyOptions);
-  getFilterOptions('duration', setDurationOptions);
-  getFilterOptions('genre', setGenreOptions);
-}, []);
-
-function capitaliseWord(word){
-  if (typeof word == 'string') {
-      return word.charAt(0).toUpperCase() + word.slice(1)
-  } else {
-      return word
-  }
-}
-
-
 
   return (
     <div className="drawer">
@@ -64,13 +71,15 @@ function capitaliseWord(word){
         style={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}
         className="drawer-content"
       >
-      <div>
-        <label htmlFor="my-drawer" className="btn btn-secondary drawer-button">
-          Filter By
-        </label>
-        <GameCardList games={games}/>
-      </div>
-        
+        <div>
+          <label
+            htmlFor="my-drawer"
+            className="btn btn-secondary drawer-button"
+          >
+            Filter By
+          </label>
+          <GameCardList games={games} />
+        </div>
       </div>
 
       <div className="drawer-side">
@@ -95,30 +104,29 @@ function capitaliseWord(word){
               options={difficultyOptions}
               dropdownName="Difficulty"
               onChange={(inputValue) => {
-               setSelectedDifficulty(inputValue);
-    
+                setSelectedDifficulty(inputValue.value);
+                console.log("This is the value", selectedDifficulty);
               }}
               isMulti={false}
             />
           </li>
           <li>
-          
             <Dropdown
               options={[
-                { value: 10, label: '<10' },
-                { value: 12, label: '10+' },
-                { value: 17, label: '13+' },
-                { value:100, label:'18+'}
+                { value: 10, label: "<10" },
+                { value: 12, label: "10+" },
+                { value: 17, label: "13+" },
+                { value: 100, label: "18+" },
               ]}
               dropdownName="Age"
               onChange={(inputValue) => {
                 console.log("onChange", inputValue);
               }}
               isMulti={false}
-              />
+            />
           </li>
           <li>
-          <Dropdown
+            <Dropdown
               options={durationOptions}
               dropdownName="Duration"
               onChange={(inputValue) => {
@@ -128,7 +136,7 @@ function capitaliseWord(word){
             />
           </li>
           <li>
-          <Dropdown
+            <Dropdown
               options={genreOptions}
               dropdownName="Genre"
               onChange={(inputValue) => {
@@ -151,6 +159,7 @@ function capitaliseWord(word){
           >
             <button
               className="btn btn-active btn-primary"
+              onClick={() => setSearchClicked(true)}
               style={{ height: "2rem", width: "8rem" }}
             >
               Search
@@ -168,4 +177,4 @@ function capitaliseWord(word){
   );
 }
 
-export default FilterBar
+export default FilterBar;
