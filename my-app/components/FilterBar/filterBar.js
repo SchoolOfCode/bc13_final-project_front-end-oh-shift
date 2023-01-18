@@ -2,18 +2,20 @@ import React, { useState, useEffect, } from 'react'
 import Dropdown from "../Dropdown/Dropdown.js";
 import GameCardList from '../GameCardLIst/gameCardList.js';
 import { useGet } from '../customHooks/useGet.js';
+import { any } from 'prop-types';
 
 function FilterBar() {
 
   const [games,setGames]=useState([])
-  const [response, error] = useGet(`https://stokka.onrender.com/api/games`)
 
   const [difficultyOptions, setDifficultyOptions] = useState([])
   const [durationOptions, setDurationOptions] = useState([])
   const [genreOptions, setGenreOptions] = useState([])
+  const [selectedDifficulty, setSelectedDifficulty]=useState("")
+
+  const [response, error] = useGet(`https://stokka.onrender.com/api/games`)
 
 
-  
   useEffect(() => {
     setGames(response)
   }, [response]);
@@ -30,7 +32,7 @@ function FilterBar() {
 
       const data = await response.json();
       let filters = data.payload;
-      let options = []
+      let options = [{value:'', label:'All'}]
       for (let i = 0; i < filters.length; i++){
           let value = filters[i][category]
           let capitalisedValue = capitaliseWord(value)
@@ -93,7 +95,8 @@ function capitaliseWord(word){
               options={difficultyOptions}
               dropdownName="Difficulty"
               onChange={(inputValue) => {
-                console.log("onChange", inputValue);
+               setSelectedDifficulty(inputValue);
+    
               }}
               isMulti={false}
             />
