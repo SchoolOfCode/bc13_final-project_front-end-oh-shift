@@ -10,11 +10,30 @@ function FilterBar() {
   const [genreOptions, setGenreOptions] = useState([])
   const [response, error] = useGet(`https://stokka.onrender.com/api/games`)
   const [games, setGames] = useState([]);
-  const [filterSelection, setFilterSelection] = useState({age: 10, difficulty: 'easy', duration: 240, genre: 'strategy'})
+  const [filteredGames, setFilteredGames] = useState([]);
+  const [selectedGenre, setSelectedGenre] = useState('')
+  const [selectedDifficulty, setselectedDifficulty] = useState('')
+  const [selectedDuration, setselectedDuration] = useState('')
+  const [selectedAge, setselectedAge] = useState('')
+  const [selectedNumber_of_players, setselectedNumber_of_players] = useState('')
+  const [searchClicked, setSearchClicked] = useState(false)
   
   useEffect(() => {
     setGames(response)
+    setFilteredGames(response)
   }, [response]);
+
+  useEffect(() => {
+  function filterGames(games, criteria){
+    console.log('games.difficulty', games)
+    let filteredOptions = games.filter(
+      game => game.difficulty === criteria
+    )
+    console.log('this is filtered games>>>>', filteredOptions)
+      setFilteredGames(filteredOptions)
+  } 
+  filterGames(games, selectedDifficulty)
+}, [searchClicked])
 
   useEffect(() => {
 		async function getFilterOptions(category, state) {
@@ -50,10 +69,11 @@ function FilterBar() {
         className="drawer-content"
       >
       <div>
-        <label htmlFor="my-drawer" className="btn btn-secondary drawer-button">
+        <label htmlFor="my-drawer" className="btn btn-secondary drawer-button"
+        onClick={()=> setSearchClicked(false)}>
           Filter By
         </label>
-        <GameCardList games={games}/>
+        <GameCardList games={filteredGames}/>
       </div>
         
       </div>
@@ -67,6 +87,13 @@ function FilterBar() {
                 { value: "1", label: "1" },
                 { value: "2", label: "2" },
                 { value: "3", label: "3" },
+                { value: "4", label: "4" },
+                { value: "5", label: "5" },
+                { value: "6", label: "6" },
+                { value: "7", label: "7" },
+                { value: "8", label: "8" },
+                { value: "9", label: "9" },
+                { value: "10", label: "10+" },
               ]}
               dropdownName="No. of Players"
               onChange={(inputValue) => {
@@ -80,7 +107,8 @@ function FilterBar() {
               options={difficultyOptions}
               dropdownName="Difficulty"
               onChange={(inputValue) => {
-                console.log("onChange DIFFICULTY ", inputValue);
+                setselectedDifficulty(inputValue.value)
+                console.log("onChange DIFFICULTY ", inputValue.value);
               }}
               isMulti={false}
             />
@@ -105,7 +133,7 @@ function FilterBar() {
               onChange={(inputValue) => {
                 console.log("onChange DURATION", inputValue);
               }}
-              isMulti={true}
+              isMulti={false}
             />
           </li>
           <li>
@@ -115,7 +143,7 @@ function FilterBar() {
               onChange={(inputValue) => {
                 console.log("onChange GENRE", inputValue);
               }}
-              isMulti={true}
+              isMulti={false}
             />          </li>
           <li>
             <a>Review</a>
@@ -131,7 +159,8 @@ function FilterBar() {
           >
             <button
               className="btn btn-active btn-primary"
-              style={{ height: "2rem", width: "8rem" }}>
+              style={{ height: "2rem", width: "8rem" }}
+              onClick={()=> setSearchClicked(true)}>
               Search
             </button>
             <button
