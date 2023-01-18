@@ -115,7 +115,14 @@ function capitaliseWord(word){
               />
           </li>
           <li>
-            <a>Duration</a>
+          <Dropdown
+              options={durationOptions}
+              dropdownName="Duration"
+              onChange={(inputValue) => {
+                console.log("onChange", inputValue);
+              }}
+              isMulti={false}
+            />
           </li>
           <li>
             <a>Genre</a>
