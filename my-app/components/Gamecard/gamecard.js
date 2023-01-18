@@ -15,7 +15,7 @@ const [tab, setTab] = useState("Summary")
     <div>
 <Tabs setTab={setTab}/>
 </div>
-{tab === 'Summary' ? <Summary game={game}/> : (tab==='About'? <About/> : <Review/>)}
+{tab === 'Summary' ? <Summary game={game}/> : (tab ==='About'? <About description={game.description} location={game.location} title={game.title}/> : <Review/>)}
     
       </>
   );

@@ -13,10 +13,11 @@
   padding: 1rem 2rem;
   margin-right: 0.2rem;
   cursor: pointer;
-  background-color: #f6f6f6;
+  background-color: rgb(228 228 231);
   font-weight: bold;
   font-size: 0.8rem;
   transition: background ease 0.3s;
+  border-radius: 10px 10px 0px 0px;
 }
  
 .tabs input[type="radio"] {
@@ -31,7 +32,7 @@
   display: block;
 }
  
-@media (max-width: 465px) {
+/* @media (max-width: 465px) {
   .tabs .tab,
   .tabs label {
    order: initial;
@@ -41,4 +42,4 @@
     width: 100%;
     margin-left: 50px;
   }
-}
+} */

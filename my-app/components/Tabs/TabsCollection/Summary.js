@@ -11,7 +11,7 @@ function Summary({game}) {
   return (
     <>
     <div
-      className="card w-96 bg-base-100 shadow-xl"
+      className="card w-96 bg-base-100 shadow-xl bg-zinc-200"
       style={{ marginBottom: "2rem", maxWidth: "400px", maxHeight: "500px"}}
     >
       <figure>
