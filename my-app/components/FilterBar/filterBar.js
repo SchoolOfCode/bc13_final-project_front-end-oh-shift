@@ -1,36 +1,49 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 import Dropdown from "../Dropdown/Dropdown.js";
-import GameCardList from '../GameCardLIst/gameCardList.js';
+import GameCardList from "../GameCardLIst/gameCardList.js";
 
-function FilterBar({games}) {
+function FilterBar({ games }) {
+  const [difficultyFilter, setDifficultyFilter] = useState([
+    { value: "easy", label: "easy" },
+    { value: "intermediate", label: "intermediate" },
+    { value: "hard", label: "hard" },
+  ]);
 
-  const [difficultyFilter, setDifficultyFilter] = useState([{value: "easy", label: "easy"}, {value: "intermediate", label: "intermediate"}, {value: "hard", label: "hard"}])
-
-  async function getFilterData(){
-    const res = await fetch("https://stokka.onrender.com/api/games/filters/difficulty");
-    const data = await res.json()
-    console.log("get data function running", data.payload)
+  async function getFilterData() {
+    const res = await fetch(
+      "https://stokka.onrender.com/api/games/filters/difficulty"
+    );
+    const data = await res.json();
+    console.log("get data function running", data.payload);
   }
-  
+
   useEffect(() => {
     getFilterData();
-    console.log(difficultyFilter)
+    console.log(difficultyFilter);
   }, []);
 
   return (
     <div className="drawer">
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
       <div
-        style={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}
         className="drawer-content"
       >
-      <div>
-        <label htmlFor="my-drawer" className="btn btn-secondary drawer-button">
-          Filter By
-        </label>
-        <GameCardList games={games}/>
-      </div>
-        
+        <div>
+          <label
+            htmlFor="my-drawer"
+            className="btn btn-secondary drawer-button content-center"
+          >
+            Filter By
+          </label>
+          {/* <label
+          style={{display:"flex", alignItems:"center"}}
+            htmlFor="my-drawer"
+            className="btn btn-secondary drawer-button"
+          >
+            Sort By
+          </label> */}
+          <GameCardList games={games} />
+        </div>
       </div>
 
       <div className="drawer-side">
@@ -100,4 +113,4 @@ function FilterBar({games}) {
   );
 }
 
-export default FilterBar
+export default FilterBar;
