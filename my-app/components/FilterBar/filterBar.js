@@ -159,7 +159,7 @@ function FilterBar() {
           >
             <button
               className="btn btn-active btn-primary"
-              onClick={() => setSearchClicked(true)}
+              onClick={() => setSearchClicked(!searchClicked)}
               style={{ height: "2rem", width: "8rem" }}
             >
               Search
