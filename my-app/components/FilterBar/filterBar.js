@@ -8,15 +8,48 @@ function FilterBar() {
   const [games,setGames]=useState([])
   const [response, error] = useGet(`https://stokka.onrender.com/api/games`)
 
-  /*async function getFilterData(){
-    const res = await fetch("https://stokka.onrender.com/api/games/filters/difficulty");
-    const data = await res.json()
-    console.log("get data function running", data.payload)
-  }*/
+  const [difficultyOptions, setDifficultyOptions] = useState([])
+  const [durationOptions, setDurationOptions] = useState([])
+  const [genreOptions, setGenreOptions] = useState([])
+
+
   
   useEffect(() => {
     setGames(response)
   }, [response]);
+
+  useEffect(() => {
+    async function getFilterOptions(category, state) {
+      const response = await fetch(
+        `https://stokka.onrender.com/api/games/filters/${category}`,
+        { method: "GET", headers: { accept: "application/JSON" } }
+      );
+
+      const data = await response.json();
+      let filters = data.payload;
+      let options = []
+      for (let i = 0; i < filters.length; i++){
+          let value = filters[i][category]
+          let capitalisedValue = capitaliseWord(value)
+          options.push({value: value, label: capitalisedValue
+          })
+  
+        state(options)
+      }      
+  }
+  getFilterOptions('difficulty', setDifficultyOptions);
+  getFilterOptions('duration', setDurationOptions);
+  getFilterOptions('genre', setGenreOptions);
+}, []);
+
+function capitaliseWord(word){
+  if (typeof word == 'string') {
+      return word.charAt(0).toUpperCase() + word.slice(1)
+  } else {
+      return word
+  }
+}
+
 
 
   return (
@@ -54,12 +87,12 @@ function FilterBar() {
           </li>
           <li>
             <Dropdown
-              //options={difficultyFilter}
+              options={difficultyOptions}
               dropdownName="Difficulty"
               onChange={(inputValue) => {
                 console.log("onChange", inputValue);
               }}
-              isMulti={true}
+              isMulti={false}
             />
           </li>
           <li>
