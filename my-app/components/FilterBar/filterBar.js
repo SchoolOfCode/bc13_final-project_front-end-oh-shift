@@ -1,21 +1,23 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, } from 'react'
 import Dropdown from "../Dropdown/Dropdown.js";
 import GameCardList from '../GameCardLIst/gameCardList.js';
+import { useGet } from '../customHooks/useGet.js';
 
-function FilterBar({games}) {
+function FilterBar() {
 
-  const [difficultyFilter, setDifficultyFilter] = useState([{value: "easy", label: "easy"}, {value: "intermediate", label: "intermediate"}, {value: "hard", label: "hard"}])
+  const [games,setGames]=useState([])
+  const [response, error] = useGet(`https://stokka.onrender.com/api/games`)
 
-  async function getFilterData(){
+  /*async function getFilterData(){
     const res = await fetch("https://stokka.onrender.com/api/games/filters/difficulty");
     const data = await res.json()
     console.log("get data function running", data.payload)
-  }
+  }*/
   
   useEffect(() => {
-    getFilterData();
-    console.log(difficultyFilter)
-  }, []);
+    setGames(response)
+  }, [response]);
+
 
   return (
     <div className="drawer">
@@ -52,7 +54,7 @@ function FilterBar({games}) {
           </li>
           <li>
             <Dropdown
-              options={difficultyFilter}
+              //options={difficultyFilter}
               dropdownName="Difficulty"
               onChange={(inputValue) => {
                 console.log("onChange", inputValue);
