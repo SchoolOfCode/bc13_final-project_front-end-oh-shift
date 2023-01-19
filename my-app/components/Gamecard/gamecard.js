@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import Tabs from "../Tabs/tabs";
+import Tabs from "../Tabs/Tabs.js";
 import Summary from "../Tabs/TabsCollection/Summary";
 import About from "../Tabs/TabsCollection/About";
 import Review from "../Tabs/TabsCollection/Review";
