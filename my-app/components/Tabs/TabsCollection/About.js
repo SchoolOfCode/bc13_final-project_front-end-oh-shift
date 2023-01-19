@@ -1,7 +1,7 @@
 import React from "react";
 import Badge from "../../Badge/Badge";
 
-function About({ image, description, rules, title }) {
+function About({ image, description, rules, title, video }) {
   return (
     <div>
       <div
@@ -28,7 +28,11 @@ function About({ image, description, rules, title }) {
         <h3 style={{ marginBottom: "0.5rem" }}>
           <b>Rules</b>
         </h3>
-        <p style={{overflow: 'scroll'}}>{rules}</p>
+        <p style={{overflow: 'scroll', marginBottom: "1rem"}}>{rules}</p>
+        <h3 style={{ marginBottom: "0.5rem" }}>
+          <b>Video Tutorial</b>
+        </h3>
+        <iframe src={video} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen style={{ width: "100%", height:"auto" }}>Video Tutorial</iframe>
         </div>
       </div>
     </div>
