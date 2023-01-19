@@ -1,5 +1,5 @@
 export default function Badge({label}){
     return(
-    <span className="badge">{label}</span>
+    <span style={{backgroundColor: "#f3a712", borderRadius:"5px"}} className="badge">{label}</span>
     )
 }

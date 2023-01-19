@@ -1,0 +1,45 @@
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  height: 60px;
+  width: 500px;
+}
+ 
+.label  {
+  order: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+  margin-right: 0.2rem;
+  cursor: pointer;
+  background-color: rgb(228 228 231);
+  font-weight: bold;
+  font-size: 0.8rem;
+  transition: background ease 0.3s;
+  border-radius: 10px 10px 0px 0px;
+}
+ 
+.tabs input[type="radio"] {
+  display: none;
+}
+ 
+.inputClass input[type="radio"]:focus + label {
+  background-color: orange;
+}
+ 
+.tabs input[type="radio"]:checked + label + .tab {
+  display: block;
+}
+ 
+/* @media (max-width: 465px) {
+  .tabs .tab,
+  .tabs label {
+   order: initial;
+  }
+ 
+  .tabs label {
+    width: 100%;
+    margin-left: 50px;
+  }
+} */

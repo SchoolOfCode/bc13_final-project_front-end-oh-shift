@@ -92,7 +92,7 @@ function HomePage() {
         style={{ display: "flex", justifyContent: "center" }}
       >
         <button style={{marginTop:"20px"}}
-          className="btn btn-active btn-primary rounded"
+          className={true ? "btn btn-active btn-primary rounded" : 'btn btn-active btn-primary rounded'}
         >
           <Link href="/Games">View Games</Link>
         </button>
