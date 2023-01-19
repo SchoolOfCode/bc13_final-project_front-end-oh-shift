@@ -14,6 +14,7 @@ function Dropdown({ options, dropdownName, onChange, isMulti }) {
 				options={options}
 				name={dropdownName}
 				onChange={onChange}
+				isClearable={true}
 							/>
 		</div>
 	);
