@@ -12,7 +12,7 @@ function Summary({ game }) {
     <>
       <div
         className="card w-96 bg-base-100 shadow-xl bg-zinc-200"
-        style={{ marginBottom: "2rem", maxWidth: "400px", maxHeight: "500px" }}
+        style={{ marginBottom: "2rem", maxWidth: "400px", maxHeight: "500px", borderTopLeftRadius: "0px" }}
       >
         <figure>
           <img
