@@ -1,17 +1,20 @@
 import React from "react";
 import Gamecard from "../Gamecard/gamecard";
 
-function GameCardList({games}) {
-console.log('gamCardList', games)
+function GameCardList({ games }) {
+  //console.log('gamCardList', games)
 
-  return (games) ? (
+  return games ? (
     <>
       <div>
-      {games.map((game) => (
-        <Gamecard game={game} key={game.id}/>
-      ))}
+        {games.map((game) => (
+          <Gamecard game={game} key={game.id} />
+        ))}
       </div>
-    </>) : ''
+    </>
+  ) : (
+    ""
+  );
 }
 
 export default GameCardList;
