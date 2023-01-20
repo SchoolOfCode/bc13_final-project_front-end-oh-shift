@@ -19,9 +19,17 @@ html{
       flex-wrap: wrap;
       text-align: left;
       margin: 5%;
-      
+        overflow: hidden;
+        
+        display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        
+        min-height: 100vh;
+        }
   }
-}
+
 
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 

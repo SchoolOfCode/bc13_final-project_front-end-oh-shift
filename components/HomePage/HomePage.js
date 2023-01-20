@@ -17,13 +17,60 @@ function HomePage() {
   return (
     <>
       <div style={{ width: "100vw", height: "100vh" }}>
-      <h1
-          className="text-quicksand text-2xl font-bold"
-
-          style={{ color: "#50FFB1", textAlign:"center", marginTop:"3rem" }}
-        >
-       What's New
-        </h1>
+      {/* <div className={styles.container}>
+      <div className={styles.box}>
+        <span className={styles.span} >
+          <i className={styles.i}>WHAT</i>
+          IS
+          <i className={styles.i}>NEW</i>
+        </span>
+        <span >
+          <i className={styles.i}>WHAT</i>
+          IS
+          <i className={styles.i}>NEW</i>
+        </span>
+        <span >
+          <i className={styles.i}>WHAT</i>
+          IS
+          <i className={styles.i}>NEW</i>
+        </span>
+        <span >
+          <i className={styles.i}>WHAT</i>
+          IS
+          <i className={styles.i}>NEW</i>
+        </span>
+        <span >
+          <i className={styles.i}>WHAT</i>
+          IS
+          <i className={styles.i}>NEW</i>
+        </span>
+        <span >
+          <i className={styles.i}>WHAT</i>
+          IS
+          <i className={styles.i}>NEW</i>
+        </span>
+        <span >
+          <i className={styles.i}>WHAT</i>
+          IS
+          <i className={styles.i}>NEW</i>
+        </span>
+        <span >
+          <i className={styles.i}>WHAT</i>
+          IS
+          <i className={styles.i}>NEW</i>
+        </span>
+        <span >
+          <i className={styles.i}>WHAT</i>
+          IS
+          <i className={styles.i}>NEW</i>
+        </span>
+        <span >
+          <i className={styles.i}>WHAT</i>
+          IS
+          <i className={styles.i}>NEW</i>
+        </span>
+      </div>
+    </div> */}
         <Carousel  games={games} />
       
 
@@ -36,7 +83,7 @@ function HomePage() {
           alignItems: "center",
           gap: "20px",
           backgroundColor: "white",
-          marginRight: "2.5rem",
+          // marginRight: "2.5rem",
           marginTop: "3rem",
           padding: "2rem",
           fontFamily: "Raleway, sans-serif",
@@ -47,9 +94,34 @@ function HomePage() {
 
           style={{ color: "#50FFB1", fontFamily: "opensans" }}
         >
-          Welcome to Stokka
+          Welcome to
         </h1>
-
+        <ul className={styles.ul}>
+  <li className={styles.li}>
+    <input className={styles.input} type="checkbox" />
+    <div className={styles.stokkanimation}>S</div>
+  </li>
+  <li className={styles.li}>
+    <input className={styles.input} type="checkbox" />
+    <div className={styles.stokkanimation}>T</div>
+  </li>
+  <li className={styles.li}>
+    <input className={styles.input} type="checkbox" />
+    <div className={styles.stokkanimation}>O</div>
+  </li>
+  <li className={styles.li}>
+    <input className={styles.input} type="checkbox" />
+    <div className={styles.stokkanimation}>K</div>
+  </li>
+  <li className={styles.li}>
+    <input className={styles.input} type="checkbox" />
+    <div className={styles.stokkanimation}>K</div>
+  </li>
+  <li className={styles.li}>
+    <input className={styles.input} type="checkbox" />
+    <div className={styles.stokkanimation}>A</div>
+  </li>
+</ul>
         <h2
           className="text-quicksand"
           style={{
