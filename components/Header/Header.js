@@ -1,7 +1,9 @@
 import React from "react";
 import Link from "next/link";
-import Profile from "../Profile/Profile";
+//import Profile from "../Profile/Profile";
 import { useUser } from "@auth0/nextjs-auth0/client";
+import Account from "../Account/Account";
+import NoAccount from "../NoAccount/NoAccount";
 
 function Header() {
   const { user, error, isLoading } = useUser();
@@ -110,38 +112,7 @@ function Header() {
           </svg>
         </Link>
       </div>
-      <div className="navbar-end">
-        <button className="btn btn-ghost btn-circle">
-          <div className="avatar">
-            <div className="w-8 mask mask-hexagon">
-              {user ? (
-                <Profile />
-              ) : (
-                <a href="/api/auth/login">
-                  <img src="https://i.ibb.co/4S5QRSK/oh-shift-account-smaller.png" />
-                </a>
-              )}
-            </div>
-          </div>
-        </button>
-      </div>
-      {/* <ul
-            tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-          >
-            <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
-            </li>
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <a>Logout</a>
-            </li>
-          </ul> */}
+      <div className="navbar-end">{user ? <Account /> : <NoAccount />}</div>
     </div>
   );
 }
