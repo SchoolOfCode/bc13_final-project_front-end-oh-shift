@@ -80,7 +80,7 @@ function FilterBar() {
     <div className="drawer">
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
       <div
-        style={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}
+        style={{ display: "flex", justifyContent: "center", marginTop: "2rem", float: "end" }}
         className="drawer-content"
       >
         <div>
@@ -104,11 +104,12 @@ function FilterBar() {
         </div>
       </div>
 
-      <div className="drawer-side">
-        <label htmlFor="my-drawer" className="drawer-overlay"></label>
+    
+      <div  className="drawer-side">
+        <label  htmlFor="my-drawer" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 bg-base-100 text-base-content">
           <li>
-            <Dropdown
+            <Dropdown 
               options={[
                 { value: "", label: "All" },
                 { value: "1", label: "1" },

@@ -1,15 +1,16 @@
 import React from "react";
 import Select from "react-select";
+import styles from "./Dropdown.module.css"
 
 function Dropdown({ options, dropdownName, onChange, isMulti }) {
 	return (
-		<div className='dropdown' id='dropdown'>
-			<label htmlFor={dropdownName} id='dropdownLabel' className='dropdownLabel'>
+		<div className={styles.dropdown} id='dropdown'>
+			<label htmlFor={dropdownName} id='dropdownLabel' className={styles.dropdownLabel}>
 				{dropdownName}
 			</label>
-			<Select
+			<Select 
 				isMulti={isMulti}
-				className='dropdownSelect'
+				className={styles.dropdownSelect}
 				id={dropdownName}
 				options={options}
 				name={dropdownName}

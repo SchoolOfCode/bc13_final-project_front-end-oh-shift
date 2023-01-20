@@ -94,13 +94,12 @@ function HomePage() {
           // marginRight: "2.5rem",
           marginTop: "1.5rem",
           padding: "2rem",
-          fontFamily: "Raleway, sans-serif",
         }}
       >
         <h1
           className="text-quicksand text-3xl font-bold"
 
-          style={{ color: "#50FFB1", fontFamily: "opensans" }}
+          style={{ color: "#50FFB1" }}
         >
           Welcome to
         </h1>
@@ -141,7 +140,7 @@ function HomePage() {
         </h2>
         <h3
           className="text-quicksand"
-          style={{ fontFamily: "montserrat", textAlign: "center", color: "#00272B" }}
+          style={{ textAlign: "center", color: "#00272B" }}
         >
           Stokka is an online board games library that will help you find the
           perfect match for each occasion!
