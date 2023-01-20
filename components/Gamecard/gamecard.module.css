@@ -1,4 +1,5 @@
-.card{
+
+/* .card{
     margin: 20px 0px 20px 0px;
     font-size: xx-small;
     text-size-adjust: 5px;
@@ -11,8 +12,9 @@
     border-style: solid;
     border-color: white;
    /* background-image: url({props.game.artwork_image_url}); */
-}
-.tagsButtonContainer{
+/* } */
+/* .tagsButtonContainer{
+
     display: flex;
     justify-content: space-around;
 
@@ -37,4 +39,5 @@ font-size: small;
 .readMoreButton{
     text-align: center;
     margin: 25px 0px 0px 0px;
-}
+} */ 
+

@@ -8,6 +8,8 @@ function FilterBar() {
   const [games, setGames] = useState([]);
   const [parameters, setParameters] = useState("");
   const [searchClicked, setSearchClicked] = useState(false);
+  const [clearClicked, setClearClicked] = useState(false)
+
 
   const [difficultyOptions, setDifficultyOptions] = useState([]);
   const [durationOptions, setDurationOptions] = useState([]);
@@ -68,6 +70,12 @@ function FilterBar() {
     }
   }
 
+
+  function handleSearch(){
+    document.getElementById('my-drawer').click()
+    setSearchClicked(!searchClicked)
+  }
+
   return (
     <div className="drawer">
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
@@ -76,18 +84,23 @@ function FilterBar() {
         className="drawer-content"
       >
         <div>
+
+          <label style={{marginBottom:"2rem", width:"8rem"}}
+
           <label
             htmlFor="my-drawer"
             className="btn btn-secondary drawer-button"
           >
             Filter By
           </label>
-          {console.log('this the game object',games)}
           {(games.length>0)? 
+
           <GameCardList games={games} /> :
-          <p> No games found, please try again
-            </p>
-}
+          <div class="flex justify-center items-center">
+  <div class="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>}
         </div>
       </div>
 
@@ -112,8 +125,13 @@ function FilterBar() {
               ]}
               dropdownName="No. of Players"
               onChange={(inputValue) => {
+
+                if (!inputValue) {
+                  setSelectedPlayers('')
+                } else{
                 setSelectedPlayers(inputValue.value)
-                console.log("This is the players", selectedPlayers);
+                console.log("This is the players", selectedPlayers)};
+
               }}
               isMulti={false}
             />
@@ -123,9 +141,14 @@ function FilterBar() {
               options={difficultyOptions}
               dropdownName="Difficulty"
               onChange={(inputValue) => {
-                setSelectedDifficulty(inputValue.value);
+
+                if (!inputValue) {
+                  setSelectedDifficulty('')
+                } else{
+                  setSelectedDifficulty(inputValue.value);
                 console.log("This is the value", selectedDifficulty);
-              }}
+              }}}
+
               isMulti={false}
             />
           </li>
@@ -140,9 +163,14 @@ function FilterBar() {
               ]}
               dropdownName="Age"
               onChange={(inputValue) => {
+
+                if (!inputValue) {
+                  setSelectedAge('')
+                } else {
                 setSelectedAge(inputValue.value);
                 console.log("This is the age", selectedAge);
-              }}
+              }}}
+
               isMulti={false}
             />
           </li>
@@ -151,9 +179,14 @@ function FilterBar() {
               options={durationOptions}
               dropdownName="Duration"
               onChange={(inputValue) => {
+
+                if (!inputValue) {
+                  setSelectedDuration('')
+                } else {
                 setSelectedDuration(inputValue.value);
                 console.log("This is the duration", selectedDuration);
-              }}
+              }}}
+
               isMulti={false}
             />
           </li>
@@ -162,9 +195,14 @@ function FilterBar() {
               options={genreOptions}
               dropdownName="Genre"
               onChange={(inputValue) => {
+
+                if (!inputValue) {
+                  setSelectedGenre('')
+                } else {
                 setSelectedGenre(inputValue.value)
                 console.log("This is the genre", selectedGenre);
-              }}
+              }}}
+
               isMulti={false}
             />
           </li>
@@ -182,17 +220,20 @@ function FilterBar() {
           >
             <button
               className="btn btn-active btn-primary"
-              onClick={() => setSearchClicked(!searchClicked)}
+
+              onClick={handleSearch}
               style={{ height: "2rem", width: "8rem" }}
             >
               Search
             </button>
-            <button
+
+            {/* <button
               style={{ height: "2rem", width: "8rem", marginRight: "1rem" }}
               className="btn btn-neutral btn-outline btn-primary"
             >
               Clear
-            </button>
+            </button> */}
+
           </div>
         </ul>
       </div>

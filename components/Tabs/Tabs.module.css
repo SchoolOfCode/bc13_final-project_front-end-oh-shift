@@ -1,8 +1,10 @@
 .tabs {
   display: flex;
   flex-wrap: wrap;
-  height: 60px;
-  width: 500px;
+
+  height: auto;
+  width: auto;
+
 }
  
 .label  {

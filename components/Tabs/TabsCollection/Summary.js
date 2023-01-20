@@ -9,14 +9,21 @@ function Summary({ game }) {
   // console.log(shortDescription);
 
   return (
-    <>
+
+    <div className="cardWrapper mx-auto" style={{position:"relative"}}>
       <div
         className="card w-96 bg-base-100 shadow-xl bg-zinc-200"
-        style={{ marginBottom: "2rem", maxWidth: "400px", maxHeight: "500px", borderTopLeftRadius: "0px" }}
+        style={{
+          marginBottom: "2rem",
+          maxWidth: "400px",
+          maxHeight: "500px",
+          borderTopLeftRadius: "0px",
+        }}
       >
         <figure>
           <img
-            style={{ width: "100%" }}
+            className="w-full"
+
             src={game.packaging_image_url}
             alt="game image"
           />
@@ -28,11 +35,13 @@ function Summary({ game }) {
         <div className="card-actions justify-end">
           <div className="badgecontainer"> */}
           <div
-            className="badgeFamily"
+
+            className="badgeFamily flex flex-wrap"
             style={{
-              display: "flex",
+              // display: "flex",
               flexDirection: "Row",
-              flexWrap: "wrap",
+              // flexWrap: "wrap",
+
               gap: "0.2rem",
             }}
           >
@@ -48,13 +57,33 @@ function Summary({ game }) {
               return <Badge key={gameGenre} label={gameGenre} />;
             })}
           </div>
-          <h3 style={{marginTop:"2rem"}}><b>Location</b></h3>
+
+          <h3 style={{ marginTop: "2rem" }}>
+            <b>Location</b>
+          </h3>
           <div className="location">
-          <p style={{border:"solid 1px white", backgroundColor: "#ff8c45", borderRadius:"5px", width:"10rem", height:"2rem", textAlign:"center", position:"relative", top:"50%", left:"50%", transform:"translate(-100%, -10%)", paddingTop:"0.2rem" }}>{game.location}</p>
+            <p
+              className="bg-orange-500 text-center p-2 rounded-md"
+              style={{
+                border: "solid 1px white",
+                borderRadius: "5px",
+                width: "10rem",
+                height: "2rem",
+                textAlign: "center",
+                position: "relative",
+                top: "50%",
+                left: "49%",
+                transform: "translate(-100%, -10%)",
+                paddingTop: "0.2rem",
+              }}
+            >
+              {game.location}
+            </p>
           </div>
         </div>
       </div>
-    </>
+    </div>
+
   );
 }
 

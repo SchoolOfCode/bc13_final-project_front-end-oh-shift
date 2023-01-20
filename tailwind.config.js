@@ -29,8 +29,14 @@ module.exports = {
           warning: "#F3A712",
           error: "#ff6201",
         },
+
+        screens: {      
+        'sm': '400px',
+        'md': '960px',
+        'lg': '1440px',
+        },
       },
-    ],
+  ],
   },
   plugins: [require("daisyui")],
 };  
