@@ -1,8 +1,14 @@
 import React from "react";
-import Link from "next/link"
+import Link from "next/link";
 import Profile from "../Profile/Profile";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 function Header() {
+  const { user, error, isLoading } = useUser();
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>{error.message}</div>;
+
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -103,18 +109,23 @@ function Header() {
             />
           </svg>
         </Link>
-
       </div>
       <div className="navbar-end">
-          <button className="btn btn-ghost btn-circle">
-            <div className="avatar">
-              <div className="w-8 mask mask-hexagon">
-                <img src="https://placeimg.com/192/192/people" />
-              </div>
+        <button className="btn btn-ghost btn-circle">
+          <div className="avatar">
+            <div className="w-8 mask mask-hexagon">
+              {user ? (
+                <Profile />
+              ) : (
+                <a href="/api/auth/login">
+                  <img src="https://i.ibb.co/4S5QRSK/oh-shift-account-smaller.png" />
+                </a>
+              )}
             </div>
-          </button>
           </div>
-          {/* <ul
+        </button>
+      </div>
+      {/* <ul
             tabIndex={0}
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
@@ -131,9 +142,7 @@ function Header() {
               <a>Logout</a>
             </li>
           </ul> */}
-          <Profile/>
-        </div>
-
+    </div>
   );
 }
 
