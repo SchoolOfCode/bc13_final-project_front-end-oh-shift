@@ -6,6 +6,15 @@
 @apply text-black rounded-4;
 } */
 
+@media screen and (max-width: 800px) {
+  body {
+      /* Change the layout or styling of the elements within the DIV */
+      flex-wrap: wrap;
+      text-align: left;
+      margin: 5%;
+  }
+}
+
 @layer components {
   .btn-secondary {
    @apply text-black rounded;
