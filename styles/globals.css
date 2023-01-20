@@ -34,21 +34,6 @@ html{
   }
 }
 
-.root{
-  /* font-family: 'Raleway', sans-serif; */
-}
 
-.label {
-  order: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem 2rem;
-  margin-right: 0.2rem;
-  cursor: pointer;
-  background-color: pink;
-  font-weight: bold;
-  transition: background ease 0.3s;
-}
 
 

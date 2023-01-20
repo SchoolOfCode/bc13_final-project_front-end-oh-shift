@@ -16,8 +16,8 @@ function HomePage() {
   return (
     <>
       <div style={{ width: "100vw", height: "100vh" }}>
-        <Carousel games={games} />
-      </div>
+        <Carousel  games={games} />
+      
 
       <div
         className="styles.textContent"
@@ -63,15 +63,15 @@ function HomePage() {
         >
           <button
             style={{ marginTop: "2rem", marginBottom: "1rem" }}
-            className={
-              true
-                ? "btn btn-active btn-primary rounded"
-                : "btn btn-active btn-primary rounded"
-            }
+            className=
+            
+               "btn btn-primary rounded"
+            
           >
             <Link href="/Games">View Games</Link>
           </button>
         </div>
+      </div>
       </div>
     </>
   );
