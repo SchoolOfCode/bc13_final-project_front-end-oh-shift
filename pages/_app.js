@@ -1,9 +1,11 @@
 import '../styles/globals.css'
+import React from 'react';
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 
 export default function App({ Component, pageProps }) {
-  //make a state light mode - dark set to true 
-  //pass down state and setstate to where the button is passed 
-  //state is passed in the single component that we want to toggle 
-  //set state passed where the button is
-  return <Component {...pageProps} />
+  return (
+    <UserProvider>
+      <Component {...pageProps} />
+    </UserProvider>
+  );
 }

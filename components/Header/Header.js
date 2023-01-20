@@ -1,7 +1,16 @@
 import React from "react";
-import Link from "next/link"
+import Link from "next/link";
+
+import { useUser } from "@auth0/nextjs-auth0/client";
+import Account from "../Account/Account";
+import NoAccount from "../NoAccount/NoAccount";
 
 function Header() {
+  const { user, error, isLoading } = useUser();
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>{error.message}</div>;
+
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -39,25 +48,6 @@ function Header() {
         </div>
       </div>
       <div className="navbar-center">
-        {/* <button className="btn btn-ghost">
-          <svg
-            width="42"
-            height="44"
-            viewBox="0 0 42 44"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect
-              x="21.2903"
-              y="22"
-              width="20.5806"
-              height="22"
-              fill="#50FFB1"
-            />
-            <rect width="21.2903" height="22" fill="#FF6201" />
-            <rect x="21.2903" width="20.5806" height="22" fill="#4D4D4D" />
-          </svg>
-        </button> */}
         <Link href="/">
           <svg
             width="189"
@@ -102,35 +92,9 @@ function Header() {
             />
           </svg>
         </Link>
-
       </div>
-      <div className="navbar-end">
-          <button className="btn btn-ghost btn-circle">
-            <div className="avatar">
-              <div className="w-8 mask mask-hexagon">
-                <img src="https://placeimg.com/192/192/people" />
-              </div>
-            </div>
-          </button>
-          </div>
-          {/* <ul
-            tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-          >
-            <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
-            </li>
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <a>Logout</a>
-            </li>
-          </ul> */}
-        </div>
+      <div className="navbar-end">{user ? <Account /> : <NoAccount />}</div>
+    </div>
   );
 }
 
