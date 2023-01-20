@@ -84,17 +84,22 @@ function FilterBar() {
         className="drawer-content"
       >
         <div>
-          <label
+          <label style={{marginBottom:"2rem", width:"8rem"}}
             htmlFor="my-drawer"
             className="btn btn-secondary drawer-button"
           >
             Filter By
           </label>
-          {console.log('this the game object',games)}
+          {/* {console.log('this the game object',games)} */}
           {(games.length>0)? 
-          <GameCardList games={games} /> : 
-          <p> Getting games...
-            </p>
+
+          <GameCardList games={games} /> :
+          <div class="flex justify-center items-center">
+  <div class="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
 }
         </div>
       </div>
