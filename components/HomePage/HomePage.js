@@ -16,11 +16,12 @@ function HomePage() {
   }, [response]);
 
   return (
-    <>
-      <div style={{ width: "100vw", height: "100vh" }}>
+    <div style={{ width: "100vw", height: "100vh" }}>
         <Carousel games={games} />
-      </div>
-
+      <button className={darkMode?"bg-primary":"bg-secondary"}
+        onClick={()=>setDarkMode(!darkMode)}
+        >
+          Toggle</button>
       <div
         className="styles.textContent"
         style={{
@@ -36,24 +37,22 @@ function HomePage() {
         }}
       >
         <h1
-            className={`text-3xl font-bold ${darkMode?"bg-primary":"bg-secondary"}`}
-          style={{ color: "#50FFB1", fontFamily: "opensans" }}
+            className="text-3xl font-bold text-quicksand"
+          style={{ color: "#50FFB1"}}
         >
           Welcome to Stokka
         </h1>
         <h2
-          className="text-quicksand"
+          className={`text-quicksand ${darkMode?"text-white":"text-black"}`}
           style={{
-            color: "#00272B",
-            fontFamily: "opensans",
             textAlign: "center",
           }}
         >
           Are you looking for a board game to play?
         </h2>
         <h3
-          className="text-quicksand"
-          style={{ fontFamily: "montserrat", textAlign: "center" }}
+        className={`text-quicksand ${darkMode?"text-white":"text-black"}`}
+          style={{textAlign: "center" }}
         >
           Stokka is an online board games library that will help you find the
           perfect match for each occasion!
@@ -65,21 +64,16 @@ function HomePage() {
         >
           <button
             style={{ marginTop: "2rem", marginBottom: "1rem" }}
-            className={
-              true
-                ? "btn btn-active btn-primary rounded"
-                : "btn btn-active btn-primary rounded"
-            }
+            className=
+               "btn btn-primary rounded"
+
           >
             <Link href="/Games">View Games</Link>
           </button>
-          <button className={darkMode?"bg-primary":"bg-secondary"}
-        onClick={()=>setDarkMode(!darkMode)}
-        >
-          Toggle</button>
+         
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
