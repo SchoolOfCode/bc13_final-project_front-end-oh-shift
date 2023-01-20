@@ -71,6 +71,14 @@ function HomePage() {
         </span>
       </div>
     </div> */}
+    <h1
+          className="text-quicksand text-2xl font-bold"
+
+          style={{ color: "#00272B", textAlign:"center", marginTop:"2rem" }}
+        >
+      <span>What is</span> <span style={{color:"#50FFB1"}}>NEW</span> 
+        </h1>
+       
         <Carousel  games={games} />
       
 
@@ -84,7 +92,7 @@ function HomePage() {
           gap: "20px",
           backgroundColor: "white",
           // marginRight: "2.5rem",
-          marginTop: "3rem",
+          marginTop: "1.5rem",
           padding: "2rem",
           fontFamily: "Raleway, sans-serif",
         }}
@@ -126,7 +134,6 @@ function HomePage() {
           className="text-quicksand"
           style={{
             color: "#00272B",
-            fontFamily: "opensans",
             textAlign: "center",
           }}
         >
@@ -134,7 +141,7 @@ function HomePage() {
         </h2>
         <h3
           className="text-quicksand"
-          style={{ fontFamily: "montserrat", textAlign: "center" }}
+          style={{ fontFamily: "montserrat", textAlign: "center", color: "#00272B" }}
         >
           Stokka is an online board games library that will help you find the
           perfect match for each occasion!

@@ -76,7 +76,7 @@ font-family: $font1;
 /* 
       .i:nth-child(1){
         font-style: initial;
-          color: #FF6201
+          color: grey
         }
         .i:nth-child(2){
           color: #50FFB1;
@@ -147,7 +147,7 @@ font-family: $font1;
   position: relative;
   height: 3rem;
   width: 3rem;
-  background: #FF6201;
+  background: #00272B;
   color: white;
   display: flex;
   display: flex;
