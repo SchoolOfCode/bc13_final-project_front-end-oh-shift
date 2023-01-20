@@ -5,13 +5,17 @@
 /* .btn-secondary {
 @apply text-black rounded-4;
 } */
-
+html{
+  background-image: url("https://i.imgur.com/ZK0wM9Y.png");
+  background-size: cover;
+}
 @media screen and (max-width: 800px) {
   body {
       /* Change the layout or styling of the elements within the DIV */
       flex-wrap: wrap;
       text-align: left;
       margin: 5%;
+      
   }
 }
 
