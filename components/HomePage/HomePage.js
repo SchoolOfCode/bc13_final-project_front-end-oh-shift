@@ -64,7 +64,7 @@ function HomePage() {
         </div>
       </div>
       <div
-        clasName="styles.textContent"
+        className="styles.textContent"
         style={{
           display: "flex",
           flexDirection: "column",
