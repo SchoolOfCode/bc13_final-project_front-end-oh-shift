@@ -85,7 +85,7 @@ function FilterBar() {
       >
         <div>
 
-          <label style={{marginBottom:"2rem", width:"8rem"}}
+          <label style={{marginBottom:"2rem", width:"8rem"}}/>
 
           <label
             htmlFor="my-drawer"
