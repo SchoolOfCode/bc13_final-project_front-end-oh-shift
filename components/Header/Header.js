@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link"
+import Profile from "../Profile/Profile";
 
 function Header() {
   return (
@@ -130,7 +131,9 @@ function Header() {
               <a>Logout</a>
             </li>
           </ul> */}
+          <Profile/>
         </div>
+
   );
 }
 

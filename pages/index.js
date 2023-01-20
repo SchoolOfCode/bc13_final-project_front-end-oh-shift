@@ -7,6 +7,7 @@ import Header from '../components/Header/Header'
 import HomePage from '../components/HomePage/HomePage'
 import Login from '../components/Login/Login'
 import Logout from '../components/logout/Logout'
+import Profile from '../components/Profile/Profile'
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -26,6 +27,7 @@ export default function Home() {
         <Header></Header>
         <Login/>
         <Logout/>
+        
         <HomePage></HomePage>
         </div>
         </div>
