@@ -4,7 +4,10 @@ import styles from "../../styles/HomePage.module.css";
 
 function HomePage() {
   return (
-    <div className="landing-content" style={{width:"100vw", height:"100vh"}}>
+    <div
+      className="landing-content"
+      style={{ width: "100vw", height: "100vh" }}
+    >
       <div className="carousel carousel-center max-w-md p-4 space-x-4 bg-neutral rounded-box">
         <div className="carousel-item">
           <img
@@ -74,34 +77,38 @@ function HomePage() {
           marginRight: "2.5rem",
           marginTop: "3rem",
           padding: "2rem",
-          fontFamily: "Raleway, sans-serif"
+          fontFamily: "Raleway, sans-serif",
         }}
       >
         <h1
-          className="text-3xl font-bold"
+          className="text-quicksand text-3xl font-bold"
           style={{ color: "#50FFB1", fontFamily: "opensans" }}
         >
           Welcome to Stokka
         </h1>
-        <h2 style={{ color: "#00272B", fontFamily: "opensans" }}>
+        <h2 className="text-quicksand" style={{ color: "#00272B", fontFamily: "opensans", textAlign: "center" }}>
           Are you looking for a board game to play?
         </h2>
-        <h3 style={{ fontFamily: "montserrat", textAlign: "center" }}>
+        <h3 className="text-quicksand" style={{ fontFamily: "montserrat", textAlign: "center" }}>
           Stokka is an online board games library that will help you find the
           perfect match for each occasion!
         </h3>
-      <div
-        className="viewGames"
-        style={{ display: "flex", justifyContent: "center" }}
-      >
-        <button style={{marginTop:"2rem", marginBottom:"1rem"}}
-          className={true ? "btn btn-active btn-primary rounded" : 'btn btn-active btn-primary rounded'}
+        <div
+          className="viewGames text-quicksand"
+          style={{ display: "flex", justifyContent: "center" }}
         >
-          <Link href="/Games">View Games</Link>
-        </button>
+          <button
+            style={{ marginTop: "2rem", marginBottom: "1rem" }}
+            className={
+              true
+                ? "btn btn-active btn-primary rounded"
+                : "btn btn-active btn-primary rounded"
+            }
+          >
+            <Link href="/Games">View Games</Link>
+          </button>
+        </div>
       </div>
-      </div>
-      {/* <button className={styles.viewGames}> */}
     </div>
   );
 }

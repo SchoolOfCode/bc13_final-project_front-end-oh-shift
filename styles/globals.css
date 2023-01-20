@@ -3,11 +3,6 @@
 @tailwind utilities;
 
 
-  @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-
-  @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
 
 /* .btn-secondary {
 @apply text-black rounded-4;
@@ -23,9 +18,14 @@ html{
       flex-wrap: wrap;
       text-align: left;
       margin: 5%;
-      font-family: 'Raleway', sans-serif;
       
   }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+.text-quicksand {
+  font-family: 'Quicksand', sans-serif !important;
 }
 
 @layer components {
@@ -35,7 +35,7 @@ html{
 }
 
 .root{
-  font-family: 'Raleway', sans-serif;
+  /* font-family: 'Raleway', sans-serif; */
 }
 
 .label {
