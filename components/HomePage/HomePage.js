@@ -3,28 +3,21 @@ import { useState, useEffect } from "react";
 import { useGet } from "../customHooks/useGet";
 import Link from "next/link";
 import styles from "../../styles/HomePage.module.css";
-import Carousel from '../Carousel/Carousel.js'
+import Carousel from "../Carousel/Carousel.js";
 
 function HomePage() {
-const [games, setGames] = useState([]);
-  const [response, error] = useGet(
-    `https://stokka.onrender.com/api/games`
-  );
+  const [games, setGames] = useState([]);
+  const [response, error] = useGet(`https://stokka.onrender.com/api/games`);
 
   useEffect(() => {
     setGames(response);
   }, [response]);
 
   return (
-    <div
-      className="landing-content"
-      style={{ width: "100vw", height: "100vh" }}
-    >
-     <Carousel games={games}/>
-     </div>
-     
- 
-    
+    <>
+      <div style={{ width: "100vw", height: "100vh" }}>
+        <Carousel games={games} />
+      </div>
 
       <div
         className="styles.textContent"
@@ -46,10 +39,20 @@ const [games, setGames] = useState([]);
         >
           Welcome to Stokka
         </h1>
-        <h2 className="text-quicksand" style={{ color: "#00272B", fontFamily: "opensans", textAlign: "center" }}>
+        <h2
+          className="text-quicksand"
+          style={{
+            color: "#00272B",
+            fontFamily: "opensans",
+            textAlign: "center",
+          }}
+        >
           Are you looking for a board game to play?
         </h2>
-        <h3 className="text-quicksand" style={{ fontFamily: "montserrat", textAlign: "center" }}>
+        <h3
+          className="text-quicksand"
+          style={{ fontFamily: "montserrat", textAlign: "center" }}
+        >
           Stokka is an online board games library that will help you find the
           perfect match for each occasion!
         </h3>
@@ -57,7 +60,6 @@ const [games, setGames] = useState([]);
         <div
           className="viewGames text-quicksand"
           style={{ display: "flex", justifyContent: "center" }}
-
         >
           <button
             style={{ marginTop: "2rem", marginBottom: "1rem" }}
