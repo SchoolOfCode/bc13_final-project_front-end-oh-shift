@@ -4,7 +4,7 @@ import styles from "../../styles/HomePage.module.css";
 
 function HomePage() {
   return (
-    <div className="landing-content">
+    <div className="landing-content" style={{width:"100vw", height:"100vh"}}>
       <div className="carousel carousel-center max-w-md p-4 space-x-4 bg-neutral rounded-box">
         <div className="carousel-item">
           <img
@@ -64,12 +64,17 @@ function HomePage() {
         </div>
       </div>
       <div
-        clasName="styles.textContent"
+        className="styles.textContent"
         style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           gap: "20px",
+          backgroundColor: "white",
+          marginRight: "2.5rem",
+          marginTop: "3rem",
+          padding: "2rem",
+          fontFamily: "Raleway, sans-serif"
         }}
       >
         <h1
@@ -85,18 +90,18 @@ function HomePage() {
           Stokka is an online board games library that will help you find the
           perfect match for each occasion!
         </h3>
-      </div>
-      {/* <button className={styles.viewGames}> */}
       <div
         className="viewGames"
         style={{ display: "flex", justifyContent: "center" }}
       >
-        <button style={{marginTop:"20px"}}
+        <button style={{marginTop:"2rem", marginBottom:"1rem"}}
           className={true ? "btn btn-active btn-primary rounded" : 'btn btn-active btn-primary rounded'}
         >
           <Link href="/Games">View Games</Link>
         </button>
       </div>
+      </div>
+      {/* <button className={styles.viewGames}> */}
     </div>
   );
 }

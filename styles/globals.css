@@ -2,12 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+  @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+
 /* .btn-secondary {
 @apply text-black rounded-4;
 } */
 html{
-  background-image: url("https://i.imgur.com/ZK0wM9Y.png");
+  background-image: url("https://i.imgur.com/rTC1Ghz.png");
   background-size: cover;
+  font-family: 'Raleway', sans-serif;
 }
 @media screen and (max-width: 800px) {
   body {
@@ -15,6 +23,7 @@ html{
       flex-wrap: wrap;
       text-align: left;
       margin: 5%;
+      font-family: 'Raleway', sans-serif;
       
   }
 }
@@ -26,7 +35,7 @@ html{
 }
 
 .root{
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: 'Raleway', sans-serif;
 }
 
 .label {
