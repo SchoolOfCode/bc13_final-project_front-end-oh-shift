@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-//import Profile from "../Profile/Profile";
+
 import { useUser } from "@auth0/nextjs-auth0/client";
 import Account from "../Account/Account";
 import NoAccount from "../NoAccount/NoAccount";
@@ -48,25 +48,6 @@ function Header() {
         </div>
       </div>
       <div className="navbar-center">
-        {/* <button className="btn btn-ghost">
-          <svg
-            width="42"
-            height="44"
-            viewBox="0 0 42 44"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect
-              x="21.2903"
-              y="22"
-              width="20.5806"
-              height="22"
-              fill="#50FFB1"
-            />
-            <rect width="21.2903" height="22" fill="#FF6201" />
-            <rect x="21.2903" width="20.5806" height="22" fill="#4D4D4D" />
-          </svg>
-        </button> */}
         <Link href="/">
           <svg
             width="189"
