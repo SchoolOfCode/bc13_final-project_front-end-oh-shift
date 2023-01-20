@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 
 
-function addGame(){
+function AddGame(){
     const [searchTerm, setSearchTerm] = useState('')
     const [gameInfo, setGameInfo] = useState([])
     const [genres, setGenres] = useState([])
@@ -140,4 +140,4 @@ function addGame(){
     )
 }
 
-export default addGame
+export default AddGame
