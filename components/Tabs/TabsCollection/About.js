@@ -1,7 +1,16 @@
 import React from "react";
 import Badge from "../../Badge/Badge";
+import YouTube from 'react-youtube';
+import { useState, useEffect } from 'react';
 
 function About({ image, description, rules, title, video }) {
+  const [videoId, setVideoId] = useState('');
+
+  let videoIdGenerated = video.substring(video.length - 11)
+
+  useEffect(() => {
+    setVideoId(videoIdGenerated);
+  }, [videoIdGenerated]);
   return (
     <div>
       <div
@@ -32,7 +41,19 @@ function About({ image, description, rules, title, video }) {
         <h3 style={{ marginBottom: "0.5rem" }}>
           <b>Video Tutorial</b>
         </h3>
-        <iframe src={video} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen style={{ width: "100%", height:"auto" }}>Video Tutorial</iframe>
+        <YouTube
+        videoId={videoId}
+        opts={{
+          height: '300',
+          width: '430',
+          playerVars: {
+            autoplay: 0,
+            rel: 0,
+            controls: 0
+          }
+        }}
+      />
+        {/* <iframe src={video} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen style={{ width: "100%", height:"auto" }}>Video Tutorial</iframe> */}
         </div>
       </div>
     </div>
