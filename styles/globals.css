@@ -4,6 +4,7 @@
 
 
 
+
 /* .btn-secondary {
 @apply text-black rounded-4;
 } */
@@ -28,12 +29,12 @@ html{
   font-family: 'Quicksand', sans-serif !important;
 }
 
+
 @layer components {
   .btn-secondary {
    @apply text-black rounded;
   }
 }
-
 
 
 

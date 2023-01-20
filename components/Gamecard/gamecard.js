@@ -12,6 +12,7 @@ const [tab, setTab] = useState("Summary")
   return (
     <>
     <div className="">
+
 <Tabs setTab={setTab}/>
 </div>
 {tab === 'Summary' ? <Summary game={game}/> : (tab ==='About'? <About video={game.video_rules} image={game.artwork_image_url} description={game.description} rules={game.rules} title={game.title}/> : <Review/>)

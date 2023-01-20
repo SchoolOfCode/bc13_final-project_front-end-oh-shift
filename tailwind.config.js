@@ -29,6 +29,7 @@ module.exports = {
           warning: "#F3A712",
           error: "#ff6201",
         },
+
         screens: {      
         'sm': '400px',
         'md': '960px',

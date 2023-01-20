@@ -9,6 +9,7 @@ function Summary({ game }) {
   // console.log(shortDescription);
 
   return (
+
     <div className="cardWrapper mx-auto" style={{position:"relative"}}>
       <div
         className="card w-96 bg-base-100 shadow-xl bg-zinc-200"
@@ -22,6 +23,7 @@ function Summary({ game }) {
         <figure>
           <img
             className="w-full"
+
             src={game.packaging_image_url}
             alt="game image"
           />
@@ -33,11 +35,13 @@ function Summary({ game }) {
         <div className="card-actions justify-end">
           <div className="badgecontainer"> */}
           <div
+
             className="badgeFamily flex flex-wrap"
             style={{
               // display: "flex",
               flexDirection: "Row",
               // flexWrap: "wrap",
+
               gap: "0.2rem",
             }}
           >
@@ -53,6 +57,7 @@ function Summary({ game }) {
               return <Badge key={gameGenre} label={gameGenre} />;
             })}
           </div>
+
           <h3 style={{ marginTop: "2rem" }}>
             <b>Location</b>
           </h3>
@@ -78,6 +83,7 @@ function Summary({ game }) {
         </div>
       </div>
     </div>
+
   );
 }
 

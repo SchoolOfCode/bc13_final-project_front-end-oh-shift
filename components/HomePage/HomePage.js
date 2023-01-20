@@ -1,4 +1,5 @@
 import React from "react";
+
 import { useState, useEffect } from "react";
 import { useGet } from "../customHooks/useGet";
 import Link from "next/link";
@@ -21,6 +22,7 @@ function HomePage() {
 
       <div
         className="styles.textContent"
+
         style={{
           display: "flex",
           flexDirection: "column",
@@ -35,10 +37,12 @@ function HomePage() {
       >
         <h1
           className="text-quicksand text-3xl font-bold"
+
           style={{ color: "#50FFB1", fontFamily: "opensans" }}
         >
           Welcome to Stokka
         </h1>
+
         <h2
           className="text-quicksand"
           style={{
@@ -74,6 +78,7 @@ function HomePage() {
       </div>
       </div>
     </>
+
   );
 }
 
