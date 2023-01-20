@@ -85,12 +85,7 @@ function FilterBar() {
       >
         <div>
 
-          <label style={{marginBottom:"2rem", width:"8rem"}}
-
-          <label
-            htmlFor="my-drawer"
-            className="btn btn-secondary drawer-button"
-          >
+          <label htmlFor="my-drawer" className="btn btn-secondary drawer-button">
             Filter By
           </label>
           {(games.length>0)? 
