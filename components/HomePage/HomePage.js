@@ -1,11 +1,13 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useGet } from "../customHooks/useGet";
 import Link from "next/link";
 import styles from "../../styles/HomePage.module.css";
 import Carousel from "../Carousel/Carousel.js";
+import { DarkModeWrapper } from "../../pages/_app";
 
 function HomePage() {
+  let {darkMode,setDarkMode}= useContext(DarkModeWrapper)
   const [games, setGames] = useState([]);
   const [response, error] = useGet(`https://stokka.onrender.com/api/games`);
 
@@ -34,7 +36,7 @@ function HomePage() {
         }}
       >
         <h1
-          className="text-quicksand text-3xl font-bold"
+            className={`text-3xl font-bold ${darkMode?"bg-primary":"bg-secondary"}`}
           style={{ color: "#50FFB1", fontFamily: "opensans" }}
         >
           Welcome to Stokka
@@ -71,6 +73,10 @@ function HomePage() {
           >
             <Link href="/Games">View Games</Link>
           </button>
+          <button className={darkMode?"bg-primary":"bg-secondary"}
+        onClick={()=>setDarkMode(!darkMode)}
+        >
+          Toggle</button>
         </div>
       </div>
     </>
