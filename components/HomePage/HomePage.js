@@ -21,7 +21,7 @@ function HomePage() {
     <Carousel games={games}/>
 
       <div
-        clasName="styles.textContent"
+        className="styles.textContent"
         style={{
           display: "flex",
           flexDirection: "column",
