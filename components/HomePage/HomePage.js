@@ -17,6 +17,13 @@ function HomePage() {
   return (
     <>
       <div style={{ width: "100vw", height: "100vh" }}>
+      <h1
+          className="text-quicksand text-2xl font-bold"
+
+          style={{ color: "#50FFB1", textAlign:"center", marginTop:"3rem" }}
+        >
+       What's New
+        </h1>
         <Carousel  games={games} />
       
 

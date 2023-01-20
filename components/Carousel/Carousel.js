@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function Carousel({games}){
         return (
-        <div style={{marginTop: "3rem", marginRight:"2rem"}} className="landing-content ">
+        <div style={{marginRight:"2rem"}} className="landing-content ">
           <div className="carousel carousel-center  p-4 space-x-4 bg-neutral rounded-box bg-opacity-0">
                 {games && games.map((game)=>
                 <>
