@@ -86,7 +86,7 @@ function HomePage() {
 
           style={{ color: "#00272B", textAlign:"center", marginTop:"2rem" }}
         >
-      <span className={darkMode ? "text-white":"text-accent"}>What is</span> <span style={{color:"#50FFB1"}}>NEW</span> 
+      <span className={darkMode ? "text-white":"text-accent"}>What is</span> <span className={darkMode? "text-secondary" : "text-primary"}>NEW</span> 
         </h1>
        
         <Carousel  games={games} />
