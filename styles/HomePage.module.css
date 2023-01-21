@@ -110,7 +110,7 @@ font-family: $font1;
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap');
 
-/* body {
+/* reset body {
   padding: 0;
   margin: 0; 
   height: 100vh;
@@ -142,12 +142,30 @@ font-family: $font1;
   width: 3rem;
   z-index: 100;
 }
-
 .stokkanimation {
   position: relative;
   height: 3rem;
   width: 3rem;
-  background: #00272B;
+  /* background: #00272B; */
+  color: #00272B;
+  display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+  margin: 0 4px;
+  border-radius: 0.25rem;
+  box-shadow: -1px -1px 4px
+    4px 4px 6px
+    inset -1px -1px 4px ,
+    inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+.stokkanimationDark {
+  position: relative;
+  height: 3rem;
+  width: 3rem;
+  /* background: #00272B; */
   color: white;
   display: flex;
   display: flex;
@@ -162,6 +180,7 @@ font-family: $font1;
     inset -1px -1px 4px ,
     inset 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
+
 
 /* div:before {
   content: "";
