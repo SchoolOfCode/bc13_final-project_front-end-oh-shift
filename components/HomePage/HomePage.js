@@ -6,7 +6,7 @@ import Link from "next/link";
 import styles from "../../styles/HomePage.module.css";
 import Carousel from "../Carousel/Carousel.js";
 import {DarkModeWrapper} from '../../pages/_app'
-// import DarkModeToggle from '../ToggleMode/togglebutton'
+
 
 
 function HomePage() {
@@ -14,14 +14,7 @@ function HomePage() {
   const [games, setGames] = useState([]);
   const [response, error] = useGet(`https://stokka.onrender.com/api/games`);
   
-//----START toggle background image
-  // useEffect(()=> {
-  //   function changeBackground(){
-  //     document.querySelector("html").style.backgroundImage = "url(https://i.imgur.com/Ub2hwAr.png)";
-  //   }
-  //   changeBackground();
-  // }, [])
-//-----END toggle background image
+
 
   useEffect(() => {
     setGames(response);
@@ -29,7 +22,7 @@ function HomePage() {
 
   return (
     <>
-      <div style={{ width: "100vw", height: "100vh" }}>
+      <div className={darkMode?"darkMode":"lightMode"} style={{ width: "100vw", height: "100vh" }}>
       {/* <div className={styles.container}>
       <div className={styles.box}>
         <span className={styles.span} >
@@ -89,7 +82,7 @@ function HomePage() {
         >
           Toggle</button>
     <h1
-          className="text-quicksand text-2xl font-bold"
+          className=" text-quicksand text-2xl font-bold"
 
           style={{ color: "#00272B", textAlign:"center", marginTop:"2rem" }}
         >
@@ -122,28 +115,28 @@ function HomePage() {
         </h1>
         <ul className={styles.ul}>
   <li className={styles.li}>
-    <input className={styles.input} type="checkbox" />
-    <div className={styles.stokkanimation}>S</div>
+    <input className={darkMode?styles.inputDark:styles.input} type="checkbox" />
+    <div className={darkMode?styles.stokkanimationDark:styles.stokkanimation}>S</div>
   </li>
   <li className={styles.li}>
-    <input className={styles.input} type="checkbox" />
-    <div className={styles.stokkanimation}>T</div>
+    <input className={darkMode?styles.inputDark:styles.input} type="checkbox" />
+    <div className={darkMode?styles.stokkanimationDark:styles.stokkanimation}>T</div>
   </li>
   <li className={styles.li}>
-    <input className={styles.input} type="checkbox" />
-    <div className={styles.stokkanimation}>O</div>
+    <input className={darkMode?styles.inputDark:styles.input} type="checkbox" />
+    <div className={darkMode?styles.stokkanimationDark:styles.stokkanimation}>O</div>
   </li>
   <li className={styles.li}>
-    <input className={styles.input} type="checkbox" />
-    <div className={styles.stokkanimation}>K</div>
+    <input className={darkMode?styles.inputDark:styles.input} type="checkbox" />
+    <div className={darkMode?styles.stokkanimationDark:styles.stokkanimation}>K</div>
   </li>
   <li className={styles.li}>
-    <input className={styles.input} type="checkbox" />
-    <div className={styles.stokkanimation}>K</div>
+    <input className={darkMode?styles.inputDark:styles.input} type="checkbox" />
+    <div className={darkMode?styles.stokkanimationDark:styles.stokkanimation}>K</div>
   </li>
   <li className={styles.li}>
-    <input className={styles.input} type="checkbox" />
-    <div className={styles.stokkanimation}>A</div>
+    <input className={darkMode?styles.inputDark:styles.input} type="checkbox" />
+    <div className={darkMode?styles.stokkanimationDark:styles.stokkanimation}>A</div>
   </li>
 </ul>
         <h2

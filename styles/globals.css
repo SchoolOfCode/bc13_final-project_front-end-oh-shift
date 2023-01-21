@@ -13,6 +13,18 @@ html{
   background-size: cover;
   font-family: "quicksand";
 }
+
+.lightMode {
+  background-image: url("https://i.imgur.com/rTC1Ghz.png");
+  background-size: cover;
+  font-family: "quicksand";
+}
+
+.darkMode {
+  background-image: url("https://i.imgur.com/eL2r4go.png");
+  background-size: cover;
+  font-family: "quicksand";
+}
 /* @media screen and (max-width: 800px) {
   body { */
       /* Change the layout or styling of the elements within the DIV */

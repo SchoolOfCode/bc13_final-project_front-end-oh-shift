@@ -2,13 +2,18 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
-    
-
 }
+
 .dropdownLabel{
     display: flex;
     color: #00272B;
+    
+    
+}
+
+.dropdownLabelDark{
+    display: flex;
+    color: white;
     
     
 }
