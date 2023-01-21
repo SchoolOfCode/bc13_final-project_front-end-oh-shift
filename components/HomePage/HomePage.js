@@ -6,7 +6,7 @@ import Link from "next/link";
 import styles from "../../styles/HomePage.module.css";
 import Carousel from "../Carousel/Carousel.js";
 import {DarkModeWrapper} from '../../pages/_app'
-// import DarkModeToggle from '../ToggleMode/togglebutton'
+
 
 
 function HomePage() {
@@ -14,14 +14,7 @@ function HomePage() {
   const [games, setGames] = useState([]);
   const [response, error] = useGet(`https://stokka.onrender.com/api/games`);
   
-//----START toggle background image
-  // useEffect(()=> {
-  //   function changeBackground(){
-  //     document.querySelector("html").style.backgroundImage = "url(https://i.imgur.com/Ub2hwAr.png)";
-  //   }
-  //   changeBackground();
-  // }, [])
-//-----END toggle background image
+
 
   useEffect(() => {
     setGames(response);

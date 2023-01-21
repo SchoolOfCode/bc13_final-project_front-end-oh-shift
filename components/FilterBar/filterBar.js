@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Dropdown from "../Dropdown/Dropdown.js";
 import GameCardList from "../GameCardLIst/gameCardList.js";
 import { useGet } from "../customHooks/useGet.js";
 import { any } from "prop-types";
+import {DarkModeWrapper} from '../../pages/_app'
+
 
 function FilterBar() {
+  let {darkMode,setDarkMode}= useContext(DarkModeWrapper);
   const [games, setGames] = useState([]);
   const [parameters, setParameters] = useState("");
   const [searchClicked, setSearchClicked] = useState(false);
@@ -77,12 +80,18 @@ function FilterBar() {
   }
 
   return (
-    <div className="drawer">
+    <div className= {darkMode?"darkMode drawer":"lightMode drawer"} style={{ width: "100vw", height: "100vh" }}>
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
       <div
         style={{ display: "flex", justifyContent: "center", marginTop: "2rem", float: "end" }}
         className="drawer-content"
       >
+
+<button className={darkMode?"btn btn-primary":"btn btn-secondary"}
+        onClick={()=>setDarkMode(!darkMode)} changeBackground={()=>changeBackground}
+        >
+          Toggle</button>
+
         <div>
 
           {/* <label style={{marginBottom:"2rem", width:"8rem"}}/> */}
