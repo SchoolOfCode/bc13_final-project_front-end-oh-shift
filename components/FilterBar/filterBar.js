@@ -102,12 +102,12 @@ function FilterBar() {
           >
             Filter By
           </label>
-          <label style={{marginBottom:"2rem", heigth:"auto", width:"45%"}}
+          <button style={{marginBottom:"2rem", heigth:"auto", width:"45%"}}
             htmlFor="my-drawer"
             className="btn btn-secondary drawer-button rounded"
           >
             Sort By
-          </label>
+          </button>
           </div>
           {(games.length>0)? 
 
@@ -122,8 +122,8 @@ function FilterBar() {
 
     
       <div  className="drawer-side">
-        <label  htmlFor="my-drawer" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+        <label htmlFor="my-drawer" className="drawer-overlay"></label>
+        <ul className= {darkMode?"menu p-4 w-80 bg-base-100 text-base-content bg-accent":"menu p-4 w-80 bg-base-100 text-base-content"}>
           <li>
             <Dropdown 
               options={[

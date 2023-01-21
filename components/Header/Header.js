@@ -1,6 +1,5 @@
 import React, {useContext} from "react";
 import Link from "next/link";
-import styles from "./Header.module.css"
 
 import { useUser } from "@auth0/nextjs-auth0/client";
 import Account from "../Account/Account";
