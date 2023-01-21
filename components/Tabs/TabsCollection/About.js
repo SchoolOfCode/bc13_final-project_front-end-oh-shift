@@ -44,8 +44,8 @@ function About({ image, description, rules, title, video }) {
         <YouTube
         videoId={videoId}
         opts={{
-          height: '300',
-          width: '430',
+          height: '50%',
+          width: '100%',
           playerVars: {
             autoplay: 0,
             rel: 0,
