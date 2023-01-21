@@ -33,6 +33,9 @@ html{
 
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap');
+
+
 .text-quicksand {
   font-family: 'Quicksand', sans-serif !important;
 }

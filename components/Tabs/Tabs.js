@@ -7,7 +7,7 @@ function Tabs({ setTab }) {
       <div className={styles.tabs}>
         <input type="radio" className={styles.inputClass} id={styles.summary} />
         <label className={styles.label} onClick={() => setTab("Summary")} for={styles.summary}>
-          Summary
+         Summary 
         </label>
         <input type="radio" className={styles.inputClass} id={styles.about} />{" "}
         <label className={styles.label} onClick={() => setTab("About")} for={styles.about}>
