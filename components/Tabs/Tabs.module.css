@@ -7,7 +7,7 @@
 
 }
  
-.label  {
+.tabButton  {
   order: 1;
   display: flex;
   justify-content: center;
@@ -15,24 +15,36 @@
   padding: 1rem 2rem;
   margin-right: 0.2rem;
   cursor: pointer;
-  background-color: rgb(228 228 231);
+  /* background-color: rgb(228, 228,231, 0.5); */
   font-weight: bold;
   font-size: 0.8rem;
   transition: background ease 0.3s;
+  /* border: solid 0.2rem rgb(228 228 231); */
+  border-bottom: none;
   border-radius: 10px 10px 0px 0px;
 }
- 
-.tabs input[type="radio"] {
+
+/* .input[type="radio"] {
   display: none;
+} */
+.tabButton:focus  {
+  background-color:rgb(228 228 231) ;
+  transition: 0.3s;
 }
- 
-.inputClass input[type="radio"]:focus + label {
+
+.tabButton:hover  {
+  outline-color: transparent;
+  outline-style:solid;
+  border-bottom: none;
+  box-shadow: 0 0 0 0.1rem #FF6201;
+}
+/* .inputClass input[type="radio"]:focus + label {
   background-color: orange;
 }
  
 .tabs input[type="radio"]:checked + label + .tab {
   display: block;
-}
+} */
  
 /* @media (max-width: 465px) {
   .tabs .tab,
