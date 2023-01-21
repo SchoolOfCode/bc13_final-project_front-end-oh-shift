@@ -59,10 +59,10 @@
   box-shadow: 0 0 0 0.1rem #FF6201;
 }
 .tabButtonDark:active  {
-  background-color:#00272B;
+  background-color:#001A1D;
 }
 .tabButtonDark:focus  {
-  background-color: #00272B;
+  background-color: #001A1D;
   transition: 0.3s;
 }
 
