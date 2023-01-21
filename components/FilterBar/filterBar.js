@@ -81,21 +81,17 @@ function FilterBar() {
 
   return (
     <div className= {darkMode?"darkMode drawer":"lightMode drawer"} style={{ width: "100vw", height: "100vh" }}>
+    
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
       <div
         style={{ display: "flex", justifyContent: "center", marginTop: "2rem", float: "end" }}
         className="drawer-content"
       >
 
-<button className={darkMode?"btn btn-primary":"btn btn-secondary"}
-        onClick={()=>setDarkMode(!darkMode)} changeBackground={()=>changeBackground}
-        >
-          Toggle</button>
-
         <div>
 
           {/* <label style={{marginBottom:"2rem", width:"8rem"}}/> */}
-<div style={{display:"flex", flexDirection:"row", justifyContent:"space-between"}}>
+<div style={{display:"flex", flexDirection:"row", justifyContent:"space-between", backgroundColor:'black', position:'sticky'}}>
           <label style={{marginBottom:"2rem", heigth:"auto", width:"45%"}}
             htmlFor="my-drawer"
             className="btn btn-secondary drawer-button rounded"

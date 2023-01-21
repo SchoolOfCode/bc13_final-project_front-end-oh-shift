@@ -77,14 +77,11 @@ function HomePage() {
         </span>
       </div>
     </div> */}
-    <button className={darkMode?"btn btn-primary":"btn btn-secondary"}
-        onClick={()=>setDarkMode(!darkMode)} changeBackground={()=>changeBackground}
-        >
-          Toggle</button>
+  
     <h1
           className=" text-quicksand text-2xl font-bold"
 
-          style={{ color: "#00272B", textAlign:"center", marginTop:"2rem" }}
+          style={{ color: "#00272B", textAlign:"center", paddingTop:"2rem" }}
         >
       <span className={darkMode ? "text-white":"text-accent"}>What is</span> <span className={darkMode? "text-secondary" : "text-primary"}>NEW</span> 
         </h1>
