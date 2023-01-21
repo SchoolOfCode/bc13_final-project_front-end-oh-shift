@@ -8,10 +8,20 @@ import Carousel from "../Carousel/Carousel.js";
 import {DarkModeWrapper} from '../../pages/_app'
 // import DarkModeToggle from '../ToggleMode/togglebutton'
 
+
 function HomePage() {
   let {darkMode,setDarkMode}= useContext(DarkModeWrapper)
   const [games, setGames] = useState([]);
   const [response, error] = useGet(`https://stokka.onrender.com/api/games`);
+  
+//----START toggle background image
+  // useEffect(()=> {
+  //   function changeBackground(){
+  //     document.querySelector("html").style.backgroundImage = "url(https://i.imgur.com/Ub2hwAr.png)";
+  //   }
+  //   changeBackground();
+  // }, [])
+//-----END toggle background image
 
   useEffect(() => {
     setGames(response);
@@ -75,7 +85,7 @@ function HomePage() {
       </div>
     </div> */}
     <button className={darkMode?"btn btn-primary":"btn btn-secondary"}
-        onClick={()=>setDarkMode(!darkMode)}
+        onClick={()=>setDarkMode(!darkMode)} changeBackground={()=>changeBackground}
         >
           Toggle</button>
     <h1
