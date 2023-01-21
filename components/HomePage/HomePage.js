@@ -92,14 +92,14 @@ function HomePage() {
           gap: "20px",
           backgroundColor: "white",
           // marginRight: "2.5rem",
-          marginTop: "1.5rem",
-          padding: "2rem",
+          marginTop: ".5rem",
+          padding: "0rem 2rem",
         }}
       >
         <h1
           className="text-quicksand text-3xl font-bold"
 
-          style={{ color: "#50FFB1" }}
+          style={{ color: "#50FFB1", paddingTop:"1.5rem" }}
         >
           Welcome to
         </h1>
@@ -148,13 +148,13 @@ function HomePage() {
 
         <div
           className="viewGames text-quicksand"
-          style={{ display: "flex", justifyContent: "center" }}
+          style={{ display: "flex", justifyContent: "center", paddingBottom:"1.5rem" }}
         >
           <button
             style={{ marginTop: "2rem", marginBottom: "1rem" }}
             className=
             
-               "btn btn-primary rounded"
+               "btn btn-primary btn-outline rounded"
             
           >
             <Link href="/Games">View Games</Link>

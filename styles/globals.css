@@ -13,10 +13,10 @@ html{
   background-size: cover;
   font-family: "quicksand";
 }
-@media screen and (max-width: 800px) {
-  body {
+/* @media screen and (max-width: 800px) {
+  body { */
       /* Change the layout or styling of the elements within the DIV */
-      flex-wrap: wrap;
+      /* flex-wrap: wrap;
       text-align: left;
       margin: 5%;
         overflow: hidden;
@@ -29,7 +29,7 @@ html{
         min-height: 100vh;
         }
   }
-
+ */
 
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
