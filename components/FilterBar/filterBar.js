@@ -85,20 +85,27 @@ function FilterBar() {
       >
         <div>
 
-          <label style={{marginBottom:"2rem", width:"8rem"}}/>
-
-          <label
+          {/* <label style={{marginBottom:"2rem", width:"8rem"}}/> */}
+<div style={{display:"flex", flexDirection:"row", justifyContent:"space-between"}}>
+          <label style={{marginBottom:"2rem", heigth:"auto", width:"45%"}}
             htmlFor="my-drawer"
-            className="btn btn-secondary drawer-button"
+            className="btn btn-secondary drawer-button rounded"
           >
             Filter By
           </label>
+          <label style={{marginBottom:"2rem", heigth:"auto", width:"45%"}}
+            htmlFor="my-drawer"
+            className="btn btn-secondary drawer-button rounded"
+          >
+            Sort By
+          </label>
+          </div>
           {(games.length>0)? 
 
           <GameCardList games={games} /> :
-          <div class="flex justify-center items-center">
-  <div class="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full" role="status">
-    <span class="visually-hidden">Loading...</span>
+          <div style={{marginTop:"2rem"}} className="flex justify-center items-center">
+  <div className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full" role="status">
+    <span className="visually-hidden">Loading...</span>
   </div>
 </div>}
         </div>
@@ -213,17 +220,17 @@ function FilterBar() {
           <div
             style={{
               display: "flex",
-              flexDirection: "row",
+              // flexDirection: "row",
               justifyContent: "center",
-              paddingTop: "10rem",
-              gap: "2rem",
+              paddingTop: "6rem",
+              // gap: "2rem",
             }}
           >
             <button
-              className="btn btn-active btn-primary"
+              className="btn btn-active btn-primary rounded text-quicksand"
 
               onClick={handleSearch}
-              style={{ height: "2rem", width: "8rem" }}
+              style={{ height: "auto", width: "90%" }}
             >
               Search
             </button>
