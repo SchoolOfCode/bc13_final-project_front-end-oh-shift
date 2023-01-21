@@ -115,27 +115,27 @@ function HomePage() {
         </h1>
         <ul className={styles.ul}>
   <li className={styles.li}>
-    <input className={styles.input} type="checkbox" />
+    <input className={darkMode?styles.inputDark:styles.input} type="checkbox" />
     <div className={darkMode?styles.stokkanimationDark:styles.stokkanimation}>S</div>
   </li>
   <li className={styles.li}>
-    <input className={styles.input} type="checkbox" />
+    <input className={darkMode?styles.inputDark:styles.input} type="checkbox" />
     <div className={darkMode?styles.stokkanimationDark:styles.stokkanimation}>T</div>
   </li>
   <li className={styles.li}>
-    <input className={styles.input} type="checkbox" />
+    <input className={darkMode?styles.inputDark:styles.input} type="checkbox" />
     <div className={darkMode?styles.stokkanimationDark:styles.stokkanimation}>O</div>
   </li>
   <li className={styles.li}>
-    <input className={styles.input} type="checkbox" />
+    <input className={darkMode?styles.inputDark:styles.input} type="checkbox" />
     <div className={darkMode?styles.stokkanimationDark:styles.stokkanimation}>K</div>
   </li>
   <li className={styles.li}>
-    <input className={styles.input} type="checkbox" />
+    <input className={darkMode?styles.inputDark:styles.input} type="checkbox" />
     <div className={darkMode?styles.stokkanimationDark:styles.stokkanimation}>K</div>
   </li>
   <li className={styles.li}>
-    <input className={styles.input} type="checkbox" />
+    <input className={darkMode?styles.inputDark:styles.input} type="checkbox" />
     <div className={darkMode?styles.stokkanimationDark:styles.stokkanimation}>A</div>
   </li>
 </ul>
