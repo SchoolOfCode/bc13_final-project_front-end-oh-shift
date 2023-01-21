@@ -1,8 +1,194 @@
-.textContent{
+/* .textContent{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     align-content: center;
     align-self: center;
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;600&family=Poppins:wght@100;500;600;800;900&family=Lobster+Two:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* $font1: 'Poppins', sans-serif;
+$font2: 'Lobster Two', cursive;
+$white:#fff;
+$black:#000;
+$primary-light: #f9fafb;
+$second-light:#f0f0f0;
+$third-light:#DADBDB;
+
+$primary-dark:#222;
+$second-grey:#4f4f4f;
+
+$first-shadow: rgba(0,0,0,0.3);
+
+$success: rgba(61, 168, 102, 0.6);
+$error: rgba(168, 30, 14, 0.6);
+
+$primary-color:#5c5fc4;
+$second-color:#c4c15c; */
+
+/* GLOBAL CONFIG RESET */
+/* * {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+font-family: $font1;
+} */
+
+/* select:focus, input:focus, button:focus{
+  outline:none;
+} */
+
+/* -------- BODY DISPLAY --------- */
+
+
+/* -------- TYPE SELECTORS --------- */
+
+/* -------- CLASS --------- */
+
+/* .container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+
+} */
+  /* .box{
+    transform-style: preserve-3d;
+    animation: animate 7s ease-in-out infinite alternate;
+  } */
+    /* .span{
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5) 90%, transparent);
+      text-transform: uppercase;
+      line-height: 0.76em;
+      position: absolute;
+      color: white;
+      white-space: nowrap;
+      font-weight: bold;
+      padding: 0px 10px;
+      transform-style: preserve-3d;
+      text-shadow: 0 10px 15px rgba(0,0,0,0.3);
+      transform: translate(-50%, -50%) rotateX(calc(var(--i) * 22.5deg)) translateZ(109px);
+    } */
+/* 
+      .i:nth-child(1){
+        font-style: initial;
+          color: grey
+        }
+        .i:nth-child(2){
+          color: #50FFB1;
+        } */
+    
+    
+  
+
+/* 
+@keyframes animate {
+  0%{
+    transform: perspective(500px) rotateX(0deg) rotate(5deg);
+  }
+  100%{
+    transform: perspective(50px) rotateX(360deg) rotate(5deg);
+  }
+} */
+
+/* -------- PSEUDO CLASS --------- */
+
+/* -------- MEDIA QUERY --------- */
+
+/* @media (max-width: 800px) {
+  
+} */
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap');
+
+/* body {
+  padding: 0;
+  margin: 0; 
+  height: 100vh;
+  background: #18191f;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.ul {
+  position: relative;
+  display: flex;
+}
+
+.li {
+  list-style: none;
+}
+
+/* label {
+  position: relative;
+} */
+
+.input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 3rem;
+  width: 3rem;
+  z-index: 100;
+}
+
+.stokkanimation {
+  position: relative;
+  height: 3rem;
+  width: 3rem;
+  background: #00272B;
+  color: white;
+  display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+  margin: 0 4px;
+  border-radius: 0.25rem;
+  box-shadow: -1px -1px 4px
+    4px 4px 6px
+    inset -1px -1px 4px ,
+    inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* div:before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 75px;
+  height: 38px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+} */
+
+.input[type="checkbox"]:checked ~ div {
+  box-shadow: inset 0 0 2px
+    inset 4px 4px 6px;
+  color: #FF6201;
+  text-shadow: 0 0 15px #50FFB1, 0 0 25px #50FFB1;
+  animation: 1.5s linear infinite;
+  /* glow */
+}
+
+@keyframes glow {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
 }

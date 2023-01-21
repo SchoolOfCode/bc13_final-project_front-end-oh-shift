@@ -1,0 +1,20 @@
+.dropdown{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    
+
+}
+.dropdownLabel{
+    display: flex;
+    color: #00272B;
+    
+    
+}
+.dropdownSelect{
+    display: flex;
+   color: #00272B;
+   justify-content: center;
+   border-radius: 20px;
+}

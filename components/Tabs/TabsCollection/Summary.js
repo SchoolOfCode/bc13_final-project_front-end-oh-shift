@@ -29,7 +29,7 @@ function Summary({ game }) {
           />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">{game.title}</h2>
+          <h2 className="card-title text-quicksand">{game.title}</h2>
 
           {/* <p>{shortDescription}</p>
         <div className="card-actions justify-end">

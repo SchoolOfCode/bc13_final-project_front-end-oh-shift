@@ -5,6 +5,7 @@ export default function Document() {
     <Html lang="en">
       <Head>
       <link href='https://fonts.googleapis.com/css2?family=Quicksand&display=swap' rel='stylesheet' />
+      <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet"></link>
       </Head>
 
       <body>
@@ -14,3 +15,6 @@ export default function Document() {
     </Html>
   )
 }
+
+{/* <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> */}

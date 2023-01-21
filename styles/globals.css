@@ -11,19 +11,30 @@
 html{
   background-image: url("https://i.imgur.com/rTC1Ghz.png");
   background-size: cover;
-  font-family: 'Raleway', sans-serif;
+  font-family: "quicksand";
 }
-@media screen and (max-width: 800px) {
-  body {
+/* @media screen and (max-width: 800px) {
+  body { */
       /* Change the layout or styling of the elements within the DIV */
-      flex-wrap: wrap;
+      /* flex-wrap: wrap;
       text-align: left;
       margin: 5%;
-      
+        overflow: hidden;
+        
+        display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        
+        min-height: 100vh;
+        }
   }
-}
+ */
 
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap');
+
 
 .text-quicksand {
   font-family: 'Quicksand', sans-serif !important;

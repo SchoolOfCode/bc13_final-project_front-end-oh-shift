@@ -28,16 +28,16 @@ function About({ image, description, rules, title, video }) {
           {title}
         </h2>
         <figure>
-          <img style={{ width: "100%", maxHeight:"14rem", marginBottom:"1rem"}} src={image} alt="game image" />
+          <img style={{ width: "100%", maxHeight:"14rem", marginBottom:"1.5rem"}} src={image} alt="game image" />
         </figure>
         <h3 style={{ marginBottom: "0.5rem" }}>
           <b>Description</b>
         </h3>
-        <p style={{ marginBottom: "1rem" }}>{description}</p>
+        <p style={{ marginBottom: "1.8rem" }}>{description}</p>
         <h3 style={{ marginBottom: "0.5rem" }}>
           <b>Rules</b>
         </h3>
-        <p style={{overflow: 'scroll', marginBottom: "1rem"}}>{rules}</p>
+        <p style={{overflow: 'scroll', marginBottom: "1.8rem"}}>{rules}</p>
         <h3 style={{ marginBottom: "0.5rem" }}>
           <b>Video Tutorial</b>
         </h3>

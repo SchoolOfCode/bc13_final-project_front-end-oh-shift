@@ -4,19 +4,33 @@ import styles from "./Tabs.module.css";
 function Tabs({ setTab }) {
   return (
     <>
-      <div className={styles.tabs}>
-        <input type="radio" className={styles.inputClass} id={styles.summary} />
+      {/* <div className={styles.tabs}>
+        <input type="radio" checked className={styles.input} id={styles.summary} />
         <label className={styles.label} onClick={() => setTab("Summary")} for={styles.summary}>
-          Summary
+         Summary 
         </label>
-        <input type="radio" className={styles.inputClass} id={styles.about} />{" "}
+        <input type="radio" className={styles.input} id={styles.about} />{" "}
         <label className={styles.label} onClick={() => setTab("About")} for={styles.about}>
           About
         </label>
-        <input type="radio" className={styles.inputClass} id={styles.review} />{" "}
+        <input type="radio" className={styles.input} id={styles.review} />{" "}
         <label className={styles.label} onClick={() => setTab("Review")} for={styles.review}>
           Reviews
         </label>
+      </div> */}
+      <div className={styles.tabs}>
+  
+        <button className={styles.tabButton} onClick={() => setTab("Summary")} >
+         Summary 
+        </button>
+        
+        <button className={styles.tabButton} onClick={() => setTab("About")} >
+          About
+        </button>
+       
+        <button className={styles.tabButton} onClick={() => setTab("Review")} >
+          Reviews
+        </button>
       </div>
     </>
   );
