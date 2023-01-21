@@ -29,7 +29,7 @@ function HomePage() {
 
   return (
     <>
-      <div style={{ width: "100vw", height: "100vh" }}>
+      <div className={darkMode?"darkMode":"lightMode"} style={{ width: "100vw", height: "100vh" }}>
       {/* <div className={styles.container}>
       <div className={styles.box}>
         <span className={styles.span} >
@@ -89,7 +89,7 @@ function HomePage() {
         >
           Toggle</button>
     <h1
-          className="text-quicksand text-2xl font-bold"
+          className=" text-quicksand text-2xl font-bold"
 
           style={{ color: "#00272B", textAlign:"center", marginTop:"2rem" }}
         >
