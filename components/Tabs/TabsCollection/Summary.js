@@ -53,7 +53,6 @@ function Summary({ game }) {
             <Badge key={game.minimum_age} label={`${game.minimum_age}+`} />
             <Badge key={game.duration} label={`${game.duration} mins`} />
             {game.genre?.map((gameGenre) => {
-              console.log(game.genre);
               return <Badge key={gameGenre} label={gameGenre} />;
             })}
           </div>

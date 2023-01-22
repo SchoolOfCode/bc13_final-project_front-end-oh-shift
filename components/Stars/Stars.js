@@ -57,56 +57,5 @@ export default function Stars({rating}){
 else {
     return 'Rating calculator went wrong...'
 }
-    
+
     }
-
-
-//     export default function Stars(rating){
-//         console.log('this is the rating in the Stars function', rating, typeof rating)
-    
-//         if (rating === 1) {
-//             console.log('rating = 1')
-//             return (
-//                 <div>
-//     <div class="rating rating-xs">
-//     ★☆☆☆☆
-//     </div>
-//         </div>)}
-    
-//      if (rating === 2) {
-//         console.log('rating = 2')
-//         return (
-//     <div class="rating rating-xs">
-// ★★☆☆☆
-//     </div>)}
-    
-//      if (rating === 3) {
-//         console.log('rating = 3')
-//         return (
-//     <div class="rating rating-xs">
-// ★★★☆☆
-//     </div>
-//     )}
-    
-//      if (rating === 4) {
-//         console.log('rating = 4')
-//         return (
-//     <div class="rating rating-xs">
-// ★★★★☆
-//     </div>
-//     )}
-    
-//      if (rating === 5) {
-//         console.log('rating = 5')
-//         return (
-//     <div class="rating rating-xs">
-//      ★★★★★
-//     </div>
-    
-//     )}
-    
-//     else {
-//         return 'Rating calculator went wrong...'
-//     }
-        
-//         }
