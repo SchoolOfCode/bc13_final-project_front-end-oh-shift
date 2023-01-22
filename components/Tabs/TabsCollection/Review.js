@@ -1,21 +1,36 @@
 import React, { useState, useEffect} from 'react'
-import {useGet} from '../../customHooks/useGet.js'
 import IndividualReview from '../../IndividualReview/IndividualReview'
 import Link from 'next/link.js'
 import AddReview from '../../AddReview/AddReview'
 import { useUser } from "@auth0/nextjs-auth0/client";
 
+
 function Review({title, id}) {
 const [reviewData, setReviewData] = useState([]);
+const [reviewUpdated, setReviewUpdated] = useState(false)
 const { user } = useUser();
 
-const [response, error] = useGet(
-  `https://stokka.onrender.com/api/reviews/${id}`);
+useEffect(() => {    
+  async function getReviews(id){    
+    await fetch(`https://stokka.onrender.com/api/reviews/${id}`, {
+        header: {Accept: "application/json" }})
+        .then((res)=> res.json())
+        .then((res)=> setReviewData(res.payload))}
+    getReviews(id)
+}, [id, reviewUpdated]);
 
-useEffect(() => {
-  setReviewData(response);
-}, [response]);
-
+async function handleDelete(id){
+  if (id) {
+await fetch(`https://stokka.onrender.com/api/reviews/${id}`, {
+  method: 'DELETE',
+  headers: {Accept: "application/json",
+          'Content-Type': 'application/json'}
+})
+alert('Review deleted!')
+setReviewUpdated(!reviewUpdated)
+}
+else {alert('Something went wrong when trying to delete review')}
+}
 
 
   return (
@@ -38,7 +53,7 @@ useEffect(() => {
         
 
             {reviewData ? reviewData?.map((review) => (
-              <IndividualReview review={review} key={review.review_id}/>
+              <IndividualReview review={review} key={review.review_id} handleDelete={()=>handleDelete(review.review_id)}/>
         )) : <p>Getting reviews...</p> }
         
       

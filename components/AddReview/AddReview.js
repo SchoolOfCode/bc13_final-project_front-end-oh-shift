@@ -18,9 +18,10 @@ export default function AddReview({title, id}){
     }
     
     function handleSubmit() {
-        alert(`handleSubmit called!`)
-        // console.log(user)
+        if (!rating) {alert('Please add a star rating')}
+        if (!reviewText) {alert('Please add review text')}
 
+        if (rating && reviewText) {
         postReview({
             game_id: id,
             review_text: reviewText,
@@ -28,7 +29,7 @@ export default function AddReview({title, id}){
             user_given_name: user.given_name,
             user_picture: user.picture,
             user_id: user.sub,
-        })
+        })}
     }
 
         async function postReview(newReview){
