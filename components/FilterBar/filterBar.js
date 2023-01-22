@@ -4,6 +4,7 @@ import GameCardList from "../GameCardLIst/gameCardList.js";
 import { useGet } from "../customHooks/useGet.js";
 import { any } from "prop-types";
 import {DarkModeWrapper} from '../../pages/_app'
+import capitaliseWord from '../../functions/capitaliseWord'
 
 
 function FilterBar() {
@@ -64,14 +65,6 @@ function FilterBar() {
     getFilterOptions("duration", setDurationOptions);
     getFilterOptions("genre", setGenreOptions);
   }, []);
-
-  function capitaliseWord(word) {
-    if (typeof word == "string") {
-      return word.charAt(0).toUpperCase() + word.slice(1);
-    } else {
-      return word;
-    }
-  }
 
 
   function handleSearch(){

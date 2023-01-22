@@ -88,7 +88,7 @@ function Header() {
 } 
         </Link>
       </div>
-      <div className="navbar-end">{user ? <Account /> : <NoAccount />}</div>
+      <div className="navbar-end">{user ? <Account user={user} /> : <NoAccount />}</div>
     </div>
 
   );
