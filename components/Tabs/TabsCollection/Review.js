@@ -8,6 +8,8 @@ import { useUser } from "@auth0/nextjs-auth0/client";
 function Review({title, id}) {
 const [reviewData, setReviewData] = useState([]);
 const [reviewUpdated, setReviewUpdated] = useState(false)
+const [rating, setRating] = useState('')
+const [reviewText, setReviewText] = useState('')
 const { user } = useUser();
 
 useEffect(() => {    
@@ -32,6 +34,42 @@ setReviewUpdated(!reviewUpdated)
 else {alert('Something went wrong when trying to delete review')}
 }
 
+function handleRating(e){
+  setRating(e.target.value)
+}
+
+function handleTextInput(e){
+  setReviewText(e.target.value)
+}
+
+function handleSubmit() {
+  if (!rating) {alert('Please add a star rating')}
+  if (!reviewText) {alert('Please add review text')}
+
+  if (rating && reviewText) {
+  postReview({
+      game_id: id,
+      review_text: reviewText,
+      rating: rating,
+      user_given_name: user.given_name,
+      user_picture: user.picture,
+      user_id: user.sub,
+  })}
+}
+
+  async function postReview(newReview){
+      if (newReview) {
+      console.log(`this is the new review object! ${newReview}`)}
+      if (newReview) {
+    await fetch('https://stokka.onrender.com/api/reviews', {
+      method: 'POST',
+      headers: {Accept: "application/json",
+              'Content-Type': 'application/json'},
+      body: JSON.stringify(newReview)
+    })
+setReviewUpdated(!reviewUpdated)}
+}
+
 
   return (
     <div>
@@ -49,7 +87,13 @@ else {alert('Something went wrong when trying to delete review')}
         <h2 className="card-title" style={{ marginBottom: "1rem" }}>
           {title}
         </h2>
-        {user ? <AddReview title={title} id={id}/> : (<><p>You must be logged in to leave a review.</p><button><Link href="/api/auth/login">Login</Link></button></>)}
+        {user ? <AddReview
+        title={title}
+        id={id}
+        handleRating={handleRating}
+        handleTextInput={handleTextInput}
+        handleSubmit={handleSubmit}
+        /> : (<><p>You must be logged in to leave a review.</p><button><Link href="/api/auth/login">Login</Link></button></>)}
         
 
             {reviewData ? reviewData?.map((review) => (
