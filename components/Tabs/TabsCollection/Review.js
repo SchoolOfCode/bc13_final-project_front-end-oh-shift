@@ -54,12 +54,18 @@ function handleSubmit() {
       user_given_name: user.given_name,
       user_picture: user.picture,
       user_id: user.sub,
-  })}
+  })
+  setRating('');
+  setReviewText('')
+}
+}
+
+function handleCancel() {
+  setRating('');
+  setReviewText('')
 }
 
   async function postReview(newReview){
-      if (newReview) {
-      console.log(`this is the new review object! ${newReview}`)}
       if (newReview) {
     await fetch('https://stokka.onrender.com/api/reviews', {
       method: 'POST',
@@ -70,6 +76,7 @@ function handleSubmit() {
 setReviewUpdated(!reviewUpdated)}
 }
 
+console.log('this is reviewdata', reviewData)
 
   return (
     <div>
@@ -86,6 +93,8 @@ setReviewUpdated(!reviewUpdated)}
         <div style={{padding:"32px"}}>
         <h2 className="card-title" style={{ marginBottom: "1rem" }}>
           {title}
+          <img className="mask mask-star-2 rating-xs" src="https://i.ibb.co/yVzvswy/F3-A712-1.png" />
+          {reviewData[0]?.average_rating}
         </h2>
         {user ? <AddReview
         title={title}
@@ -93,9 +102,10 @@ setReviewUpdated(!reviewUpdated)}
         handleRating={handleRating}
         handleTextInput={handleTextInput}
         handleSubmit={handleSubmit}
+        handleCancel={handleCancel}
+        value={reviewText}
         /> : (<><p>You must be logged in to leave a review.</p><button><Link href="/api/auth/login">Login</Link></button></>)}
         
-
             {reviewData ? reviewData?.map((review) => (
               <IndividualReview review={review} key={review.review_id} handleDelete={()=>handleDelete(review.review_id)}/>
         )) : <p>Getting reviews...</p> }
