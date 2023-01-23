@@ -1,9 +1,12 @@
 import React from "react";
 import Badge from "../../Badge/Badge";
 import YouTube from 'react-youtube';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { DarkModeWrapper } from "../../../pages/_app";
 
 function About({ image, description, rules, title, video }) {
+  let {darkMode,setDarkMode}= useContext(DarkModeWrapper)
+
   const [videoId, setVideoId] = useState('');
 
   let videoIdGenerated = video.substring(video.length - 11)
@@ -14,7 +17,7 @@ function About({ image, description, rules, title, video }) {
   return (
     <div>
       <div
-        className="card w-96 bg-base-100 shadow-xl bg-zinc-200"
+        className={darkMode? "card w-96 bg-base-100 shadow-xl bg-accent": "card w-96 bg-base-100 shadow-xl bg-zinc-200" }
         style={{
           marginBottom: "2rem",
           maxWidth: "400px",
@@ -24,21 +27,21 @@ function About({ image, description, rules, title, video }) {
         }}
       >
         <div style={{padding:"32px"}}>
-        <h2 className="card-title" style={{ marginBottom: "1rem" }}>
+        <h2 className={darkMode? "card-title text-white" : "card-title"} style={{ marginBottom: "1rem" }}>
           {title}
         </h2>
         <figure>
           <img style={{ width: "100%", maxHeight:"14rem", marginBottom:"1.5rem"}} src={image} alt="game image" />
         </figure>
-        <h3 style={{ marginBottom: "0.5rem" }}>
+        <h3 className={darkMode? "card-title text-white" : "card-title"} style={{ marginBottom: "0.5rem" }}>
           <b>Description</b>
         </h3>
-        <p style={{ marginBottom: "1.8rem" }}>{description}</p>
-        <h3 style={{ marginBottom: "0.5rem" }}>
+        <p className={darkMode? " text-white" : "text-accent"} style={{ marginBottom: "1.8rem" }}>{description}</p>
+        <h3 className={darkMode? "card-title text-white" : "card-title"} style={{ marginBottom: "0.5rem" }}>
           <b>Rules</b>
         </h3>
-        <p style={{overflow: 'scroll', marginBottom: "1.8rem"}}>{rules}</p>
-        <h3 style={{ marginBottom: "0.5rem" }}>
+        <p className={darkMode? " text-white" : "text-accent"} style={{overflow: 'scroll', marginBottom: "1.8rem"}}>{rules}</p>
+        <h3 className={darkMode? "card-title text-white" : "card-title"} style={{ marginBottom: "0.5rem" }}>
           <b>Video Tutorial</b>
         </h3>
         <YouTube

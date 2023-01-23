@@ -6,6 +6,8 @@ import { any } from "prop-types";
 import { DarkModeWrapper } from "../../pages/_app";
 import capitaliseWord from "../../functions/capitaliseWord";
 import SearchBar from "../Searchbar/SearchBar.js";
+import SortByButton from "../SortByButton/SortByButton.js";
+import Badge from "../Badge/Badge.js";
 
 function FilterBar() {
   /**States related to light mode, darkmode theme */
@@ -19,11 +21,12 @@ function FilterBar() {
   const [difficultyOptions, setDifficultyOptions] = useState([]);
   const [durationOptions, setDurationOptions] = useState([]);
   const [genreOptions, setGenreOptions] = useState([]);
-  const [selectedDifficulty, setSelectedDifficulty] = useState("");
-  const [selectedAge, setSelectedAge] = useState("");
-  const [selectedDuration, setSelectedDuration] = useState("");
-  const [selectedGenre, setSelectedGenre] = useState("");
-  const [selectedPlayers, setSelectedPlayers] = useState("");
+  const [selectedDifficulty, setSelectedDifficulty] = useState({value: '', label: ''});
+  const [selectedAge, setSelectedAge] = useState({value: '', label: ''});
+  const [selectedDuration, setSelectedDuration] = useState({value: '', label: ''});
+  const [selectedGenre, setSelectedGenre] = useState({value: '', label: ''});
+  const [selectedPlayers, setSelectedPlayers] = useState({value: '', label: ''});
+  const [selectedSort, setSelectedSort] = useState({value: '', label: ''});
 
   /**States related to searching the game list/ collection */
   const [userInput, setUserInput] = useState("");
@@ -36,7 +39,9 @@ function FilterBar() {
 
   useEffect(() => {
     setGames(response);
+    console.log('this is set games', games)
   }, [response]);
+
 
   /**Function to handle userInput */
   function handleUserInput(e) {
@@ -48,9 +53,15 @@ function FilterBar() {
 
   /** Function to take in search value & re-render the game collection page */
 
+  //Function to change URl
+  //line 17- change to deafault URL
+  // old URL + added placeholders
+  // changes URL
+  // dependent on onClick function
+  
   useEffect(() => {
     setParameters(
-      `?difficulty=${selectedDifficulty}&age=${selectedAge}&duration=${selectedDuration}&genre=${selectedGenre}&number_of_players=${selectedPlayers}&title=${userInput}`
+      `?difficulty=${selectedDifficulty.value}&age=${selectedAge.value}&duration=${selectedDuration.value}&genre=${selectedGenre.value}&number_of_players=${selectedPlayers.value}&title=${userInput}&sort_by=${selectedSort.value}`
     );
   }, [searchClicked]);
 
@@ -80,13 +91,21 @@ function FilterBar() {
   function handleSearch() {
     document.getElementById("my-drawer").click();
     setSearchClicked(!searchClicked);
+
+  }
+
+  function handleSort(value, label) {
+    setSelectedSort({value: value, label: label});
+    setSearchClicked(!searchClicked)
   }
 
   return (
+    <>
     <div
       className={darkMode ? "darkMode drawer" : "lightMode drawer"}
       style={{ width: "100vw", height: "100vh" }}
     >
+
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
       <div
         style={{
@@ -97,30 +116,31 @@ function FilterBar() {
         }}
         className="drawer-content"
       >
+
+      
         <div>
           {/* <label style={{marginBottom:"2rem", width:"8rem"}}/> */}
+          <a id='top'>
+
           <div
             style={{
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-between",
-            }}
-          >
+            }}>
+
+          
             <label
-              style={{ marginBottom: "2rem", heigth: "auto", width: "45%" }}
+              style={{ marginBottom: "2rem", height: "auto"}}
               htmlFor="my-drawer"
-              className="btn btn-secondary drawer-button rounded"
+              className="btn btn-secondary drawer-button rounded w-40"
             >
               Filter By
             </label>
-            <button
-              style={{ marginBottom: "2rem", heigth: "auto", width: "45%" }}
-              htmlFor="my-drawer"
-              className="btn btn-secondary drawer-button rounded"
-            >
-              Sort By
-            </button>
-          </div>
+            
+            <SortByButton handleSort={handleSort} />
+          </div></a>
+
           <SearchBar
             userInput={userInput}
             handleUserInput={handleUserInput}
@@ -128,10 +148,44 @@ function FilterBar() {
             setSearchClicked={setSearchClicked}
             searchClicked={searchClicked}
           ></SearchBar>
-          {games.length > 0 ? (
-            <GameCardList games={games} />
-          ) : (
-            <div
+
+          <div className="flex flex-wrap w-96">
+
+          {selectedPlayers.label && 
+            <label htmlFor="my-drawer">
+              <Badge label={`${selectedPlayers.label} players`}/>
+              </label>}
+
+          {selectedDifficulty.label && 
+            <label htmlFor="my-drawer">
+            <Badge label={capitaliseWord(selectedDifficulty.label)}/>
+            </label>}
+
+          {selectedAge.label &&
+            <label htmlFor="my-drawer">
+            <Badge label={`${selectedAge.label}`}/>
+            </label>}
+
+          {selectedDuration.label &&
+            <label htmlFor="my-drawer">
+            <Badge label={`${selectedDuration.label} mins`}/>
+            </label>}
+
+          {selectedGenre.label &&
+            <label htmlFor="my-drawer">
+            <Badge label={capitaliseWord(selectedGenre.label)}/>
+            </label>}
+
+          {selectedSort.label && 
+          <Badge label={selectedSort.label}
+            onClick={()=> setSelectedSort({value:'', label: ''})}
+          />}
+          </div>
+          
+
+
+{!games &&
+  (<div
               style={{ marginTop: "2rem" }}
               className="flex justify-center items-center"
             >
@@ -141,8 +195,25 @@ function FilterBar() {
               >
                 <span className="visually-hidden">Loading...</span>
               </div>
-            </div>
-          )}
+            </div>)}
+
+{(games && games.length< 1) &&(
+  <>
+  <div className="alert alert-error shadow-lg">
+  <div>
+    <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+    <span>Nothing from our library matches your filters.</span>
+  </div>
+</div>
+</>)
+}
+
+                {games &&
+            <GameCardList games={games} />
+          }
+
+          
+
           <div style={{ position: "fixed", bottom: "6vh", left: " 80vw" }}>
             <a href="#top">
               <button
@@ -176,6 +247,8 @@ function FilterBar() {
               </button>
             </a>
           </div>
+
+
         </div>
       </div>
 
@@ -206,10 +279,10 @@ function FilterBar() {
               dropdownName="No. of Players"
               onChange={(inputValue) => {
                 if (!inputValue) {
-                  setSelectedPlayers("");
+                  setSelectedPlayers({value: '', label: ''});
                 } else {
-                  setSelectedPlayers(inputValue.value);
-                  console.log("This is the players", selectedPlayers);
+                  setSelectedPlayers(inputValue);
+
                 }
               }}
               isMulti={false}
@@ -221,10 +294,9 @@ function FilterBar() {
               dropdownName="Difficulty"
               onChange={(inputValue) => {
                 if (!inputValue) {
-                  setSelectedDifficulty("");
+                  setSelectedDifficulty({value: '', label: ''});
                 } else {
-                  setSelectedDifficulty(inputValue.value);
-                  console.log("This is the value", selectedDifficulty);
+                  setSelectedDifficulty(inputValue);
                 }
               }}
               isMulti={false}
@@ -242,10 +314,9 @@ function FilterBar() {
               dropdownName="Age"
               onChange={(inputValue) => {
                 if (!inputValue) {
-                  setSelectedAge("");
+                  setSelectedAge({value: '', label: ''});
                 } else {
-                  setSelectedAge(inputValue.value);
-                  console.log("This is the age", selectedAge);
+                  setSelectedAge(inputValue);
                 }
               }}
               isMulti={false}
@@ -257,10 +328,9 @@ function FilterBar() {
               dropdownName="Duration"
               onChange={(inputValue) => {
                 if (!inputValue) {
-                  setSelectedDuration("");
+                  setSelectedDuration({value: '', label: ''});
                 } else {
-                  setSelectedDuration(inputValue.value);
-                  console.log("This is the duration", selectedDuration);
+                  setSelectedDuration(inputValue);
                 }
               }}
               isMulti={false}
@@ -272,10 +342,9 @@ function FilterBar() {
               dropdownName="Genre"
               onChange={(inputValue) => {
                 if (!inputValue) {
-                  setSelectedGenre("");
+                  setSelectedGenre({value: '', label: ''});
                 } else {
-                  setSelectedGenre(inputValue.value);
-                  console.log("This is the genre", selectedGenre);
+                  setSelectedGenre(inputValue);
                 }
               }}
               isMulti={false}
@@ -311,7 +380,7 @@ function FilterBar() {
         </ul>
       </div>
     </div>
-  );
+    </>);
 }
 
 export default FilterBar;

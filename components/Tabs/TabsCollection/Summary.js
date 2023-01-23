@@ -31,7 +31,7 @@ function Summary({ game }) {
           />
         </figure>
         <div className="card-body">
-          <h2 className="card-title text-quicksand">{game.title}</h2>
+          <h2 className= {darkMode? "card-title text-quicksand text-white" :"card-title text-quicksand text-accent" }>{game.title}</h2>
 
           {/* <p>{shortDescription}</p>
         <div className="card-actions justify-end">
@@ -59,7 +59,7 @@ function Summary({ game }) {
             })}
           </div>
 
-          <h3 style={{ marginTop: "2rem" }}>
+          <h3 className={darkMode? "text-quicksand text-white" :"text-quicksand text-accent" } style={{ marginTop: "2rem" }}>
             <b>Location</b>
           </h3>
           <div className="location">
