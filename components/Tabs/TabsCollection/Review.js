@@ -87,7 +87,8 @@ console.log('this is reviewdata', reviewData)
           maxWidth: "400px",
           maxHeight: "30rem",
           overflow: 'auto',
-          borderTopLeftRadius: "0px"
+          borderTopLeftRadius: "0px",
+          padding:"32px"
         }}
       >
         <div style={{padding:"32px"}}>
@@ -104,7 +105,18 @@ console.log('this is reviewdata', reviewData)
         handleSubmit={handleSubmit}
         handleCancel={handleCancel}
         value={reviewText}
-        /> : (<><p>You must be logged in to leave a review.</p><button><Link href="/api/auth/login">Login</Link></button></>)}
+        /> : (<><p>You must be logged in to leave a review.</p>
+        <button
+            style={{ marginTop: "2rem", marginBottom: "1rem", alignItem:"center"}}
+            className=
+            
+               "btn btn-primary btn-outline rounded">
+
+
+          <Link href="/api/auth/login">Login</Link>
+          </button>
+          
+          </>)}
         
             {reviewData ? reviewData?.map((review) => (
               <IndividualReview review={review} key={review.review_id} handleDelete={()=>handleDelete(review.review_id)}/>

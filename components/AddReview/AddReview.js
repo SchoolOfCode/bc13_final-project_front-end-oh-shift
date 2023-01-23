@@ -9,8 +9,16 @@ export default function AddReview({title, handleRating, handleSubmit, handleText
         </h3>
         <StarRating handleRating={handleRating}/>
         <TextInput placeholderText={`What did you think of ${title}?`} handleTextInput={handleTextInput} value={value}/>
-        <button class="btn btn-outline btn-primary" onClick={handleCancel}>Cancel</button>
-        <button className="btn btn-primary" onClick={handleSubmit}>Submit</button>
+        <div 
+        style={{
+            display: "flex",
+            flexDirection:"row",
+            justifyContent:"space-between"
+        }}
+        >
+        <button className="btn btn-outline btn-primary rounded" onClick={handleCancel}>Cancel</button>
+        <button className="btn btn-primary rounded" onClick={handleSubmit}>Submit</button>
+        </div>
         </>
     )
 }
