@@ -47,15 +47,17 @@ function FilterBar() {
 
   /** May still need fetch request for Search Bar- not remove yet */
 
-  // useEffect(() => {
-  //   async function getSearchedGames() {
-  //     const response = await fetch(
-  //       `https://stokka.onrender.com/api/games?q${title}`
-  //     );
-  //     const data = await response.json();
-  //     setGames(data.payload)
-  //   } getSearchedGames()
-  // }, [search]);
+  useEffect(() => {
+    async function getSearchedGames() {
+      // const response = await fetch(
+      //   `https://stokka.onrender.com/api/games?title=${userInput}`
+      // );
+      // const data = await response.json();
+      // setGames(data.payload);
+      console.log(`Search me mate ${userInput}`);
+    }
+    getSearchedGames();
+  }, [userInput]);
 
   useEffect(() => {
     setParameters(
@@ -132,7 +134,7 @@ function FilterBar() {
           </div>
           <SearchBar
             userInput={userInput}
-            onChange={handleUserInput}
+            handleUserInput={handleUserInput}
           ></SearchBar>
           {games.length > 0 ? (
             <GameCardList games={games} />
