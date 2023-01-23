@@ -1,5 +1,5 @@
 import React from "react";
-
+import styles from './SearchBar'
 // Pass down props (text input/ handleuser input/ handleclick)
 // create input/ button element
 // Input = takes handleUser Input prop
@@ -24,14 +24,14 @@ export default function SearchBar({
   };
 
   return (
-    <div>
+    <div className="w-49 justify-center content-center searchInput" style={{display:'flex', flexDirection:'row', alignContent:'center', justifyContent:'center'}}>
       <input
         onChange={handleUserInput}
         placeholder="Search by Title"
         value={userInput}
-        className="input w-full max-w-xs h-8"
+        className="input input-bordered input-secondary w-full max-w-xs h-8"
       ></input>
-      <button onClick={handleClear}>Clear</button>
+      <button style={{height:'2rem', color:'black', padding:'0.2rem' ,backgroundColor:'#E7E7E7'}} className=" btn-secondary btn-outline rounded bg-white w-16 border-secondary" onClick={handleClear}>Clear</button>
     </div>
   );
 }

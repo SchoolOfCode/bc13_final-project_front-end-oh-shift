@@ -23,61 +23,7 @@ function HomePage() {
   return (
     <>
       <div className={darkMode?"darkMode":"lightMode"} style={{ width: "100vw", height: "100vh" }}>
-      {/* <div className={styles.container}>
-      <div className={styles.box}>
-        <span className={styles.span} >
-          <i className={styles.i}>WHAT</i>
-          IS
-          <i className={styles.i}>NEW</i>
-        </span>
-        <span >
-          <i className={styles.i}>WHAT</i>
-          IS
-          <i className={styles.i}>NEW</i>
-        </span>
-        <span >
-          <i className={styles.i}>WHAT</i>
-          IS
-          <i className={styles.i}>NEW</i>
-        </span>
-        <span >
-          <i className={styles.i}>WHAT</i>
-          IS
-          <i className={styles.i}>NEW</i>
-        </span>
-        <span >
-          <i className={styles.i}>WHAT</i>
-          IS
-          <i className={styles.i}>NEW</i>
-        </span>
-        <span >
-          <i className={styles.i}>WHAT</i>
-          IS
-          <i className={styles.i}>NEW</i>
-        </span>
-        <span >
-          <i className={styles.i}>WHAT</i>
-          IS
-          <i className={styles.i}>NEW</i>
-        </span>
-        <span >
-          <i className={styles.i}>WHAT</i>
-          IS
-          <i className={styles.i}>NEW</i>
-        </span>
-        <span >
-          <i className={styles.i}>WHAT</i>
-          IS
-          <i className={styles.i}>NEW</i>
-        </span>
-        <span >
-          <i className={styles.i}>WHAT</i>
-          IS
-          <i className={styles.i}>NEW</i>
-        </span>
-      </div>
-    </div> */}
-  
+   
     <h1
           className=" text-quicksand text-2xl font-bold"
 

@@ -22,3 +22,6 @@ export default function AddReview({title, handleRating, handleSubmit, handleText
         </>
     )
 }
+
+
+<input type="text" placeholder="Type here" className="input input-bordered input-accent w-full max-w-xs" />
