@@ -18,12 +18,12 @@ function FilterBar() {
   const [difficultyOptions, setDifficultyOptions] = useState([]);
   const [durationOptions, setDurationOptions] = useState([]);
   const [genreOptions, setGenreOptions] = useState([]);
-  const [selectedDifficulty, setSelectedDifficulty] = useState({});
-  const [selectedAge, setSelectedAge] = useState({});
-  const [selectedDuration, setSelectedDuration] = useState({});
-  const [selectedGenre, setSelectedGenre] = useState({});
-  const [selectedPlayers, setSelectedPlayers] = useState({});
-  const [selectedSort, setSelectedSort] = useState({});
+  const [selectedDifficulty, setSelectedDifficulty] = useState({value: '', label: ''});
+  const [selectedAge, setSelectedAge] = useState({value: '', label: ''});
+  const [selectedDuration, setSelectedDuration] = useState({value: '', label: ''});
+  const [selectedGenre, setSelectedGenre] = useState({value: '', label: ''});
+  const [selectedPlayers, setSelectedPlayers] = useState({value: '', label: ''});
+  const [selectedSort, setSelectedSort] = useState({value: '', label: ''});
 
   /** Adds on whatever selected difficulty filter value is */
   const [response, error] = useGet(
@@ -32,6 +32,7 @@ function FilterBar() {
 
   useEffect(() => {
     setGames(response);
+    console.log('these are parameters', parameters)
   }, [response]);
 
   //Function to change URl
@@ -119,13 +120,37 @@ function FilterBar() {
             <SortByButton handleSort={handleSort} />
           </div>
 
+
           <div>
-          {selectedPlayers.label && <Badge label={`${selectedPlayers.label} players`}/>}
-          {selectedDifficulty.label && <Badge label={capitaliseWord(selectedDifficulty.label)}/>}
-          {selectedAge.label && <Badge label={`${selectedAge.label}`}/>}
-          {selectedDuration.label && <Badge label={`${selectedDuration.label} mins`}/>}
-          {selectedGenre.label && <Badge label={capitaliseWord(selectedGenre.label)}/>}
-          {selectedSort.label && <Badge label={`Sort ${selectedSort.label}`}/>}
+          {selectedPlayers.label && 
+            <label htmlFor="my-drawer">
+              <Badge label={`${selectedPlayers.label} players`}/>
+              </label>}
+
+          {selectedDifficulty.label && 
+            <label htmlFor="my-drawer">
+            <Badge label={capitaliseWord(selectedDifficulty.label)}/>
+            </label>}
+
+          {selectedAge.label &&
+            <label htmlFor="my-drawer">
+            <Badge label={`${selectedAge.label}`}/>
+            </label>}
+
+          {selectedDuration.label &&
+            <label htmlFor="my-drawer">
+            <Badge label={`${selectedDuration.label} mins`}/>
+            </label>}
+
+          {selectedGenre.label &&
+            <label htmlFor="my-drawer">
+            <Badge label={capitaliseWord(selectedGenre.label)}/>
+            </label>}
+
+          {selectedSort.label && 
+          <Badge label={`Sort ${selectedSort.label}`}
+            onClick={()=> setSelectedSort({value:'', label: ''})}
+          />}
           </div>
           
 
@@ -207,10 +232,10 @@ function FilterBar() {
               dropdownName="No. of Players"
               onChange={(inputValue) => {
                 if (!inputValue) {
-                  setSelectedPlayers("");
+                  setSelectedPlayers({value: '', label: ''});
                 } else {
                   setSelectedPlayers(inputValue);
-                  console.log("This is the players", selectedPlayers);
+                  console.log("This is the players", selectedPlayers.value);
                 }
               }}
               isMulti={false}
@@ -222,10 +247,10 @@ function FilterBar() {
               dropdownName="Difficulty"
               onChange={(inputValue) => {
                 if (!inputValue) {
-                  setSelectedDifficulty("");
+                  setSelectedDifficulty({value: '', label: ''});
                 } else {
                   setSelectedDifficulty(inputValue);
-                  console.log("This is the value", selectedDifficulty);
+                  console.log("This is the value", selectedDifficulty.value);
                 }
               }}
               isMulti={false}
@@ -243,10 +268,10 @@ function FilterBar() {
               dropdownName="Age"
               onChange={(inputValue) => {
                 if (!inputValue) {
-                  setSelectedAge("");
+                  setSelectedAge({value: '', label: ''});
                 } else {
                   setSelectedAge(inputValue);
-                  console.log("This is the age", selectedAge);
+                  console.log("This is the age", selectedAge.value);
                 }
               }}
               isMulti={false}
@@ -258,10 +283,10 @@ function FilterBar() {
               dropdownName="Duration"
               onChange={(inputValue) => {
                 if (!inputValue) {
-                  setSelectedDuration("");
+                  setSelectedDuration({value: '', label: ''});
                 } else {
                   setSelectedDuration(inputValue);
-                  console.log("This is the duration", selectedDuration);
+                  console.log("This is the duration", selectedDuration.value);
                 }
               }}
               isMulti={false}
@@ -273,10 +298,10 @@ function FilterBar() {
               dropdownName="Genre"
               onChange={(inputValue) => {
                 if (!inputValue) {
-                  setSelectedGenre("");
+                  setSelectedGenre({value: '', label: ''});
                 } else {
                   setSelectedGenre(inputValue);
-                  console.log("This is the genre", selectedGenre);
+                  console.log("This is the genre", selectedGenre.value);
                 }
               }}
               isMulti={false}

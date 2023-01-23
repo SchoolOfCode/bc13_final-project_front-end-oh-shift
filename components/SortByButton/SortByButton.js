@@ -1,6 +1,6 @@
 function SortByButton({handleSort}) {
   return (
-    <div className="dropdown dropdown-end">
+    <div id='sort-by-dropdown' className="dropdown">
       {/* <label tabIndex={0} className="btn btn-secondary drawer-button rounded">
             </label> */}
       <button className="btn btn-secondary drawer-button rounded">
