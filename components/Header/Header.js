@@ -5,6 +5,8 @@ import { useUser } from "@auth0/nextjs-auth0/client";
 import Account from "../Account/Account";
 import NoAccount from "../NoAccount/NoAccount";
 import {DarkModeWrapper} from '../../pages/_app'
+import styles from './Header.module.css'
+
 function Header() {
   let {darkMode,setDarkMode}= useContext(DarkModeWrapper)
   const { user, error, isLoading } = useUser();
@@ -89,10 +91,20 @@ function Header() {
         </Link>
       </div>
       
-      <div className="navbar-end"><button className={darkMode?"btn btn-primary":"btn btn-secondary"}
+      <div className="navbar-end">
+      
+      {/* <button className={darkMode?"btn btn-primary":"btn btn-secondary"}
         onClick={()=>setDarkMode(!darkMode)} changeBackground={()=>changeBackground}
         >
-          Toggle</button>{user ? <Account user={user} /> : <NoAccount />}</div>
+          Toggle</button> */}
+
+          <div>
+          <input type="checkbox" id="toggle" className= {darkMode?styles.toggleInputDark : styles.toggleInput} onClick={()=>setDarkMode(!darkMode)} changeBackground={()=>changeBackground}
+        ></input>
+          <label className={darkMode?styles.toggleLabelDark : styles.toggleLabel} for="toggle"></label>
+          </div>
+          
+          {user ? <Account user={user} /> : <NoAccount />}</div>
 
     </div>
 
