@@ -87,8 +87,7 @@ console.log('this is reviewdata', reviewData)
           maxWidth: "400px",
           maxHeight: "30rem",
           overflow: 'auto',
-          borderTopLeftRadius: "0px",
-          padding:"32px"
+          borderTopLeftRadius: "0px"
         }}
       >
         <div style={{padding:"32px"}}>
@@ -119,7 +118,6 @@ console.log('this is reviewdata', reviewData)
           backgroundColor: 'white',
           display:'flex',
           flexDirection:'column',
-          marginTop:'1.5rem',
           padding:'1rem'
 
         }}

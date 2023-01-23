@@ -10,7 +10,9 @@ export default function IndividualReview({review, handleDelete}){
 
 
     return (
+      
         <div>
+        
           <div 
           style={{
             display:'flex',
