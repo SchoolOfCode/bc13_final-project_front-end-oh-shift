@@ -7,7 +7,7 @@ export default function AddReview({title, handleRating, handleSubmit, handleText
     <h3 style={{ marginBottom: "0.5rem" }}>
           <b>Review the game</b>
         </h3>
-        <StarRating handleRating={handleRating}/>
+        <StarRating handleRating={handleRating} />
         <TextInput placeholderText={`What did you think of ${title}?`} handleTextInput={handleTextInput} value={value}/>
         <div 
         style={{
