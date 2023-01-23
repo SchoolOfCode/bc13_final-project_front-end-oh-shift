@@ -75,7 +75,7 @@ function FilterBar() {
 
   function handleSort(criteria) {
     setSelectedSort(criteria);
-    console.log("this is selected sort", selectedSort);
+    setSearchClicked(!searchClicked)
   }
 
   return (
@@ -111,7 +111,7 @@ function FilterBar() {
             </label>
             {/* <button style={{marginBottom:"2rem", heigth:"auto", width:"45%"}}
             htmlFor="my-drawer"
-            className="btn btn-secondary drawer-button rounded"
+            className="btn btn-secondary drawer-button roun`ded"
           >
             Sort By
           </button> */}
