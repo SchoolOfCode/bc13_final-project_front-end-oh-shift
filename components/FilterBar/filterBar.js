@@ -79,14 +79,11 @@ function FilterBar() {
         style={{ display: "flex", justifyContent: "center", marginTop: "2rem", float: "end" }}
         className="drawer-content"
       >
+     
 
-<button className={darkMode?"btn btn-primary":"btn btn-secondary"}
-        onClick={()=>setDarkMode(!darkMode)} changeBackground={()=>changeBackground}
-        >
-          Toggle</button>
+
 
         <div>
-
           {/* <label style={{marginBottom:"2rem", width:"8rem"}}/> */}
 <div style={{display:"flex", flexDirection:"row", justifyContent:"space-between"}}>
           <label style={{marginBottom:"2rem", heigth:"auto", width:"45%"}}
@@ -101,6 +98,7 @@ function FilterBar() {
           >
             Sort By
           </button>
+          
           </div>
           {(games.length>0)? 
 
@@ -110,6 +108,21 @@ function FilterBar() {
     <span className="visually-hidden">Loading...</span>
   </div>
 </div>}
+<div style={{  position: "fixed",
+  bottom: "6vh",
+  left:" 80vw"}}>
+  
+  <a href="#top">
+        <button  style={{position:"sticky",  width: "6vh",
+  height: "2vh"}} className="btn btn-primary rounded border hover:bg-primary focus:outline-none font-medium text-sm p-2.5 text-center inline-flex items-center mr-2 dark:border-primary"> <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.972 19.0894V5.08936" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M5.97198 12.0894L12.972 5.08936L19.972 12.0894" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+  <span className="sr-only">Icon description</span>
+ </button>
+ </a>
+        </div>
         </div>
       </div>
 

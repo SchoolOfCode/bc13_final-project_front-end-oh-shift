@@ -1,6 +1,8 @@
-import React from "react";
+import React, {useState, useContext} from "react";
 import Badge from "../../Badge/Badge";
+import {DarkModeWrapper} from '../../../pages/_app'
 function Summary({ game }) {
+  let {darkMode,setDarkMode}= useContext(DarkModeWrapper)
   //   let description = game.description;
 
   // let wordCount = 20;
@@ -11,8 +13,8 @@ function Summary({ game }) {
   return (
 
     <div className="cardWrapper mx-auto" style={{position:"relative"}}>
-      <div
-        className="card w-96 bg-base-100 shadow-xl bg-zinc-200"
+      <div 
+        className= {darkMode ? "card w-96 bg-base-100 shadow-xl bg-accent" : "card w-96 bg-base-100 shadow-xl bg-zinc-200" }
         style={{
           marginBottom: "2rem",
           maxWidth: "400px",
