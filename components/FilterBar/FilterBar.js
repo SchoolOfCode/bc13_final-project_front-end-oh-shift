@@ -41,6 +41,7 @@ function FilterBar() {
   /**Function to handle userInput */
   function handleUserInput(e) {
     setUserInput(e.target.value.toLowerCase());
+    setSearchClicked(!searchClicked);
   }
 
   /** Function to take in search value & re-render the game collection page */
@@ -48,20 +49,8 @@ function FilterBar() {
   /** May still need fetch request for Search Bar- not remove yet */
 
   useEffect(() => {
-    async function getSearchedGames() {
-      // const response = await fetch(
-      //   `https://stokka.onrender.com/api/games?title=${userInput}`
-      // );
-      // const data = await response.json();
-      // setGames(data.payload);
-      console.log(`Search me mate ${userInput}`);
-    }
-    getSearchedGames();
-  }, [userInput]);
-
-  useEffect(() => {
     setParameters(
-      `?difficulty=${selectedDifficulty}&age=${selectedAge}&duration=${selectedDuration}&genre=${selectedGenre}&number_of_players=${selectedPlayers}`
+      `?difficulty=${selectedDifficulty}&age=${selectedAge}&duration=${selectedDuration}&genre=${selectedGenre}&number_of_players=${selectedPlayers}&title=${userInput}`
     );
   }, [searchClicked]);
 
