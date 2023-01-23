@@ -1,6 +1,8 @@
 import React, {useState, useContext} from "react";
 import Badge from "../../Badge/Badge";
 import {DarkModeWrapper} from '../../../pages/_app'
+import Stars from "../../Stars/Stars";
+
 function Summary({ game }) {
   let {darkMode,setDarkMode}= useContext(DarkModeWrapper)
   //   let description = game.description;
@@ -8,7 +10,6 @@ function Summary({ game }) {
   // let wordCount = 20;
   // let words = description.split(" ");
   // let shortDescription = words.slice(0, wordCount).join(" ") + "...";
-  // console.log(shortDescription);
 
   return (
 
@@ -32,7 +33,7 @@ function Summary({ game }) {
         </figure>
         <div className="card-body">
           <h2 className= {darkMode? "card-title text-quicksand text-white" :"card-title text-quicksand text-accent" }>{game.title}</h2>
-
+          
           {/* <p>{shortDescription}</p>
         <div className="card-actions justify-end">
           <div className="badgecontainer"> */}
@@ -52,11 +53,12 @@ function Summary({ game }) {
               label={`${game.minimum_players}-${game.maximum_players} players`}
             />
             <Badge key={game.difficulty} label={game.difficulty} />
-            <Badge key={game.minimum_age} label={`${game.minimum_age}+`} />
+            <Badge key={game.minimum_age} label={`Age ${game.minimum_age}+`} />
             <Badge key={game.duration} label={`${game.duration} mins`} />
             {game.genre?.map((gameGenre) => {
               return <Badge key={gameGenre} label={gameGenre} />;
             })}
+            
           </div>
 
           <h3 className={darkMode? "text-quicksand text-white" :"text-quicksand text-accent" } style={{ marginTop: "2rem" }}>
