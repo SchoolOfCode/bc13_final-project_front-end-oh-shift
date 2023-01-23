@@ -32,7 +32,7 @@ function FilterBar() {
 
   useEffect(() => {
     setGames(response);
-    console.log('these are parameters', parameters)
+    console.log('this is set games', games)
   }, [response]);
 
   //Function to change URl
@@ -40,7 +40,6 @@ function FilterBar() {
   // old URL + added placeholders
   // changes URL
   // dependent on onClick function
-
   useEffect(() => {
     setParameters(
       `?difficulty=${selectedDifficulty.value}&age=${selectedAge.value}&duration=${selectedDuration.value}&genre=${selectedGenre.value}&number_of_players=${selectedPlayers.value}&sort_by=${selectedSort.value}`
@@ -81,10 +80,12 @@ function FilterBar() {
   }
 
   return (
+    <>
     <div
       className={darkMode ? "darkMode drawer" : "lightMode drawer"}
       style={{ width: "100vw", height: "100vh" }}
     >
+  
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
       <div
         style={{
@@ -95,8 +96,11 @@ function FilterBar() {
         }}
         className="drawer-content"
       >
+      
         <div>
           {/* <label style={{marginBottom:"2rem", width:"8rem"}}/> */}
+          <a id='top'>
+
           <div
             style={{
               display: "flex",
@@ -104,10 +108,11 @@ function FilterBar() {
               justifyContent: "space-between",
             }}
           >
+          
             <label
-              style={{ marginBottom: "2rem", heigth: "auto", width: "45%" }}
+              style={{ marginBottom: "2rem", height: "auto"}}
               htmlFor="my-drawer"
-              className="btn btn-secondary drawer-button rounded"
+              className="btn btn-secondary drawer-button rounded w-40"
             >
               Filter By
             </label>
@@ -118,10 +123,10 @@ function FilterBar() {
             Sort By
           </button> */}
             <SortByButton handleSort={handleSort} />
-          </div>
+          </div></a>
 
 
-          <div>
+          <div className="flex flex-wrap w-96">
           {selectedPlayers.label && 
             <label htmlFor="my-drawer">
               <Badge label={`${selectedPlayers.label} players`}/>
@@ -148,16 +153,15 @@ function FilterBar() {
             </label>}
 
           {selectedSort.label && 
-          <Badge label={`Sort ${selectedSort.label}`}
+          <Badge label={selectedSort.label}
             onClick={()=> setSelectedSort({value:'', label: ''})}
           />}
           </div>
           
 
-          {games.length > 0 ? (
-            <GameCardList games={games} />
-          ) : (
-            <div
+
+{!games &&
+  (<div
               style={{ marginTop: "2rem" }}
               className="flex justify-center items-center"
             >
@@ -167,8 +171,25 @@ function FilterBar() {
               >
                 <span className="visually-hidden">Loading...</span>
               </div>
-            </div>
-          )}
+            </div>)}
+
+{(games && games.length< 1) &&(
+  <>
+  <div className="alert alert-error shadow-lg">
+  <div>
+    <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+    <span>Nothing from our library matches your filters.</span>
+  </div>
+</div>
+</>)
+}
+
+                {games &&
+            <GameCardList games={games} />
+          }
+
+          
+
           <div style={{ position: "fixed", bottom: "6vh", left: " 80vw" }}>
             <a href="#top">
               <button
@@ -235,7 +256,6 @@ function FilterBar() {
                   setSelectedPlayers({value: '', label: ''});
                 } else {
                   setSelectedPlayers(inputValue);
-                  console.log("This is the players", selectedPlayers.value);
                 }
               }}
               isMulti={false}
@@ -250,7 +270,6 @@ function FilterBar() {
                   setSelectedDifficulty({value: '', label: ''});
                 } else {
                   setSelectedDifficulty(inputValue);
-                  console.log("This is the value", selectedDifficulty.value);
                 }
               }}
               isMulti={false}
@@ -271,7 +290,6 @@ function FilterBar() {
                   setSelectedAge({value: '', label: ''});
                 } else {
                   setSelectedAge(inputValue);
-                  console.log("This is the age", selectedAge.value);
                 }
               }}
               isMulti={false}
@@ -286,7 +304,6 @@ function FilterBar() {
                   setSelectedDuration({value: '', label: ''});
                 } else {
                   setSelectedDuration(inputValue);
-                  console.log("This is the duration", selectedDuration.value);
                 }
               }}
               isMulti={false}
@@ -301,7 +318,6 @@ function FilterBar() {
                   setSelectedGenre({value: '', label: ''});
                 } else {
                   setSelectedGenre(inputValue);
-                  console.log("This is the genre", selectedGenre.value);
                 }
               }}
               isMulti={false}
@@ -337,7 +353,7 @@ function FilterBar() {
         </ul>
       </div>
     </div>
-  );
+    </>);
 }
 
 export default FilterBar;
