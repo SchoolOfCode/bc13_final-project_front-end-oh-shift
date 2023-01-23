@@ -110,14 +110,18 @@ function FilterBar() {
   style={{
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between",
-  }}>
+    justifyContent: "center",
+    alignContent:'center',
+    gap:'2.5rem',
+    marginTop: '1rem'
+  }} className='w-49 justify-center content-center'>
+  
 
 
   <label
     style={{ marginBottom: "2rem", height: "auto"}}
     htmlFor="my-drawer"
-    className="btn btn-secondary drawer-button rounded w-40"
+    className="btn btn-secondary drawer-button rounded "
   >
     Filter By
   </label>

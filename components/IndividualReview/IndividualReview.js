@@ -10,19 +10,49 @@ export default function IndividualReview({review, handleDelete}){
 
 
     return (
+      
         <div>
+        
+          <div 
+          style={{
+            display:'flex',
+            flexDirection:'row',
+            gap:'1rem',
+            marginBottom: '1.5rem',
+            
+            
+          }}
+          >
         <div className="avatar">
               <div className="w-8 mask mask-hexagon">
                 <img src={review?.user_picture} alt={review.user_given_name}/>
               </div>
             </div>
+              <h5 style={{paddingTop:'0.1rem'}}>{capitaliseWord(review.user_given_name)}</h5>
+              </div>
+              <div 
+              style={{
+                display:'flex',
+                flexDirection:'row',
+                gap:'1rem',
+                marginBottom: '1rem'
+              }}
+              
+              >
+              <Stars rating={review.rating} /> 
+              </div>
 
-              <p>{capitaliseWord(review.user_given_name)}</p>
-              <Stars rating={review.rating} /> {review.rating}
-              <p>{review.review_text}</p>
+              <div style={{display:'flex', flexDirection:'row'}}>
+              <p style={{marginBottom:'4rem'}}>           
+              
+                {review.review_text}</p>
+                
               {(user?.sub == review.user_id) && 
-                <button className="btn btn-error btn-xs" onClick={handleDelete}>Delete Review</button>}
-
-        </div>
+                <button 
+                 className="btn rounded btn-xs" onClick={handleDelete}>
+                <span style ={{display:'flex', justifyContent:'flex-end'}} className="material-symbols-outlined">Delete</span>
+                </button>}
+</div>
+       </div>
     )
 }
