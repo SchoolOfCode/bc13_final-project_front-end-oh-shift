@@ -121,10 +121,10 @@ function FilterBar() {
 
           <div>
           {selectedPlayers && <Badge label={`${selectedPlayers} players`}/>}
-          {selectedDifficulty && <Badge label={selectedDifficulty}/>}
+          {selectedDifficulty && <Badge label={capitaliseWord(selectedDifficulty)}/>}
           {selectedAge && <Badge label={`${selectedAge}+`}/>}
           {selectedDuration && <Badge label={`${selectedDuration} mins`}/>}
-          {selectedGenre && <Badge label={selectedGenre}/>}
+          {selectedGenre && <Badge label={capitaliseWord(selectedGenre)}/>}
           {selectedSort.label && <Badge label={`Sort ${selectedSort.label}`}/>}
           </div>
           
