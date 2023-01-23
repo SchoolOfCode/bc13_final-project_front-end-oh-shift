@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Link from "next/link";
+import { DarkModeWrapper } from "../../pages/_app";
+
 
 export default function NoAccount() {
+  let {darkMode, setDarkMode}= useContext(DarkModeWrapper);
+
   return (
     <>
 <div className="dropdown dropdown-end">

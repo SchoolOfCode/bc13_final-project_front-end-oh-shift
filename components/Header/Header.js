@@ -92,7 +92,8 @@ function Header() {
       <div className="navbar-end"><button className={darkMode?"btn btn-primary":"btn btn-secondary"}
         onClick={()=>setDarkMode(!darkMode)} changeBackground={()=>changeBackground}
         >
-          Toggle</button>{user ? <Account /> : <NoAccount />}</div>
+          Toggle</button>{user ? <Account user={user} /> : <NoAccount />}</div>
+
     </div>
 
   );

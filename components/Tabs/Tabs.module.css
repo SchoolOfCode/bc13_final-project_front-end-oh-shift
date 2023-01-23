@@ -22,6 +22,7 @@
   /* border: solid 0.2rem rgb(228 228 231); */
   border-bottom: none;
   border-radius: 10px 10px 0px 0px;
+  width: 120px;
 }
 .tabButtonDark  {
   order: 1;
