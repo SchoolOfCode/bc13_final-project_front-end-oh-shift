@@ -3,18 +3,19 @@ import Dropdown from "../Dropdown/Dropdown.js";
 import GameCardList from "../GameCardLIst/gameCardList.js";
 import { useGet } from "../customHooks/useGet.js";
 import { any } from "prop-types";
-import {DarkModeWrapper} from '../../pages/_app'
-import capitaliseWord from '../../functions/capitaliseWord'
-
+import { DarkModeWrapper } from "../../pages/_app";
+import capitaliseWord from "../../functions/capitaliseWord";
+import SearchBar from "../Searchbar/SearchBar.js";
 
 function FilterBar() {
-  let {darkMode,setDarkMode}= useContext(DarkModeWrapper);
+  /**States related to light mode, darkmode theme */
+  let { darkMode, setDarkMode } = useContext(DarkModeWrapper);
   const [games, setGames] = useState([]);
   const [parameters, setParameters] = useState("");
   const [searchClicked, setSearchClicked] = useState(false);
-  const [clearClicked, setClearClicked] = useState(false)
+  const [clearClicked, setClearClicked] = useState(false);
 
-
+  /** States related to filtering values & options */
   const [difficultyOptions, setDifficultyOptions] = useState([]);
   const [durationOptions, setDurationOptions] = useState([]);
   const [genreOptions, setGenreOptions] = useState([]);
@@ -23,6 +24,10 @@ function FilterBar() {
   const [selectedDuration, setSelectedDuration] = useState("");
   const [selectedGenre, setSelectedGenre] = useState("");
   const [selectedPlayers, setSelectedPlayers] = useState("");
+
+  /**States related to searching the game list/ collection */
+  const [userInput, setUserInput] = useState("");
+  const [search, setSearch] = useState("");
 
   /** Adds on whatever selected difficulty filter value is */
   const [response, error] = useGet(
@@ -33,14 +38,29 @@ function FilterBar() {
     setGames(response);
   }, [response]);
 
-  //Function to change URl
-  //line 17- change to deafault URL
-  // old URL + added placeholders
-  // changes URL
-  // dependent on onClick function
+  /**Function to handle userInput */
+  function handleUserInput(e) {
+    setUserInput(e.target.value.toLowerCase());
+  }
+
+  /** Function to take in search value & re-render the game collection page */
+
+  /** May still need fetch request for Search Bar- not remove yet */
+
+  // useEffect(() => {
+  //   async function getSearchedGames() {
+  //     const response = await fetch(
+  //       `https://stokka.onrender.com/api/games?q${title}`
+  //     );
+  //     const data = await response.json();
+  //     setGames(data.payload)
+  //   } getSearchedGames()
+  // }, [search]);
 
   useEffect(() => {
-    setParameters(`?difficulty=${selectedDifficulty}&age=${selectedAge}&duration=${selectedDuration}&genre=${selectedGenre}&number_of_players=${selectedPlayers}`);
+    setParameters(
+      `?difficulty=${selectedDifficulty}&age=${selectedAge}&duration=${selectedDuration}&genre=${selectedGenre}&number_of_players=${selectedPlayers}`
+    );
   }, [searchClicked]);
 
   useEffect(() => {
@@ -66,72 +86,116 @@ function FilterBar() {
     getFilterOptions("genre", setGenreOptions);
   }, []);
 
-
-  function handleSearch(){
-    document.getElementById('my-drawer').click()
-    setSearchClicked(!searchClicked)
+  function handleSearch() {
+    document.getElementById("my-drawer").click();
+    setSearchClicked(!searchClicked);
   }
 
   return (
-    <div className= {darkMode?"darkMode drawer":"lightMode drawer"} style={{ width: "100vw", height: "100vh" }}>
+    <div
+      className={darkMode ? "darkMode drawer" : "lightMode drawer"}
+      style={{ width: "100vw", height: "100vh" }}
+    >
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
       <div
-        style={{ display: "flex", justifyContent: "center", marginTop: "2rem", float: "end" }}
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "2rem",
+          float: "end",
+        }}
         className="drawer-content"
       >
-     
-
-
-
         <div>
           {/* <label style={{marginBottom:"2rem", width:"8rem"}}/> */}
-<div style={{display:"flex", flexDirection:"row", justifyContent:"space-between"}}>
-          <label style={{marginBottom:"2rem", heigth:"auto", width:"45%"}}
-            htmlFor="my-drawer"
-            className="btn btn-secondary drawer-button rounded"
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
           >
-            Filter By
-          </label>
-          <button style={{marginBottom:"2rem", heigth:"auto", width:"45%"}}
-            htmlFor="my-drawer"
-            className="btn btn-secondary drawer-button rounded"
-          >
-            Sort By
-          </button>
-          
+            <label
+              style={{ marginBottom: "2rem", heigth: "auto", width: "45%" }}
+              htmlFor="my-drawer"
+              className="btn btn-secondary drawer-button rounded"
+            >
+              Filter By
+            </label>
+            <button
+              style={{ marginBottom: "2rem", heigth: "auto", width: "45%" }}
+              htmlFor="my-drawer"
+              className="btn btn-secondary drawer-button rounded"
+            >
+              Sort By
+            </button>
           </div>
-          {(games.length>0)? 
-
-          <GameCardList games={games} /> :
-          <div style={{marginTop:"2rem"}} className="flex justify-center items-center">
-  <div className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full" role="status">
-    <span className="visually-hidden">Loading...</span>
-  </div>
-</div>}
-<div style={{  position: "fixed",
-  bottom: "6vh",
-  left:" 80vw"}}>
-  
-  <a href="#top">
-        <button  style={{position:"sticky",  width: "6vh",
-  height: "2vh"}} className="btn btn-primary rounded border hover:bg-primary focus:outline-none font-medium text-sm p-2.5 text-center inline-flex items-center mr-2 dark:border-primary"> <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M12.972 19.0894V5.08936" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M5.97198 12.0894L12.972 5.08936L19.972 12.0894" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-  <span className="sr-only">Icon description</span>
- </button>
- </a>
-        </div>
+          <SearchBar
+            userInput={userInput}
+            onChange={handleUserInput}
+          ></SearchBar>
+          {games.length > 0 ? (
+            <GameCardList games={games} />
+          ) : (
+            <div
+              style={{ marginTop: "2rem" }}
+              className="flex justify-center items-center"
+            >
+              <div
+                className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full"
+                role="status"
+              >
+                <span className="visually-hidden">Loading...</span>
+              </div>
+            </div>
+          )}
+          <div style={{ position: "fixed", bottom: "6vh", left: " 80vw" }}>
+            <a href="#top">
+              <button
+                style={{ position: "sticky", width: "6vh", height: "2vh" }}
+                className="btn btn-primary rounded border hover:bg-primary focus:outline-none font-medium text-sm p-2.5 text-center inline-flex items-center mr-2 dark:border-primary"
+              >
+                {" "}
+                <svg
+                  width="25"
+                  height="25"
+                  viewBox="0 0 25 25"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.972 19.0894V5.08936"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M5.97198 12.0894L12.972 5.08936L19.972 12.0894"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <span className="sr-only">Icon description</span>
+              </button>
+            </a>
+          </div>
         </div>
       </div>
 
-    
-      <div  className="drawer-side">
+      <div className="drawer-side">
         <label htmlFor="my-drawer" className="drawer-overlay"></label>
-        <ul className= {darkMode?"menu p-4 w-80 bg-base-100 text-base-content bg-accent":"menu p-4 w-80 bg-base-100 text-base-content"}>
+        <ul
+          className={
+            darkMode
+              ? "menu p-4 w-80 bg-base-100 text-base-content bg-accent"
+              : "menu p-4 w-80 bg-base-100 text-base-content"
+          }
+        >
           <li>
-            <Dropdown 
+            <Dropdown
               options={[
                 { value: "", label: "All" },
                 { value: "1", label: "1" },
@@ -144,17 +208,15 @@ function FilterBar() {
                 { value: "8", label: "8" },
                 { value: "9", label: "9" },
                 { value: "10", label: "10+" },
-      
               ]}
               dropdownName="No. of Players"
               onChange={(inputValue) => {
-
                 if (!inputValue) {
-                  setSelectedPlayers('')
-                } else{
-                setSelectedPlayers(inputValue.value)
-                console.log("This is the players", selectedPlayers)};
-
+                  setSelectedPlayers("");
+                } else {
+                  setSelectedPlayers(inputValue.value);
+                  console.log("This is the players", selectedPlayers);
+                }
               }}
               isMulti={false}
             />
@@ -164,21 +226,20 @@ function FilterBar() {
               options={difficultyOptions}
               dropdownName="Difficulty"
               onChange={(inputValue) => {
-
                 if (!inputValue) {
-                  setSelectedDifficulty('')
-                } else{
+                  setSelectedDifficulty("");
+                } else {
                   setSelectedDifficulty(inputValue.value);
-                console.log("This is the value", selectedDifficulty);
-              }}}
-
+                  console.log("This is the value", selectedDifficulty);
+                }
+              }}
               isMulti={false}
             />
           </li>
           <li>
             <Dropdown
               options={[
-                { value: '', label: "All" },
+                { value: "", label: "All" },
                 { value: 10, label: "<10" },
                 { value: 12, label: "10+" },
                 { value: 17, label: "13+" },
@@ -186,14 +247,13 @@ function FilterBar() {
               ]}
               dropdownName="Age"
               onChange={(inputValue) => {
-
                 if (!inputValue) {
-                  setSelectedAge('')
+                  setSelectedAge("");
                 } else {
-                setSelectedAge(inputValue.value);
-                console.log("This is the age", selectedAge);
-              }}}
-
+                  setSelectedAge(inputValue.value);
+                  console.log("This is the age", selectedAge);
+                }
+              }}
               isMulti={false}
             />
           </li>
@@ -202,14 +262,13 @@ function FilterBar() {
               options={durationOptions}
               dropdownName="Duration"
               onChange={(inputValue) => {
-
                 if (!inputValue) {
-                  setSelectedDuration('')
+                  setSelectedDuration("");
                 } else {
-                setSelectedDuration(inputValue.value);
-                console.log("This is the duration", selectedDuration);
-              }}}
-
+                  setSelectedDuration(inputValue.value);
+                  console.log("This is the duration", selectedDuration);
+                }
+              }}
               isMulti={false}
             />
           </li>
@@ -218,14 +277,13 @@ function FilterBar() {
               options={genreOptions}
               dropdownName="Genre"
               onChange={(inputValue) => {
-
                 if (!inputValue) {
-                  setSelectedGenre('')
+                  setSelectedGenre("");
                 } else {
-                setSelectedGenre(inputValue.value)
-                console.log("This is the genre", selectedGenre);
-              }}}
-
+                  setSelectedGenre(inputValue.value);
+                  console.log("This is the genre", selectedGenre);
+                }
+              }}
               isMulti={false}
             />
           </li>
@@ -243,7 +301,6 @@ function FilterBar() {
           >
             <button
               className="btn btn-active btn-primary rounded text-quicksand"
-
               onClick={handleSearch}
               style={{ height: "auto", width: "90%" }}
             >
@@ -256,7 +313,6 @@ function FilterBar() {
             >
               Clear
             </button> */}
-
           </div>
         </ul>
       </div>
