@@ -1,12 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
-import Profile from "../Profile/Profile";
 import Link from "next/link";
 import { DarkModeWrapper } from "../../pages/_app";
-import { useUser } from "@auth0/nextjs-auth0/client";
 
-export default function Account() {
+export default function Account({user}) {
   let {darkMode,setDarkMode}= useContext(DarkModeWrapper);
-  const { user } = useUser();
 
   return (
     <>
