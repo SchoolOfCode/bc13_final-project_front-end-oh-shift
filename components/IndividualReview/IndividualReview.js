@@ -16,7 +16,10 @@ export default function IndividualReview({review, handleDelete}){
           <div 
           style={{
             display:'flex',
-            flexDirection:'row'
+            flexDirection:'row',
+            gap:'1rem',
+            marginBottom: '1.5rem',
+            
             
           }}
           >
@@ -25,24 +28,31 @@ export default function IndividualReview({review, handleDelete}){
                 <img src={review.user_picture} alt={review.user_given_name}/>
               </div>
             </div>
-              <h5>{capitaliseWord(review.user_given_name)}</h5>
+              <h5 style={{paddingTop:'0.1rem'}}>{capitaliseWord(review.user_given_name)}</h5>
               </div>
               <div 
               style={{
                 display:'flex',
                 flexDirection:'row',
-                gap:'1rem'
+                gap:'1rem',
+                marginBottom: '1rem'
               }}
               
               >
               <Stars rating={review.rating} /> 
               </div>
-              <p>           
+
+              <div style={{display:'flex', flexDirection:'row'}}>
+              <p style={{marginBottom:'4rem'}}>           
               
                 {review.review_text}</p>
+                
               {(user?.sub == review.user_id) && 
-                <button className="btn btn-error btn-xs" onClick={handleDelete}>Delete Review</button>}
-
-        </div>
+                <button 
+                 className="btn rounded btn-xs" onClick={handleDelete}>
+                <span style ={{display:'flex', justifyContent:'flex-end'}} className="material-symbols-outlined">Delete</span>
+                </button>}
+</div>
+       </div>
     )
 }
