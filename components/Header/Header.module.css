@@ -1,29 +1,21 @@
-/* *, *:after, *:before {
-    box-sizing: border-box;
-}
-body {
-    min-height: 100vh;
+.toggleTest {
     display: flex;
-    align-items: center;
-    justify-content: center;
-} */
-
-
+    background-color: blue;
+}
 /** hide the checkbox in darkmode*/
 .toggleInputDark[type="checkbox"] {
     visibility: hidden;
 }
 /** set the background safeorange in dark mode and bordecolor white */
 .toggleInputDark[type="checkbox"]:checked + label {
-    transform: rotate(360deg);
+    transform: rotate(360deg) scale(0.3);
     background-color: #FF6201;
-    border-color: #fff;
 }
 
 /** set white circle in darkmode */
 .toggleInputDark[type="checkbox"]:checked + label:before {
     transform: translateX(90px);
-    background-color: #fff;
+    background-color: #FFF; 
 }
 
 /** hide the checkbox in light mode */
@@ -32,69 +24,88 @@ body {
 }
 /** set the background white in light mode and bordecolor safeorange*/
 .toggleInput[type="checkbox"]:checked + label {
-    transform: rotate(360deg);
- background-color: #fff;
-    border-color: #FF6201;
+    transform: scale(0.3);
+    display: flex;
+    width: auto;
+    height: auto;
+    border: 6px solid #FF6201;
+    border-radius: 99em;
+    position: absolute;
+    transition: transform .75s ease-in-out;
+    transform-origin: 50% 50%;
+    cursor: pointer;
 }
 
 /** set orange circle in lightmode */
 .toggleInput[type="checkbox"]:checked + label:before {
-    transform: translateX(90px);
-    /* background-color: #fff; */
+    transition: transform .75s ease;
+        transition-delay: .5s;
+        content: "";
+        display: block;
+        position: absolute;
+        width: auto;
+        height: auto;
+        background-color: #FF6201;
+        border-radius: 50%;
+        top: 12px;
+        left: 12px;
 }
 
 .toggleLabelDark {
+    margin: -20px -30px -20px -30px;
+    transform: scale(0.3);
     display: flex;
-    width: 3rem;
-    height: 1.5rem;
-    border: 0.1rem solid;
+    width: 180px;
+    height: 90px;
+    border: 6px solid #FF6201;
     border-radius: 99em;
     position: relative;
-    transition: transform 0.75s ease-in-out;
+    transition: transform .75s ease-in-out;
     transform-origin: 50% 50%;
     cursor: pointer;
     
 }
 .toggleLabelDark:before {
-    transition: transform 0.75s ease;
-    transition-delay: 0.5s;
-    content: "";
-    display: block;
-    position: absolute;
-    width: 1rem;
-    height: 1rem;
-    background-color: #FF6201;
-    border-radius: 50%;
-    top: 12px;
-    left: 12px;
+    transition: transform .75s ease;
+        transition-delay: .1s;
+        content: "";
+        display: block;
+        position: relative;
+        width: 54px;
+        height: 54px;
+        background-color: #FF6201;
+        border-radius: 50%;
+        top: 12px;
+        left: 12px; 
     
 }
 
 /** change border color to safeorange in lightmode*/
 .toggleLabel {
+    margin: -20px -30px -20px -30px;
+    transform: scale(0.3);
     display: flex;
-    width: 3rem;
-    height: 1.5rem;
-    border: 0.1rem solid;
+    width: 180px;
+    height: 90px;
+    border: 6px solid #FF6201;
     border-radius: 99em;
     position: relative;
-    transition: transform 0.75s ease-in-out;
+    transition: transform .0s ease-in-out;
     transform-origin: 50% 50%;
     cursor: pointer;
-    border-color: #FF6201;
 }
 .toggleLabel:before {
-    transition: transform 0.75s ease;
-    transition-delay: 0.5s;
-    content: "";
-    display: block;
-    position: absolute;
-    width: 1rem;
-    height: 1rem;
-    background-color: #FF6201;
-    border-radius: 50%;
-    top: 12px;
-    left: 12px;
+    transition: transform .75s ease;
+        transition-delay: .1s;
+        content: "";
+        display: block;
+        position: relative;
+        width: 54px;
+        height: 54px;
+        background-color: #FF6201;
+        border-radius: 50%;
+        top: 12px;
+        left: 12px;
 }
 
 
