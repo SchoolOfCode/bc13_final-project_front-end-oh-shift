@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Dropdown from "../Dropdown/Dropdown.js";
 import GameCardList from "../GameCardLIst/gameCardList.js";
 import { useGet } from "../customHooks/useGet.js";
 import { any } from "prop-types";
+import {DarkModeWrapper} from '../../pages/_app'
+import capitaliseWord from '../../functions/capitaliseWord'
+
 
 function FilterBar() {
+  let {darkMode,setDarkMode}= useContext(DarkModeWrapper);
   const [games, setGames] = useState([]);
   const [parameters, setParameters] = useState("");
   const [searchClicked, setSearchClicked] = useState(false);
@@ -62,14 +66,6 @@ function FilterBar() {
     getFilterOptions("genre", setGenreOptions);
   }, []);
 
-  function capitaliseWord(word) {
-    if (typeof word == "string") {
-      return word.charAt(0).toUpperCase() + word.slice(1);
-    } else {
-      return word;
-    }
-  }
-
 
   function handleSearch(){
     document.getElementById('my-drawer').click()
@@ -77,33 +73,65 @@ function FilterBar() {
   }
 
   return (
-    <div className="drawer">
+    <div className= {darkMode?"darkMode drawer":"lightMode drawer"} style={{ width: "100vw", height: "100vh" }}>
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
       <div
-        style={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}
+        style={{ display: "flex", justifyContent: "center", marginTop: "2rem", float: "end" }}
         className="drawer-content"
       >
-        <div>
+     
 
-          <label htmlFor="my-drawer" className="btn btn-secondary drawer-button">
+
+
+        <div>
+          {/* <label style={{marginBottom:"2rem", width:"8rem"}}/> */}
+<div style={{display:"flex", flexDirection:"row", justifyContent:"space-between"}}>
+          <label style={{marginBottom:"2rem", heigth:"auto", width:"45%"}}
+            htmlFor="my-drawer"
+            className="btn btn-secondary drawer-button rounded"
+          >
             Filter By
           </label>
+          <button style={{marginBottom:"2rem", heigth:"auto", width:"45%"}}
+            htmlFor="my-drawer"
+            className="btn btn-secondary drawer-button rounded"
+          >
+            Sort By
+          </button>
+          
+          </div>
           {(games.length>0)? 
 
           <GameCardList games={games} /> :
-          <div class="flex justify-center items-center">
-  <div class="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full" role="status">
-    <span class="visually-hidden">Loading...</span>
+          <div style={{marginTop:"2rem"}} className="flex justify-center items-center">
+  <div className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full" role="status">
+    <span className="visually-hidden">Loading...</span>
   </div>
 </div>}
+<div style={{  position: "fixed",
+  bottom: "6vh",
+  left:" 80vw"}}>
+  
+  <a href="#top">
+        <button  style={{position:"sticky",  width: "6vh",
+  height: "2vh"}} className="btn btn-primary rounded border hover:bg-primary focus:outline-none font-medium text-sm p-2.5 text-center inline-flex items-center mr-2 dark:border-primary"> <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.972 19.0894V5.08936" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M5.97198 12.0894L12.972 5.08936L19.972 12.0894" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+  <span className="sr-only">Icon description</span>
+ </button>
+ </a>
+        </div>
         </div>
       </div>
 
-      <div className="drawer-side">
+    
+      <div  className="drawer-side">
         <label htmlFor="my-drawer" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+        <ul className= {darkMode?"menu p-4 w-80 bg-base-100 text-base-content bg-accent":"menu p-4 w-80 bg-base-100 text-base-content"}>
           <li>
-            <Dropdown
+            <Dropdown 
               options={[
                 { value: "", label: "All" },
                 { value: "1", label: "1" },
@@ -207,17 +235,17 @@ function FilterBar() {
           <div
             style={{
               display: "flex",
-              flexDirection: "row",
+              // flexDirection: "row",
               justifyContent: "center",
-              paddingTop: "10rem",
-              gap: "2rem",
+              paddingTop: "6rem",
+              // gap: "2rem",
             }}
           >
             <button
-              className="btn btn-active btn-primary"
+              className="btn btn-active btn-primary rounded text-quicksand"
 
               onClick={handleSearch}
-              style={{ height: "2rem", width: "8rem" }}
+              style={{ height: "auto", width: "90%" }}
             >
               Search
             </button>
