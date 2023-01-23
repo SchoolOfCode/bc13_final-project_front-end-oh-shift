@@ -111,7 +111,7 @@ function FilterBar() {
     justifyContent: "center",
     alignContent:'center',
     gap:'2.5rem',
-    marginTop: '2rem'
+    marginTop: '1rem'
   }} className='w-49 justify-center content-center'>
   
 
