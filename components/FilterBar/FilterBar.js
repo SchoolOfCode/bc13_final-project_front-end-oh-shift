@@ -18,12 +18,12 @@ function FilterBar() {
   const [difficultyOptions, setDifficultyOptions] = useState([]);
   const [durationOptions, setDurationOptions] = useState([]);
   const [genreOptions, setGenreOptions] = useState([]);
-  const [selectedDifficulty, setSelectedDifficulty] = useState("");
-  const [selectedAge, setSelectedAge] = useState("");
-  const [selectedDuration, setSelectedDuration] = useState("");
-  const [selectedGenre, setSelectedGenre] = useState("");
-  const [selectedPlayers, setSelectedPlayers] = useState("");
-  const [selectedSort, setSelectedSort] = useState({critera: '', label: ''});
+  const [selectedDifficulty, setSelectedDifficulty] = useState({});
+  const [selectedAge, setSelectedAge] = useState({});
+  const [selectedDuration, setSelectedDuration] = useState({});
+  const [selectedGenre, setSelectedGenre] = useState({});
+  const [selectedPlayers, setSelectedPlayers] = useState({});
+  const [selectedSort, setSelectedSort] = useState({});
 
   /** Adds on whatever selected difficulty filter value is */
   const [response, error] = useGet(
@@ -42,7 +42,7 @@ function FilterBar() {
 
   useEffect(() => {
     setParameters(
-      `?difficulty=${selectedDifficulty}&age=${selectedAge}&duration=${selectedDuration}&genre=${selectedGenre}&number_of_players=${selectedPlayers}&sort_by=${selectedSort.criteria}`
+      `?difficulty=${selectedDifficulty.value}&age=${selectedAge.value}&duration=${selectedDuration.value}&genre=${selectedGenre.value}&number_of_players=${selectedPlayers.value}&sort_by=${selectedSort.value}`
     );
   }, [searchClicked]);
 
@@ -74,8 +74,8 @@ function FilterBar() {
     setSearchClicked(!searchClicked);
   }
 
-  function handleSort(criteria, label) {
-    setSelectedSort({critera: criteria, label: label});
+  function handleSort(value, label) {
+    setSelectedSort({value: value, label: label});
     setSearchClicked(!searchClicked)
   }
 
@@ -120,11 +120,11 @@ function FilterBar() {
           </div>
 
           <div>
-          {selectedPlayers && <Badge label={`${selectedPlayers} players`}/>}
-          {selectedDifficulty && <Badge label={capitaliseWord(selectedDifficulty)}/>}
-          {selectedAge && <Badge label={`${selectedAge}+`}/>}
-          {selectedDuration && <Badge label={`${selectedDuration} mins`}/>}
-          {selectedGenre && <Badge label={capitaliseWord(selectedGenre)}/>}
+          {selectedPlayers.label && <Badge label={`${selectedPlayers.label} players`}/>}
+          {selectedDifficulty.label && <Badge label={capitaliseWord(selectedDifficulty.label)}/>}
+          {selectedAge.label && <Badge label={`${selectedAge.label}`}/>}
+          {selectedDuration.label && <Badge label={`${selectedDuration.label} mins`}/>}
+          {selectedGenre.label && <Badge label={capitaliseWord(selectedGenre.label)}/>}
           {selectedSort.label && <Badge label={`Sort ${selectedSort.label}`}/>}
           </div>
           
@@ -209,7 +209,7 @@ function FilterBar() {
                 if (!inputValue) {
                   setSelectedPlayers("");
                 } else {
-                  setSelectedPlayers(inputValue.value);
+                  setSelectedPlayers(inputValue);
                   console.log("This is the players", selectedPlayers);
                 }
               }}
@@ -224,7 +224,7 @@ function FilterBar() {
                 if (!inputValue) {
                   setSelectedDifficulty("");
                 } else {
-                  setSelectedDifficulty(inputValue.value);
+                  setSelectedDifficulty(inputValue);
                   console.log("This is the value", selectedDifficulty);
                 }
               }}
@@ -245,7 +245,7 @@ function FilterBar() {
                 if (!inputValue) {
                   setSelectedAge("");
                 } else {
-                  setSelectedAge(inputValue.value);
+                  setSelectedAge(inputValue);
                   console.log("This is the age", selectedAge);
                 }
               }}
@@ -260,7 +260,7 @@ function FilterBar() {
                 if (!inputValue) {
                   setSelectedDuration("");
                 } else {
-                  setSelectedDuration(inputValue.value);
+                  setSelectedDuration(inputValue);
                   console.log("This is the duration", selectedDuration);
                 }
               }}
@@ -275,7 +275,7 @@ function FilterBar() {
                 if (!inputValue) {
                   setSelectedGenre("");
                 } else {
-                  setSelectedGenre(inputValue.value);
+                  setSelectedGenre(inputValue);
                   console.log("This is the genre", selectedGenre);
                 }
               }}
