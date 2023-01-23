@@ -12,9 +12,7 @@ function AddGame(){
     useEffect(()=>{
         async function getGameBySearch() {
           const response = await fetch(`https://api.boardgameatlas.com/api/search?name=${searchTerm}&pretty=true&client_id=n3dHy4VNyw&fuzzy_match=true`, {method: 'GET', headers: {accept: 'application/JSON'},})
-          console.log('this is response', response)
           const data = await response.json() 
-          console.log('this is data', data.games[0])
           setGameInfo(data.games[0])
           setGenres(data.games[0].categories);
 
@@ -44,7 +42,6 @@ function AddGame(){
 
     function generateLocation(gameName) {
         if (gameName) {
-        console.log('gameName', gameName)
         let firstLetter = gameName.charAt(0)
         let randomNumber = Math.floor(Math.random() * 50) + 1;
         return `Shelf ${firstLetter} Number ${randomNumber}`}

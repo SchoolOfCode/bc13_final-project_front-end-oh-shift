@@ -13,7 +13,7 @@ export default function IndividualReview({review, handleDelete}){
         <div>
         <div className="avatar">
               <div className="w-8 mask mask-hexagon">
-                <img src={review.user_picture} alt={review.user_given_name}/>
+                <img src={review?.user_picture} alt={review.user_given_name}/>
               </div>
             </div>
 

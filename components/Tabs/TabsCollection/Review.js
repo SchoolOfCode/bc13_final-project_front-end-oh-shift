@@ -76,7 +76,6 @@ function handleCancel() {
 setReviewUpdated(!reviewUpdated)}
 }
 
-console.log('this is reviewdata', reviewData)
 
   return (
     <div>
