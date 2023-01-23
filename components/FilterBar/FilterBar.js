@@ -44,9 +44,9 @@ function FilterBar() {
     setSearchClicked(!searchClicked);
   }
 
-  /** Function to take in search value & re-render the game collection page */
+  //if userInput- then set search value to '' (empty string)
 
-  /** May still need fetch request for Search Bar- not remove yet */
+  /** Function to take in search value & re-render the game collection page */
 
   useEffect(() => {
     setParameters(
@@ -124,6 +124,9 @@ function FilterBar() {
           <SearchBar
             userInput={userInput}
             handleUserInput={handleUserInput}
+            setUserInput={setUserInput}
+            setSearchClicked={setSearchClicked}
+            searchClicked={searchClicked}
           ></SearchBar>
           {games.length > 0 ? (
             <GameCardList games={games} />
