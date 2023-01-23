@@ -149,7 +149,7 @@ function HomePage() {
           style={{ textAlign: "center"}}
         >
           Stokka is an online board games library that will help you find the
-          perfect match for each occasion!
+          perfect match for any occasion!
         </h3>
 
         <div

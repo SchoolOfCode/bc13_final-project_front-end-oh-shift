@@ -121,6 +121,7 @@ function FilterBar() {
           </div>
 
 
+
           <div>
           {selectedPlayers.label && 
             <label htmlFor="my-drawer">
@@ -202,6 +203,7 @@ function FilterBar() {
               </button>
             </a>
           </div>
+
         </div>
       </div>
 
