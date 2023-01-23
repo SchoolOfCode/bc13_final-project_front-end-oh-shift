@@ -24,13 +24,14 @@ export default function SearchBar({
   };
 
   return (
-    <>
+    <div>
       <input
         onChange={handleUserInput}
         placeholder="Search by Title"
         value={userInput}
+        className="input w-full max-w-xs h-8"
       ></input>
       <button onClick={handleClear}>Clear</button>
-    </>
+    </div>
   );
 }
