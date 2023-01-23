@@ -108,7 +108,7 @@ function FilterBar() {
     <span className="visually-hidden">Loading...</span>
   </div>
 </div>}
-<div style={{  position: "fixed",
+{/* <div style={{  position: "fixed",
   bottom: "6vh",
   left:" 80vw"}}>
   
@@ -122,7 +122,7 @@ function FilterBar() {
   <span className="sr-only">Icon description</span>
  </button>
  </a>
-        </div>
+        </div> */}
         </div>
       </div>
 
