@@ -6,6 +6,7 @@ import { any } from "prop-types";
 import { DarkModeWrapper } from "../../pages/_app";
 import capitaliseWord from "../../functions/capitaliseWord";
 import SortByButton from "../SortByButton/SortByButton.js";
+import Badge from "../Badge/Badge.js";
 
 function FilterBar() {
   let { darkMode, setDarkMode } = useContext(DarkModeWrapper);
@@ -22,7 +23,7 @@ function FilterBar() {
   const [selectedDuration, setSelectedDuration] = useState("");
   const [selectedGenre, setSelectedGenre] = useState("");
   const [selectedPlayers, setSelectedPlayers] = useState("");
-  const [selectedSort, setSelectedSort] = useState("");
+  const [selectedSort, setSelectedSort] = useState({critera: '', label: ''});
 
   /** Adds on whatever selected difficulty filter value is */
   const [response, error] = useGet(
@@ -41,7 +42,7 @@ function FilterBar() {
 
   useEffect(() => {
     setParameters(
-      `?difficulty=${selectedDifficulty}&age=${selectedAge}&duration=${selectedDuration}&genre=${selectedGenre}&number_of_players=${selectedPlayers}&sort_by=${selectedSort}`
+      `?difficulty=${selectedDifficulty}&age=${selectedAge}&duration=${selectedDuration}&genre=${selectedGenre}&number_of_players=${selectedPlayers}&sort_by=${selectedSort.criteria}`
     );
   }, [searchClicked]);
 
@@ -73,8 +74,8 @@ function FilterBar() {
     setSearchClicked(!searchClicked);
   }
 
-  function handleSort(criteria) {
-    setSelectedSort(criteria);
+  function handleSort(criteria, label) {
+    setSelectedSort({critera: criteria, label: label});
     setSearchClicked(!searchClicked)
   }
 
@@ -117,6 +118,17 @@ function FilterBar() {
           </button> */}
             <SortByButton handleSort={handleSort} />
           </div>
+
+          <div>
+          {selectedPlayers && <Badge label={`${selectedPlayers} players`}/>}
+          {selectedDifficulty && <Badge label={selectedDifficulty}/>}
+          {selectedAge && <Badge label={`${selectedAge}+`}/>}
+          {selectedDuration && <Badge label={`${selectedDuration} mins`}/>}
+          {selectedGenre && <Badge label={selectedGenre}/>}
+          {selectedSort.label && <Badge label={`Sort ${selectedSort.label}`}/>}
+          </div>
+          
+
           {games.length > 0 ? (
             <GameCardList games={games} />
           ) : (
