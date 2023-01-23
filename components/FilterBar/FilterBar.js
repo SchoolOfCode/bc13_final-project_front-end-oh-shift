@@ -127,6 +127,7 @@ function FilterBar() {
 
 
           <div className="flex flex-wrap w-96">
+
           {selectedPlayers.label && 
             <label htmlFor="my-drawer">
               <Badge label={`${selectedPlayers.label} players`}/>
@@ -223,6 +224,7 @@ function FilterBar() {
               </button>
             </a>
           </div>
+
         </div>
       </div>
 
