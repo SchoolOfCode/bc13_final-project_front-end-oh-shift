@@ -8,6 +8,7 @@ import capitaliseWord from "../../functions/capitaliseWord";
 import SearchBar from "../Searchbar/SearchBar.js";
 import SortByButton from "../SortByButton/SortByButton.js";
 import Badge from "../Badge/Badge.js";
+import Stars from "../Stars/Stars.js";
 
 function FilterBar() {
   /**States related to light mode, darkmode theme */
@@ -26,6 +27,7 @@ function FilterBar() {
   const [selectedDuration, setSelectedDuration] = useState({value: '', label: ''});
   const [selectedGenre, setSelectedGenre] = useState({value: '', label: ''});
   const [selectedPlayers, setSelectedPlayers] = useState({value: '', label: ''});
+  const [selectedRating, setSelectedRating] = useState({value: '', label: ''});
   const [selectedSort, setSelectedSort] = useState({value: '', label: ''});
 
   /**States related to searching the game list/ collection */
@@ -39,7 +41,6 @@ function FilterBar() {
 
   useEffect(() => {
     setGames(response);
-    console.log('this is set games', games)
   }, [response]);
 
 
@@ -61,8 +62,9 @@ function FilterBar() {
   
   useEffect(() => {
     setParameters(
-      `?difficulty=${selectedDifficulty.value}&age=${selectedAge.value}&duration=${selectedDuration.value}&genre=${selectedGenre.value}&number_of_players=${selectedPlayers.value}&title=${userInput}&sort_by=${selectedSort.value}`
-    );
+      `?difficulty=${selectedDifficulty.value}&age=${selectedAge.value}&duration=${selectedDuration.value}&genre=${selectedGenre.value}&number_of_players=${selectedPlayers.value}&rating=${selectedRating.value}&title=${userInput}&sort_by=${selectedSort.value}`
+    )
+    console.log('this is params', parameters);
   }, [searchClicked]);
 
   useEffect(() => {
@@ -182,6 +184,13 @@ function FilterBar() {
           {selectedGenre.label &&
             <label htmlFor="my-drawer">
             <Badge label={capitaliseWord(selectedGenre.label)}/>
+            </label>}
+
+            {selectedRating.label &&
+            <label htmlFor="my-drawer">
+            <Badge label={selectedRating.label}
+              backgroundColor={'ffffff'}
+            />
             </label>}
 
           {selectedSort.label && 
@@ -359,7 +368,25 @@ function FilterBar() {
             />
           </li>
           <li>
-            <a>Review</a>
+            <Dropdown
+              options={[
+                { value: "all", label: "All" },
+                { value: 1, label: Stars({rating:1}) },
+                { value: 2, label: Stars({rating:2}) },
+                { value: 3, label: Stars({rating:3}) },
+                { value: 4, label: Stars({rating:4}) },
+                { value: 5, label: Stars({rating:5}) },
+              ]}
+              dropdownName="Rating"
+              onChange={(inputValue) => {
+                if (!inputValue) {
+                  setSelectedRating({value: '', label: ''});
+                } else {
+                  setSelectedRating(inputValue);
+                }
+              }}
+              isMulti={false}
+            />
           </li>
           <div
             style={{

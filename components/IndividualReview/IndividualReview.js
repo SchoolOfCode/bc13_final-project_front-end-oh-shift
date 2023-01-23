@@ -25,7 +25,7 @@ export default function IndividualReview({review, handleDelete}){
           >
         <div className="avatar">
               <div className="w-8 mask mask-hexagon">
-                <img src={review.user_picture} alt={review.user_given_name}/>
+                <img src={review?.user_picture} alt={review.user_given_name}/>
               </div>
             </div>
               <h5 style={{paddingTop:'0.1rem'}}>{capitaliseWord(review.user_given_name)}</h5>

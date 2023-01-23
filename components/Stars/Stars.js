@@ -1,5 +1,9 @@
 export default function Stars({rating}){
-    if (rating === 1) {
+  console.log('this is rating', rating)
+  console.log('this is type of rating', typeof rating)
+
+
+    if (rating <= 1) {
         return (
 <div className="flex flow">
   <img className="mask mask-star-2 rating-xs" src="https://i.ibb.co/yVzvswy/F3-A712-1.png" />
@@ -10,7 +14,7 @@ export default function Stars({rating}){
 </div>
     )}
 
- if (rating === 2) {
+ if (rating <= 2) {
     return (
 <div className="flex flow">
             <img className="mask mask-star-2 rating-xs" src="https://i.ibb.co/yVzvswy/F3-A712-1.png" />
@@ -21,7 +25,7 @@ export default function Stars({rating}){
 </div>
 )}
 
- if (rating === 3) {
+ if (rating <= 3) {
     return (
 <div className="flex flow">
 <img className="mask mask-star-2 rating-xs" src="https://i.ibb.co/yVzvswy/F3-A712-1.png" />
@@ -32,7 +36,7 @@ export default function Stars({rating}){
 </div>
 )}
 
- if (rating === 4) {
+ if (rating <= 4) {
     return (
 <div className="flex flow">
 <img className="mask mask-star-2 rating-xs" src="https://i.ibb.co/yVzvswy/F3-A712-1.png" />
@@ -43,7 +47,7 @@ export default function Stars({rating}){
 </div>
 )}
 
- if (rating === 5) {
+ if (rating <= 5) {
     return (
 <div className="flex flow">
 <img className="mask mask-star-2 rating-xs" src="https://i.ibb.co/yVzvswy/F3-A712-1.png" />
