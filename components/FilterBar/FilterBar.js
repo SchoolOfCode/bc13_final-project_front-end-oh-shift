@@ -101,6 +101,37 @@ function FilterBar() {
 
   return (
     <>
+
+<a id='top'>
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  }}>
+
+
+  <label
+    style={{ marginBottom: "2rem", height: "auto"}}
+    htmlFor="my-drawer"
+    className="btn btn-secondary drawer-button rounded w-40"
+  >
+    Filter By
+  </label>
+  
+  <SortByButton handleSort={handleSort} />
+</div></a>
+
+<SearchBar
+  userInput={userInput}
+  handleUserInput={handleUserInput}
+  setUserInput={setUserInput}
+  setSearchClicked={setSearchClicked}
+  searchClicked={searchClicked}
+></SearchBar>
+
+
     <div
       className={darkMode ? "darkMode drawer" : "lightMode drawer"}
       style={{ width: "100vw", height: "100vh" }}
@@ -120,34 +151,7 @@ function FilterBar() {
       
         <div>
           {/* <label style={{marginBottom:"2rem", width:"8rem"}}/> */}
-          <a id='top'>
-
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-            }}>
-
           
-            <label
-              style={{ marginBottom: "2rem", height: "auto"}}
-              htmlFor="my-drawer"
-              className="btn btn-secondary drawer-button rounded w-40"
-            >
-              Filter By
-            </label>
-            
-            <SortByButton handleSort={handleSort} />
-          </div></a>
-
-          <SearchBar
-            userInput={userInput}
-            handleUserInput={handleUserInput}
-            setUserInput={setUserInput}
-            setSearchClicked={setSearchClicked}
-            searchClicked={searchClicked}
-          ></SearchBar>
 
           <div className="flex flex-wrap w-96">
 
