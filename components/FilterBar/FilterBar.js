@@ -5,16 +5,19 @@ import { useGet } from "../customHooks/useGet.js";
 import { any } from "prop-types";
 import { DarkModeWrapper } from "../../pages/_app";
 import capitaliseWord from "../../functions/capitaliseWord";
+import SearchBar from "../Searchbar/SearchBar.js";
 import SortByButton from "../SortByButton/SortByButton.js";
 import Badge from "../Badge/Badge.js";
 
 function FilterBar() {
+  /**States related to light mode, darkmode theme */
   let { darkMode, setDarkMode } = useContext(DarkModeWrapper);
   const [games, setGames] = useState([]);
   const [parameters, setParameters] = useState("");
   const [searchClicked, setSearchClicked] = useState(false);
   const [clearClicked, setClearClicked] = useState(false);
 
+  /** States related to filtering values & options */
   const [difficultyOptions, setDifficultyOptions] = useState([]);
   const [durationOptions, setDurationOptions] = useState([]);
   const [genreOptions, setGenreOptions] = useState([]);
@@ -24,6 +27,10 @@ function FilterBar() {
   const [selectedGenre, setSelectedGenre] = useState({value: '', label: ''});
   const [selectedPlayers, setSelectedPlayers] = useState({value: '', label: ''});
   const [selectedSort, setSelectedSort] = useState({value: '', label: ''});
+
+  /**States related to searching the game list/ collection */
+  const [userInput, setUserInput] = useState("");
+  const [search, setSearch] = useState("");
 
   /** Adds on whatever selected difficulty filter value is */
   const [response, error] = useGet(
@@ -35,14 +42,26 @@ function FilterBar() {
     console.log('this is set games', games)
   }, [response]);
 
+
+  /**Function to handle userInput */
+  function handleUserInput(e) {
+    setUserInput(e.target.value.toLowerCase());
+    setSearchClicked(!searchClicked);
+  }
+
+  //if userInput- then set search value to '' (empty string)
+
+  /** Function to take in search value & re-render the game collection page */
+
   //Function to change URl
   //line 17- change to deafault URL
   // old URL + added placeholders
   // changes URL
   // dependent on onClick function
+  
   useEffect(() => {
     setParameters(
-      `?difficulty=${selectedDifficulty.value}&age=${selectedAge.value}&duration=${selectedDuration.value}&genre=${selectedGenre.value}&number_of_players=${selectedPlayers.value}&sort_by=${selectedSort.value}`
+      `?difficulty=${selectedDifficulty.value}&age=${selectedAge.value}&duration=${selectedDuration.value}&genre=${selectedGenre.value}&number_of_players=${selectedPlayers.value}&title=${userInput}&sort_by=${selectedSort.value}`
     );
   }, [searchClicked]);
 
@@ -72,6 +91,7 @@ function FilterBar() {
   function handleSearch() {
     document.getElementById("my-drawer").click();
     setSearchClicked(!searchClicked);
+
   }
 
   function handleSort(value, label) {
@@ -85,7 +105,7 @@ function FilterBar() {
       className={darkMode ? "darkMode drawer" : "lightMode drawer"}
       style={{ width: "100vw", height: "100vh" }}
     >
-  
+
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
       <div
         style={{
@@ -96,6 +116,7 @@ function FilterBar() {
         }}
         className="drawer-content"
       >
+
       
         <div>
           {/* <label style={{marginBottom:"2rem", width:"8rem"}}/> */}
@@ -106,8 +127,8 @@ function FilterBar() {
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-between",
-            }}
-          >
+            }}>
+
           
             <label
               style={{ marginBottom: "2rem", height: "auto"}}
@@ -116,15 +137,17 @@ function FilterBar() {
             >
               Filter By
             </label>
-            {/* <button style={{marginBottom:"2rem", heigth:"auto", width:"45%"}}
-            htmlFor="my-drawer"
-            className="btn btn-secondary drawer-button roun`ded"
-          >
-            Sort By
-          </button> */}
+            
             <SortByButton handleSort={handleSort} />
           </div></a>
 
+          <SearchBar
+            userInput={userInput}
+            handleUserInput={handleUserInput}
+            setUserInput={setUserInput}
+            setSearchClicked={setSearchClicked}
+            searchClicked={searchClicked}
+          ></SearchBar>
 
           <div className="flex flex-wrap w-96">
 
@@ -225,6 +248,7 @@ function FilterBar() {
             </a>
           </div>
 
+
         </div>
       </div>
 
@@ -258,6 +282,7 @@ function FilterBar() {
                   setSelectedPlayers({value: '', label: ''});
                 } else {
                   setSelectedPlayers(inputValue);
+
                 }
               }}
               isMulti={false}
