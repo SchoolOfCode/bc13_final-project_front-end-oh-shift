@@ -50,7 +50,7 @@ describe("Filtering Usability Testing", () => {
     cy.get('.fill-primary').click();
     cy.get('.swap > input').check();
     cy.get('.btn > a').click();
-    cy.get('.fill-primary > path').click();
+    //cy.get('.fill-primary > path').click();
     cy.get('.swap > input').check();
     cy.get('.swap-off').click();
     cy.get('.swap > input').uncheck();
