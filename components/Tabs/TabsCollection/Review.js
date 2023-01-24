@@ -76,7 +76,6 @@ function handleCancel() {
 setReviewUpdated(!reviewUpdated)}
 }
 
-console.log('this is reviewdata', reviewData)
 
   return (
     <div>
@@ -87,8 +86,7 @@ console.log('this is reviewdata', reviewData)
           maxWidth: "400px",
           maxHeight: "30rem",
           overflow: 'auto',
-          borderTopLeftRadius: "0px",
-          padding:"32px"
+          borderTopLeftRadius: "0px"
         }}
       >
         <div style={{padding:"32px"}}>
@@ -106,23 +104,28 @@ console.log('this is reviewdata', reviewData)
         handleCancel={handleCancel}
         value={reviewText}
         /> : (<><p>You must be logged in to leave a review.</p>
+
         <button
             style={{ marginTop: "2rem", marginBottom: "1rem", alignItem:"center"}}
-            className=
-            
-               "btn btn-primary btn-outline rounded">
-
-
+            className="btn btn-primary btn-outline rounded">
           <Link href="/api/auth/login">Login</Link>
           </button>
           
           </>)}
-        
+        <div className='rounded'
+        style={{
+          backgroundColor: 'white',
+          display:'flex',
+          flexDirection:'column',
+          padding:'1rem'
+
+        }}
+        >
             {reviewData ? reviewData?.map((review) => (
               <IndividualReview review={review} key={review.review_id} handleDelete={()=>handleDelete(review.review_id)}/>
         )) : <p>Getting reviews...</p> }
         
-      
+      </div>
 
         </div>
       </div>

@@ -7,18 +7,26 @@ export default function AddReview({title, handleRating, handleSubmit, handleText
     <h3 style={{ marginBottom: "0.5rem" }}>
           <b>Review the game</b>
         </h3>
-        <StarRating handleRating={handleRating}/>
+        <StarRating handleRating={handleRating} />
         <TextInput placeholderText={`What did you think of ${title}?`} handleTextInput={handleTextInput} value={value}/>
         <div 
         style={{
             display: "flex",
             flexDirection:"row",
-            justifyContent:"space-between"
+            justifyContent: "flex-end",
+            gap: "1rem",
+    marginBottom: "3rem"
         }}
         >
-        <button className="btn btn-outline btn-primary rounded" onClick={handleCancel}>Cancel</button>
-        <button className="btn btn-primary rounded" onClick={handleSubmit}>Submit</button>
+        <button style={{backgroundColor: "rgba(255,255,255,0)", color:'#FF6201', border:'solid 0.1rem #FF6201', padding:'0.2rem'}} className="btn-primary rounded w-16 h-8 outline-primary" onClick={handleCancel}>Cancel</button>
+        <button style={{padding:'0.2rem'}} className="btn-primary rounded w-16 h-8" onClick={handleSubmit}>Submit</button>
         </div>
+        <h3 style={{ marginBottom: "0.5rem" }}>
+          <b>Read reviews</b>
+        </h3>
         </>
     )
 }
+
+
+<input type="text" placeholder="Type here" className="input input-bordered input-accent w-full max-w-xs" />
