@@ -3,13 +3,13 @@ import capitaliseWord from "../../functions/capitaliseWord"
 export default function Badge({label, onClick, backgroundColor}){
     let icon;
 
-    if (label.toLowerCase() == 'easy' ) {
+    if (label == 'easy' || label == 'Easy' ) {
         backgroundColor='#50FFB1' 
     }
-    else if (label.toLowerCase() == 'intermediate' ) {
+    else if (label == 'intermediate' || label == "Intermediate") {
         backgroundColor='#F3A712'
     }
-    else if (label.toLowerCase() == 'hard') {
+    else if (label == 'hard' || label == 'Hard') {
         backgroundColor='#FF6201'
     }
 
