@@ -10,7 +10,11 @@ function AddNewGame(){
     const [genreList, setGenreList] = useState([])
     const [searchValue, setSearchValue] = useState('')
 
+    const [newGame, setNewGame] = ({title: '', year_published: '', quantity: '', minimum_players: '', maximum_players: '', genre: [], duration: '', difficulty: '', minimum_age: '', description: '', packaging_image_url: '', artwork_image_url: '', rules: '', barcode: '', location: '', video_rules: ''})
+
+
     useEffect(()=>{
+        console.log('this is search term', searchTerm)
         async function getGameBySearch(searchTerm) {
           const response = await fetch(`https://api.boardgameatlas.com/api/search?name=${searchTerm}&pretty=true&client_id=n3dHy4VNyw&fuzzy_match=true`, {method: 'GET', headers: {accept: 'application/JSON'},})
           console.log('this is response', response)
@@ -55,12 +59,12 @@ function AddNewGame(){
 
     function handleSubmit(){
         alert('Submit has been clicked!')
-        object:
-        {title: gameInfo}
+        setNewGame({title: gameInfo.name, year_published: gameInfo.year_published, quantity: 1, minimum_players: gameInfo.min_players, maximum_players: '', genre: [], duration: '', difficulty: '', minimum_age: '', description: '', packaging_image_url: '', artwork_image_url: '', rules: '', barcode: '', location: '', video_rules: ''})
     }
 
-    function handleSearch(){
-        
+    function handleTextInput(e){
+        console.log(e.target.value)
+            setSearchValue(e.target.value)
     }
 
     return(
@@ -69,9 +73,8 @@ function AddNewGame(){
         <h1>
             Add a New Game
         </h1>
-        <TextInput placeholderText='Search for a game'onChange={(e)=> {setSearchValue(e.target.value)}}/>
+        <TextInput placeholderText='Search for a game' handleTextInput={handleTextInput}/>
         <button onClick={()=>{setSearchTerm(searchValue)}}>🔍</button>
-        <button onClick={()=>{alert(searchValue)}}>🔍</button>
             {(gameInfo) ?
             <>
             <NewGameCard gameInfo={gameInfo} handleSubmit={handleSubmit} genres={genres} getDifficulty={getDifficulty} generateLocation={generateLocation} getGenre={getGenre}/>

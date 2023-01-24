@@ -8,8 +8,8 @@ export default function NewGameCard({gameInfo, handleSubmit, getDifficulty, gene
   <figure><img src={gameInfo.image_url} alt={gameInfo.name} /></figure>
   <div className="card-body">
   <h2 className="card-title">{gameInfo.name}!</h2>
-  <div> <label>quantity:</label>
-            <input type='number' placeholder='enter stock quantity' defaultValue = '1' min='0'></input>
+  {/* <div> <label>quantity:</label>
+            <input type='number' placeholder='enter stock quantity' defaultValue = '1' min='0'></input> */}
             <button className="btn btn-primary" onClick={handleSubmit}>Add to Library</button>
             </div>
  
