@@ -205,7 +205,7 @@ function FilterBar() {
                 className="flex justify-center items-center"
               >
                 <div
-                  className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full"
+                  className="spinner-border animate-spin inline-block w-10 h-10 border-4 rounded-full"
                   role="status"
                 >
                   <span className="visually-hidden"></span>
@@ -215,8 +215,8 @@ function FilterBar() {
 
             {games && games.length < 1 && (
               <>
-                <div className="alert alert-error shadow-lg mt-2">
-                  <div>
+                <div className="mt-2 mb-64 h-8 rounded bg-error">
+                  <div style={{display:'flex', flexDirection:'row', gap: '0.5rem', padding:'0.2rem'}}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="stroke-current flex-shrink-0 h-6 w-6"
@@ -230,9 +230,10 @@ function FilterBar() {
                         d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
-                    <span>Nothing from our library matches your filters.</span>
+Nothing from our library matches your filters.
+</div>
                   </div>
-                </div>
+                
               </>
             )}
 
