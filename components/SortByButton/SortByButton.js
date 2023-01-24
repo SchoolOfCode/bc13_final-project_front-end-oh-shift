@@ -10,12 +10,12 @@ function SortByButton({handleSort}) {
 
       <ul
         tabIndex={0}
-        className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-40"
+        className="dropdown-content menu p-4 shadow bg-base-100 rounded-box w-40"
       >
-        <li onClick={()=>handleSort('az', 'A-Z')}>A-Z</li>
-        <li onClick={()=>handleSort('za', 'Z-A')}>Z-A</li>
-        <li onClick={()=>handleSort('new', 'Newest')}>Newest</li>
-        <li onClick={()=>handleSort('old', 'Oldest')}>Oldest</li>
+        <li style={{marginBottom: '0.3rem'}} onClick={()=>handleSort('az', 'A-Z')}>A-Z</li>
+        <li style={{marginBottom: '0.3rem'}} onClick={()=>handleSort('za', 'Z-A')}>Z-A</li>
+        <li style={{marginBottom: '0.3rem'}} onClick={()=>handleSort('new', 'Newest')}>Newest</li>
+        <li style={{marginBottom: '0.3rem'}} onClick={()=>handleSort('old', 'Oldest')}>Oldest</li>
         <li onClick={()=>handleSort('rating', 'Top Rated')}>Top Rated</li>
       </ul>
     </div>

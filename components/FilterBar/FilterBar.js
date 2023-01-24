@@ -365,9 +365,9 @@ function FilterBar() {
                 isMulti={false}
               />
             </li>
-            <li>
+            {/* <li>
               <a>Review</a>
-            </li>
+            </li> */}
             <div
               style={{
                 display: "flex",
