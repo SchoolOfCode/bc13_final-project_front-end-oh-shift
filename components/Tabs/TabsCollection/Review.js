@@ -106,15 +106,16 @@ setReviewUpdated(!reviewUpdated)}
         /> : (<><p>You must be logged in to leave a review.</p>
 
         <button
-            style={{ marginTop: "2rem", marginBottom: "1rem", alignItem:"center"}}
+            style={{ marginTop: "1rem", marginBottom: "3rem", alignItem:"center"}}
             className="btn btn-primary btn-outline rounded">
           <Link href="/api/auth/login">Login</Link>
           </button>
+          <h4 style={{marginBottom:"1rem"}}><b>Reviews</b></h4>
           
           </>)}
         <div className='rounded'
         style={{
-          backgroundColor: 'white',
+          backgroundColor:" rgba(255,255,255,0.5)",
           display:'flex',
           flexDirection:'column',
           padding:'1rem'

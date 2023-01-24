@@ -22,6 +22,7 @@ export default function IndividualReview({review, handleDelete}){
             
             
           }}
+      
           >
         <div className="avatar">
               <div className="w-8 mask mask-hexagon">
@@ -43,16 +44,19 @@ export default function IndividualReview({review, handleDelete}){
               </div>
 
               <div style={{display:'flex', flexDirection:'row'}}>
-              <p style={{marginBottom:'4rem'}}>           
+              <p style={{marginBottom:'1rem'}}>           
               
                 {review.review_text}</p>
-                
               {(user?.sub == review.user_id) && 
                 <button 
                  className="btn rounded btn-xs" onClick={handleDelete}>
                 <span style ={{display:'flex', justifyContent:'flex-end'}} className="material-symbols-outlined">Delete</span>
                 </button>}
 </div>
+            
+  <div className="divider"></div> 
+
+
        </div>
     )
 }
