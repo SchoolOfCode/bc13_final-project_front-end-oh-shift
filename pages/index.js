@@ -5,7 +5,7 @@ import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
 import Header from "../components/Header/Header";
 import HomePage from "../components/HomePage/HomePage";
-import Footer from "../components/Footer/Footer";
+// import Footer from "../components/Footer/Footer";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -23,10 +23,10 @@ export default function Home() {
 
         <div className={styles.cardComponentSection}>
           <div>
-            <Header/>
+            {/* <Header/> */}
 
             <HomePage/>
-            <Footer/>
+            {/* <Footer/> */}
           </div>
         </div>
       </main>
