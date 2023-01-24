@@ -284,6 +284,7 @@ function FilterBar() {
             }
           >
             <li>
+            <h1 className={darkMode? "text-white":"text-black"}><b>Filters</b></h1>
               <Dropdown
                 options={[
                   { value: "", label: "All" },
