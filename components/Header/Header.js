@@ -67,9 +67,7 @@ function Header() {
             <li>
               <Link href="/Games">Games</Link>
             </li>
-            <li>
-              <Link href="/About">About</Link>
-            </li>
+      
           </ul>
         </div>
       </div>
