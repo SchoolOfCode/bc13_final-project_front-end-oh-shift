@@ -7,7 +7,9 @@ export default function TextInput({placeholderText, handleTextInput, value}){
         >
     <input type="text"
     placeholder={placeholderText ? placeholderText : 'Type here...'}
-    className="input w-full max-w-xs h-8"
+    className="input input-bordered input-secondary w-full max-w-xs h-8"
+
+    
     onChange={handleTextInput}
     value={value}
     />

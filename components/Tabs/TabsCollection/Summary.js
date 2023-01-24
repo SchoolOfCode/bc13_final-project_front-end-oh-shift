@@ -70,7 +70,7 @@ function Summary({ game }) {
               style={{
                 border: "solid 1px white",
                 borderRadius: "5px",
-                width: "10rem",
+                width: "10.1rem",
                 height: "2rem",
                 textAlign: "center",
                 position: "relative",

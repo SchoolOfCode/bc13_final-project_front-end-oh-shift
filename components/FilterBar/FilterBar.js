@@ -123,13 +123,14 @@ function FilterBar() {
           className="drawer-content"
         >
           <div>
-            <div className={darkMode ? "filterSection rounded bg-accent":"filterSection rounded bg-white"} style={{ position:"sticky" ,top:"0", zIndex:"9999", padding: "1.5rem 0rem 1.5rem 0rem"}}>
+            <div>
               <a id="top">
                 <div
                   style={{
                     display: "flex",
                     flexDirection: "row",
                     justifyContent: "space-between",
+                    padding: "0.5rem"
                   }}
                 >
                   <label
@@ -201,14 +202,14 @@ function FilterBar() {
                   className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full"
                   role="status"
                 >
-                  <span className="visually-hidden">Loading...</span>
+                  <span className="visually-hidden"></span>
                 </div>
               </div>
             )}
 
             {games && games.length < 1 && (
               <>
-                <div className="alert alert-error shadow-lg">
+                <div className="alert alert-error shadow-lg mt-2">
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -364,9 +365,9 @@ function FilterBar() {
                 isMulti={false}
               />
             </li>
-            <li>
+            {/* <li>
               <a>Review</a>
-            </li>
+            </li> */}
             <div
               style={{
                 display: "flex",
