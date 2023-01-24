@@ -130,6 +130,7 @@ function FilterBar() {
                     display: "flex",
                     flexDirection: "row",
                     justifyContent: "space-between",
+                    padding: "0.5rem"
                   }}
                 >
                   <label
@@ -208,7 +209,7 @@ function FilterBar() {
 
             {games && games.length < 1 && (
               <>
-                <div className="alert alert-error shadow-lg">
+                <div className="alert alert-error shadow-lg mt-2">
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -364,9 +365,9 @@ function FilterBar() {
                 isMulti={false}
               />
             </li>
-            <li>
+            {/* <li>
               <a>Review</a>
-            </li>
+            </li> */}
             <div
               style={{
                 display: "flex",

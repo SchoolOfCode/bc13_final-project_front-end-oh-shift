@@ -1,9 +1,12 @@
 import capitaliseWord from '../../functions/capitaliseWord.js'
 import Stars from '../Stars/Stars'
 import { useUser } from "@auth0/nextjs-auth0/client";
+import {useContext} from 'react'
+import {DarkModeWrapper} from '../../pages/_app'
 
 
 export default function IndividualReview({review, handleDelete}){
+  let {darkMode, setDarkMode}= useContext(DarkModeWrapper)
   const { user} = useUser();
 
 
@@ -19,9 +22,9 @@ export default function IndividualReview({review, handleDelete}){
             flexDirection:'row',
             gap:'1rem',
             marginBottom: '1.5rem',
-            
-            
-          }}
+            }}
+            className={darkMode ? " text-white" : "text-black"}
+      
           >
         <div className="avatar">
               <div className="w-8 mask mask-hexagon">
@@ -43,16 +46,19 @@ export default function IndividualReview({review, handleDelete}){
               </div>
 
               <div style={{display:'flex', flexDirection:'row'}}>
-              <p style={{marginBottom:'4rem'}}>           
+              <p className={darkMode ? " text-white" : "text-black"} style={{marginBottom:'1rem'}}>           
               
                 {review.review_text}</p>
-                
               {(user?.sub == review.user_id) && 
                 <button 
-                 className="btn rounded btn-xs" onClick={handleDelete}>
+                 className="rounded btn-xs" onClick={handleDelete}>
                 <span style ={{display:'flex', justifyContent:'flex-end'}} className="material-symbols-outlined">Delete</span>
                 </button>}
 </div>
+            
+  <div className="divider"></div> 
+
+
        </div>
     )
 }

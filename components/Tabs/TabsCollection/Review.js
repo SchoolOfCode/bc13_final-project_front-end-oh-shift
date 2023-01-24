@@ -1,11 +1,14 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect, useContext} from 'react'
 import IndividualReview from '../../IndividualReview/IndividualReview'
 import Link from 'next/link.js'
 import AddReview from '../../AddReview/AddReview'
 import { useUser } from "@auth0/nextjs-auth0/client";
+import {DarkModeWrapper} from '../../../pages/_app'
 
 
 function Review({title, id}) {
+  let {darkMode, setDarkMode}= useContext(DarkModeWrapper)
+
 const [reviewData, setReviewData] = useState([]);
 const [reviewUpdated, setReviewUpdated] = useState(false)
 const [rating, setRating] = useState('')
@@ -80,7 +83,7 @@ setReviewUpdated(!reviewUpdated)}
   return (
     <div>
       <div
-        className="card w-96 bg-base-100 shadow-xl bg-zinc-200"
+        className= {darkMode ? "card w-96 bg-base-100 shadow-xl bg-accent" : "card w-96 bg-base-100 shadow-xl bg-zinc-200" }
         style={{
           marginBottom: "2rem",
           maxWidth: "400px",
@@ -90,7 +93,7 @@ setReviewUpdated(!reviewUpdated)}
         }}
       >
         <div style={{padding:"32px"}}>
-        <h2 className="card-title" style={{ marginBottom: "1rem" }}>
+        <h2 className= {darkMode ? "card-title text-white" : "card-title"} style={{ marginBottom: "1rem" }}>
           {title}
           <img className="mask mask-star-2 rating-xs" src="https://i.ibb.co/yVzvswy/F3-A712-1.png" />
           {reviewData[0]?.average_rating}
@@ -103,18 +106,19 @@ setReviewUpdated(!reviewUpdated)}
         handleSubmit={handleSubmit}
         handleCancel={handleCancel}
         value={reviewText}
-        /> : (<><p>You must be logged in to leave a review.</p>
+        /> : (<><p className={darkMode ? " text-white" : "text-black"}>You must be logged in to leave a review.</p>
 
         <button
-            style={{ marginTop: "2rem", marginBottom: "1rem", alignItem:"center"}}
+            style={{ marginTop: "1rem", marginBottom: "3rem", alignItem:"center"}}
             className="btn btn-primary btn-outline rounded">
           <Link href="/api/auth/login">Login</Link>
           </button>
+          <h4 className={darkMode ? " text-white" : "text-black"} style={{marginBottom:"1rem"}}><b>Reviews</b></h4>
           
           </>)}
         <div className='rounded'
         style={{
-          backgroundColor: 'white',
+          backgroundColor:" rgba(255,255,255,0.5)",
           display:'flex',
           flexDirection:'column',
           padding:'1rem'

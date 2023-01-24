@@ -1,10 +1,12 @@
 import StarRating from '../StarRating/StarRating'
 import TextInput from '../TextInput/TextInput.js'
+import {useContext} from 'react'
+import { DarkModeWrapper } from '../../pages/_app'
 
 export default function AddReview({title, handleRating, handleSubmit, handleTextInput, handleCancel, value}){
-
+  let { darkMode, setDarkMode } = useContext(DarkModeWrapper);
     return(<>
-    <h3 style={{ marginBottom: "0.5rem" }}>
+    <h3 className={darkMode ? "text-white" : "text-black"} style={{ marginBottom: "0.5rem" }}>
           <b>Review the game</b>
         </h3>
         <StarRating handleRating={handleRating} />
@@ -21,8 +23,8 @@ export default function AddReview({title, handleRating, handleSubmit, handleText
         <button style={{backgroundColor: "rgba(255,255,255,0)", color:'#FF6201', border:'solid 0.1rem #FF6201', padding:'0.2rem'}} className="btn-primary rounded w-16 h-8 outline-primary" onClick={handleCancel}>Cancel</button>
         <button style={{padding:'0.2rem'}} className="btn-primary rounded w-16 h-8" onClick={handleSubmit}>Submit</button>
         </div>
-        <h3 style={{ marginBottom: "0.5rem" }}>
-          <b>Read reviews</b>
+        <h3 className={darkMode ? "text-white" : "text-black"} style={{ marginBottom: "0.5rem" }}>
+          <b>Reviews</b>
         </h3>
         </>
     )
