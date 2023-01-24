@@ -21,6 +21,8 @@ function Summary({ game }) {
           maxWidth: "400px",
           maxHeight: "500px",
           borderTopLeftRadius: "0px",
+          marginRight: '0px',
+          marginLeft: '0px'
         }}
       >
         <figure>

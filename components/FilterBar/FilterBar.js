@@ -8,6 +8,8 @@ import capitaliseWord from "../../functions/capitaliseWord";
 import SearchBar from "../Searchbar/SearchBar.js";
 import SortByButton from "../SortByButton/SortByButton.js";
 import Badge from "../Badge/Badge.js";
+import Header from "../Header/Header.js";
+import Footer from "../Footer/footer.js";
 
 function FilterBar() {
   /**States related to light mode, darkmode theme */
@@ -117,12 +119,15 @@ function FilterBar() {
           style={{
             display: "flex",
             justifyContent: "center",
-            marginTop: "2rem",
+            // marginTop: "2rem",
             float: "end",
+            width: "100vw",
+            height: '100vh'
           }}
           className="drawer-content"
         >
           <div>
+    <Header/>
             <div>
               <a id="top">
                 <div
@@ -130,7 +135,8 @@ function FilterBar() {
                     display: "flex",
                     flexDirection: "row",
                     justifyContent: "space-between",
-                    padding: "0.5rem"
+                    marginTop:'1rem'
+                    // padding: "0.5rem"
                   }}
                 >
                   <label
@@ -231,7 +237,7 @@ function FilterBar() {
             )}
 
             {games && <GameCardList games={games} />}
-
+            <Footer/>
             <div style={{ position: "fixed", bottom: "6vh", left: " 80vw" }}>
               <a href="#top">
                 <button
@@ -364,6 +370,7 @@ function FilterBar() {
                 }}
                 isMulti={false}
               />
+           
             </li>
             {/* <li>
               <a>Review</a>
