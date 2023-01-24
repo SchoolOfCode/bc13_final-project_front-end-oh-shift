@@ -130,6 +130,7 @@ function FilterBar() {
                     display: "flex",
                     flexDirection: "row",
                     justifyContent: "space-between",
+                    padding: "0.5rem"
                   }}
                 >
                   <label
