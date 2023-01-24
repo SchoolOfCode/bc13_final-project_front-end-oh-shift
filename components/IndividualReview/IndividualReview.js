@@ -51,7 +51,7 @@ export default function IndividualReview({review, handleDelete}){
                 {review.review_text}</p>
               {(user?.sub == review.user_id) && 
                 <button 
-                 className="btn rounded btn-xs" onClick={handleDelete}>
+                 className="rounded btn-xs" onClick={handleDelete}>
                 <span style ={{display:'flex', justifyContent:'flex-end'}} className="material-symbols-outlined">Delete</span>
                 </button>}
 </div>
