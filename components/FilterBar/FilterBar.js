@@ -209,7 +209,7 @@ function FilterBar() {
 
             {games && games.length < 1 && (
               <>
-                <div className="alert alert-error shadow-lg">
+                <div className="alert alert-error shadow-lg mt-2">
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
