@@ -123,7 +123,7 @@ function FilterBar() {
           className="drawer-content"
         >
           <div>
-            <div className={darkMode ? "filterSection rounded bg-accent":"filterSection rounded bg-white"} style={{ position:"sticky" ,top:"0", zIndex:"9999", padding: "1.5rem 0rem 1.5rem 0rem"}}>
+            <div>
               <a id="top">
                 <div
                   style={{
