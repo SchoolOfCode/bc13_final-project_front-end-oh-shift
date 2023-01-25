@@ -205,8 +205,9 @@ function FilterBar() {
                 className="flex justify-center items-center"
               >
                 <div
-                  className="spinner-border animate-spin inline-block w-10 h-10 border-4 rounded-full"
+                  className="spinner-border animate-spin inline-block w-16 h-16 border-4 rounded-full"
                   role="status"
+                  style={{borderColor:'orange', marginBottom: '8rem'}}
                 >
                   <span className="visually-hidden"></span>
                 </div>
