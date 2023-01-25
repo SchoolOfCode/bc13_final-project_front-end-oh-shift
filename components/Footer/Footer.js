@@ -11,6 +11,7 @@ export default function Footer() {
         className="footer footer-center p-10 text-black"
         style={{ backgroundColor: "#E7E7E7" }}
       >
+
         <div>
           <svg
             width="99"
@@ -62,6 +63,7 @@ export default function Footer() {
               fill="#00272B"
             />
           </svg>
+
 
           <p className="font-bold ">
             STOKKA Ltd. <br />

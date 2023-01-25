@@ -178,7 +178,10 @@ function FilterBar() {
               ></SearchBar>
             </div>
 
-            <div className="flex flex-wrap w-96">
+            <div className="flex flex-wrap w-96" style={{ flexDirection: "Row",
+              // flexWrap: "wrap",
+
+              gap: "0.2rem", marginTop: '1rem'}}>
               {selectedPlayers.label && (
                 <label htmlFor="my-drawer">
                   <Badge label={`${selectedPlayers.label} players`} />
