@@ -8,7 +8,7 @@ import SearchBar from "../Searchbar/SearchBar.js";
 import SortByButton from "../SortByButton/SortByButton.js";
 import Badge from "../Badge/Badge.js";
 import Header from "../Header/Header.js";
-import Footer from "../Footer/footer.js";
+import Footer from "../Footer/Footer.js";
 
 /**
  * it manages all the states and data inside the game page:

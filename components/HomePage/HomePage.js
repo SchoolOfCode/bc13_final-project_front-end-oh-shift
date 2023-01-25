@@ -6,7 +6,7 @@ import Link from "next/link";
 import styles from "../../styles/HomePage.module.css";
 import Carousel from "../Carousel/Carousel.js";
 import { DarkModeWrapper } from "../../pages/_app";
-import Footer from "../Footer/footer";
+import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 
 /**
