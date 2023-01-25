@@ -2,6 +2,11 @@ import React, { useState, useEffect, useContext } from "react";
 import Link from "next/link";
 import { DarkModeWrapper } from "../../pages/_app";
 
+/**
+ * this function allow the user to logout the app
+ * @param {object} user infotmation 
+ * @returns the user avatar and a dropdown to enable the user to logout
+ */
 export default function Account({user}) {
   let {darkMode,setDarkMode}= useContext(DarkModeWrapper);
 
