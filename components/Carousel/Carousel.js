@@ -1,5 +1,8 @@
-import { useState } from "react";
-
+/**
+ * it create a carousel in the home page to display the games available that are stored in the database
+ * @param {object} games - contains all the information regarding each game (like title, video tutorial, istructions etc.)
+ * @returns the carousel that maps through the games in the database and display their packaging images
+ */
 export default function Carousel({games}){
         return (
         <div style={{marginRight:"2rem"}} className="landing-content ">

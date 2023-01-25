@@ -11,7 +11,7 @@ import { DarkModeWrapper } from "../../pages/_app";
  * @param {function} handleTextInput - it was passed down from the review component to allow user to input their text in the imput box and store it's value
  * @param {function} handleCancel - it was passed down from the review component to allow user to clear the input box after he write something
  * @param {string} value - text wrote by the user
- * @returns 
+ * @returns review the game title || starRating component || textInput component || submit and cancel buttons
  */
 export default function AddReview({
   title,
