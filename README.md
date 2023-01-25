@@ -1,4 +1,5 @@
-# STOKKA
+# ![darkmode](https://user-images.githubusercontent.com/111753918/214645458-2a31bac6-a6bf-454a-afb1-fa52b6f380f6.svg)
+
 
 ![GitHub language count](https://img.shields.io/badge/Languages-3-yellowgreen)
 ![Frameworks](https://img.shields.io/badge/Frameworks-3-red)
