@@ -1,9 +1,17 @@
 import React from "react";
 
+/**
+ * it creates a Footer section
+ * @returns a footer section with the stokka logo and some text
+ */
 export default function Footer() {
   return (
     <div>
-      <footer className="footer footer-center p-10 text-black" style={{backgroundColor: "#E7E7E7"}}>
+      <footer
+        className="footer footer-center p-10 text-black"
+        style={{ backgroundColor: "#E7E7E7" }}
+      >
+
         <div>
           <svg
             width="99"
@@ -56,13 +64,13 @@ export default function Footer() {
             />
           </svg>
 
-          <p className="font-bold " >
+
+          <p className="font-bold ">
             STOKKA Ltd. <br />
             Filter to your next adventure with Stokka.
           </p>
           <p>Copyright © 2023 - All right reserved</p>
         </div>
-
       </footer>
     </div>
   );
