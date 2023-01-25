@@ -19,7 +19,7 @@ function About({ image, description, rules, title, video }) {
       <div
         className={darkMode? "card w-96 bg-base-100 shadow-xl bg-accent": "card w-96 bg-base-100 shadow-xl bg-zinc-200" }
         style={{
-          marginBottom: "2rem",
+          marginBottom: "4rem",
           maxWidth: "400px",
           maxHeight: "30rem",
           overflow: 'auto',

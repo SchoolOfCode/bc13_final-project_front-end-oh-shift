@@ -11,7 +11,7 @@ const [tab, setTab] = useState("Summary")
   
   return (
     <>
-    <div className="tabsContainer">
+    <div className="tabsContainer mt-10">
 
 <Tabs setTab={setTab}/>
 </div>
