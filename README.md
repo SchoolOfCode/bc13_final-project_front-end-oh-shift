@@ -30,13 +30,17 @@ The project is still under development and the next updates will focus on the fo
 
 ## 💻 Tech Stack
 
-- React.js
-- Node.js
-- Express.js
-- JavaScript
-- PostgreSQL
-- TailwindCSS
-- Cypress
+**Languages**: CSS3, Javascript, PostgreSQL
+**Libraries**: React.js, TailwindCSS
+**Frameworks**: Next.js, express.js, DaysiUI
+**Server**: Node.js, morgan, pg, nodemon, dotenv
+**Testing**: Jest, Supertest, Cypress, React Testing Library
+**Authentication & Authorisation**: Auth0
+**Deployment**: Render, Netlify
+**Tools**: Trello, Figma, Miro, Excalidraw
+
+
+
 
 ### 🤝 Contributors
 
