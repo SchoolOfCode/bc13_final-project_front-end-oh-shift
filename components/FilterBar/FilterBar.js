@@ -8,6 +8,8 @@ import capitaliseWord from "../../functions/capitaliseWord";
 import SearchBar from "../Searchbar/SearchBar.js";
 import SortByButton from "../SortByButton/SortByButton.js";
 import Badge from "../Badge/Badge.js";
+import Header from "../Header/Header.js";
+import Footer from "../Footer/footer.js";
 
 function FilterBar() {
   /**States related to light mode, darkmode theme */
@@ -117,12 +119,15 @@ function FilterBar() {
           style={{
             display: "flex",
             justifyContent: "center",
-            marginTop: "2rem",
+            // marginTop: "2rem",
             float: "end",
+            width: "100vw",
+            height: '100vh'
           }}
           className="drawer-content"
         >
           <div>
+    <Header/>
             <div>
               <a id="top">
                 <div
@@ -130,7 +135,8 @@ function FilterBar() {
                     display: "flex",
                     flexDirection: "row",
                     justifyContent: "space-between",
-                    padding: "0.5rem"
+                    marginTop:'1rem'
+                    // padding: "0.5rem"
                   }}
                 >
                   <label
@@ -199,8 +205,9 @@ function FilterBar() {
                 className="flex justify-center items-center"
               >
                 <div
-                  className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full"
+                  className="spinner-border animate-spin inline-block w-16 h-16 border-4 rounded-full"
                   role="status"
+                  style={{borderColor:'orange', marginBottom: '8rem'}}
                 >
                   <span className="visually-hidden"></span>
                 </div>
@@ -209,8 +216,8 @@ function FilterBar() {
 
             {games && games.length < 1 && (
               <>
-                <div className="alert alert-error shadow-lg mt-2">
-                  <div>
+                <div className="mt-2 mb-64 h-8 rounded bg-error">
+                  <div style={{display:'flex', flexDirection:'row', gap: '0.5rem', padding:'0.2rem'}}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="stroke-current flex-shrink-0 h-6 w-6"
@@ -224,14 +231,15 @@ function FilterBar() {
                         d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
-                    <span>Nothing from our library matches your filters.</span>
+Nothing from our library matches your filters.
+</div>
                   </div>
-                </div>
+                
               </>
             )}
 
             {games && <GameCardList games={games} />}
-
+            <Footer/>
             <div style={{ position: "fixed", bottom: "6vh", left: " 80vw" }}>
               <a href="#top">
                 <button
@@ -278,6 +286,7 @@ function FilterBar() {
             }
           >
             <li>
+            <h1 className={darkMode? "text-white":"text-black"}><b>Filters</b></h1>
               <Dropdown
                 options={[
                   { value: "", label: "All" },
@@ -364,6 +373,7 @@ function FilterBar() {
                 }}
                 isMulti={false}
               />
+           
             </li>
             {/* <li>
               <a>Review</a>

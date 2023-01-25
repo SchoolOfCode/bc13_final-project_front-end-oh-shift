@@ -10,9 +10,9 @@ function Games() {
 */
   return (
     <>
-      <Header/>
+      {/* <Header/> */}
       <FilterBar/>
-      <Footer/>
+      {/* <Footer/> */}
     </>
   );
 }

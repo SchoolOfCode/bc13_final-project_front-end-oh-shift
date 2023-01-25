@@ -6,6 +6,8 @@ import Link from "next/link";
 import styles from "../../styles/HomePage.module.css";
 import Carousel from "../Carousel/Carousel.js";
 import {DarkModeWrapper} from '../../pages/_app'
+import Footer from "../Footer/footer";
+import Header from "../Header/Header";
 
 
 
@@ -23,6 +25,7 @@ function HomePage() {
   return (
     <>
       <div className={darkMode?"darkMode":"lightMode"} style={{ width: "100vw", height: "100vh" }}>
+    <Header/>
    
     <h1
           className=" text-quicksand text-2xl font-bold"
@@ -113,6 +116,7 @@ function HomePage() {
           </button>
         </div>
       </div>
+          <Footer/>
       </div>
     </>
 

@@ -24,7 +24,7 @@ export default function SearchBar({
   };
 
   return (
-    <div className="w-49 justify-center content-center searchInput" style={{display:'flex', flexDirection:'row', alignContent:'center', justifyContent:'center'}}>
+    <div className="w-49 justify-center content-center searchInput mb-6" style={{display:'flex', flexDirection:'row', alignContent:'center', justifyContent:'center'}}>
       <input
         onChange={handleUserInput}
         placeholder="Search by Title"
