@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import Dropdown from "../Dropdown/Dropdown.js";
 import GameCardList from "../GameCardLIst/gameCardList.js";
 import { useGet } from "../customHooks/useGet.js";
-import { any } from "prop-types";
 import { DarkModeWrapper } from "../../pages/_app";
 import capitaliseWord from "../../functions/capitaliseWord";
 import SearchBar from "../Searchbar/SearchBar.js";
@@ -11,15 +10,37 @@ import Badge from "../Badge/Badge.js";
 import Header from "../Header/Header.js";
 import Footer from "../Footer/footer.js";
 
+/**
+ * it manages all the states and data inside the game page:
+ *
+ * - games > set the games to the response when fetching data from the backend and it makes data flexible by adding an interpolation at the end of the url to allow flexibility of fetching the data based on some parameters.
+ * Depending if games is available or not are conditionally rendered game || is loading animation || an error badge.
+ * - parameters > it is interpolated in the url to match the user's parameters.  setParameters allows setting the state to whatever the user: sort by or filter by and/or input in the search bar.
+ * - searchClicked >  It is false by default and turns true when the user starts inputting in the searchBar. It also calls the function to set the parameters when clicking the search button in the filter bar.
+ * Thanks to the handleChange function, it also allows us to search or clear the filter selection and (setting searchClicked to true) without clicking in the search button inside the filter bar, but just clicking everywhere else on the screen to close the filter bar component.
+ * Thanks to the handleSort function (that sets the searchClicked to true) it allows data displayed when the user click on one of the sorted options.
+ * - Options > getFilterOption function explanation needed
+ * - userInput and Search > set value of search to be the userInput to lower case. Is had been included in the parameters interpolation. It has been passed down to the search bar component.
+ * @returns this function even if it's called FilterBar contains and returns everything that is displayed in the 'games' page.
+ *  * It returns a drawer and inside it > 
+ * - Header component
+ * - Filter by button
+ * - Sort by component
+ * - Search Bar
+ * - Badges components
+ * - animated spinner and error badge if games don't exist
+ * - gameCardList component
+ * - Footer component
+ * - Dropdowns components
+ * - Search button
+ */
 function FilterBar() {
-  /**States related to light mode, darkmode theme */
   let { darkMode, setDarkMode } = useContext(DarkModeWrapper);
   const [games, setGames] = useState([]);
   const [parameters, setParameters] = useState("");
   const [searchClicked, setSearchClicked] = useState(false);
-  const [clearClicked, setClearClicked] = useState(false);
 
-  /** States related to filtering values & options */
+  // States related to filtering options and sort by options
   const [difficultyOptions, setDifficultyOptions] = useState([]);
   const [durationOptions, setDurationOptions] = useState([]);
   const [genreOptions, setGenreOptions] = useState([]);
@@ -39,42 +60,38 @@ function FilterBar() {
   });
   const [selectedSort, setSelectedSort] = useState({ value: "", label: "" });
 
-  /**States related to searching the game list/ collection */
+  // States related to searching the game by title
   const [userInput, setUserInput] = useState("");
   const [search, setSearch] = useState("");
 
-  /** Adds on whatever selected difficulty filter value is */
+  // Adds on whatever selected filter values are
   const [response, error] = useGet(
     `https://stokka.onrender.com/api/games${parameters}`
   );
 
+  //set games to the reponse every time the response change
   useEffect(() => {
     setGames(response);
     console.log("this is set games", games);
   }, [response]);
 
-  /**Function to handle userInput */
+  // Function to handle userInput text
   function handleUserInput(e) {
     setUserInput(e.target.value.toLowerCase());
+    console.log("what is" + searchClicked);
     setSearchClicked(!searchClicked);
   }
 
-  //if userInput- then set search value to '' (empty string)
-
-  /** Function to take in search value & re-render the game collection page */
-
-  //Function to change URl
-  //line 17- change to deafault URL
-  // old URL + added placeholders
-  // changes URL
-  // dependent on onClick function
-
+//function to take in all filtered/searched/sorted values and re-render the games page.
+//applied every time the user click on search clicked OR input in search bar OR exit the filter bar 
   useEffect(() => {
     setParameters(
       `?difficulty=${selectedDifficulty.value}&age=${selectedAge.value}&duration=${selectedDuration.value}&genre=${selectedGenre.value}&number_of_players=${selectedPlayers.value}&title=${userInput}&sort_by=${selectedSort.value}`
     );
   }, [searchClicked]);
 
+  //function that takes in a category and a state to re-render the games page to match the applied category by changing the url thanks to the interpolation 
+  //NEED MORE INFO
   useEffect(() => {
     async function getFilterOptions(category, state) {
       const response = await fetch(
@@ -97,6 +114,7 @@ function FilterBar() {
     getFilterOptions("duration", setDurationOptions);
     getFilterOptions("genre", setGenreOptions);
   }, []);
+
 
   function handleSearch() {
     document.getElementById("my-drawer").click();
@@ -122,12 +140,12 @@ function FilterBar() {
             // marginTop: "2rem",
             float: "end",
             width: "100vw",
-            height: '100vh'
+            height: "100vh",
           }}
           className="drawer-content"
         >
           <div>
-    <Header/>
+            <Header />
             <div>
               <a id="top">
                 <div
@@ -135,7 +153,7 @@ function FilterBar() {
                     display: "flex",
                     flexDirection: "row",
                     justifyContent: "space-between",
-                    marginTop:'1rem'
+                    marginTop: "1rem",
                     // padding: "0.5rem"
                   }}
                 >
@@ -207,7 +225,7 @@ function FilterBar() {
                 <div
                   className="spinner-border animate-spin inline-block w-16 h-16 border-4 rounded-full"
                   role="status"
-                  style={{borderColor:'orange', marginBottom: '8rem'}}
+                  style={{ borderColor: "orange", marginBottom: "8rem" }}
                 >
                   <span className="visually-hidden"></span>
                 </div>
@@ -217,7 +235,14 @@ function FilterBar() {
             {games && games.length < 1 && (
               <>
                 <div className="mt-2 mb-64 h-8 rounded bg-error">
-                  <div style={{display:'flex', flexDirection:'row', gap: '0.5rem', padding:'0.2rem'}}>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      gap: "0.5rem",
+                      padding: "0.2rem",
+                    }}
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="stroke-current flex-shrink-0 h-6 w-6"
@@ -231,15 +256,14 @@ function FilterBar() {
                         d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
-Nothing from our library matches your filters.
-</div>
+                    Nothing from our library matches your filters.
                   </div>
-                
+                </div>
               </>
             )}
 
             {games && <GameCardList games={games} />}
-            <Footer/>
+            <Footer />
             <div style={{ position: "fixed", bottom: "6vh", left: " 80vw" }}>
               <a href="#top">
                 <button
@@ -286,7 +310,9 @@ Nothing from our library matches your filters.
             }
           >
             <li>
-            <h1 className={darkMode? "text-white":"text-black"}><b>Filters</b></h1>
+              <h1 className={darkMode ? "text-white" : "text-black"}>
+                <b>Filters</b>
+              </h1>
               <Dropdown
                 options={[
                   { value: "", label: "All" },
@@ -373,7 +399,6 @@ Nothing from our library matches your filters.
                 }}
                 isMulti={false}
               />
-           
             </li>
             {/* <li>
               <a>Review</a>
@@ -394,13 +419,6 @@ Nothing from our library matches your filters.
               >
                 Search
               </button>
-
-              {/* <button
-              style={{ height: "2rem", width: "8rem", marginRight: "1rem" }}
-              className="btn btn-neutral btn-outline btn-primary"
-            >
-              Clear
-            </button> */}
             </div>
           </ul>
         </div>

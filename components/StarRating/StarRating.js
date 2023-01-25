@@ -1,3 +1,11 @@
+import React from 'react'
+
+/**
+ * 
+ * @param {function} handleRating - Function passed down from the review component to allow user to rate the game clicking on the stars 'radio buttons'
+
+ * @returns , visually, the 5 stars used for rating and allows the user to click on them to rate the game
+ */
 
 export default function StarRating({handleRating}){
 return(
