@@ -42,10 +42,10 @@ The project is still under development and the next updates will focus on the fo
 - **Deployment**: Render, Netlify
 
 ## Documentation
-- Backend Repo: https://github.com/SchoolOfCode/bc13_final-project_back-end-oh-shift
-- Trello: https://trello.com/b/upXFkDhJ/month-project-oh-shift
-- Figma: https://www.figma.com/file/Jw7dR2AeXBnpYaAXe5yqtj/Oh-Shift?node-id=0%3A1&t=YmSDWY1KKBriYdmC-1
-- Miro: https://miro.com/app/board/uXjVP1yHbUU=/?share_link_id=229245606177
+- [Backend Repo](https://github.com/SchoolOfCode/bc13_final-project_back-end-oh-shift)
+- [Trello](https://trello.com/b/upXFkDhJ/month-project-oh-shift)
+- [Figma](https://www.figma.com/file/Jw7dR2AeXBnpYaAXe5yqtj/Oh-Shift?node-id=0%3A1&t=YmSDWY1KKBriYdmC-1)
+- [Miro](https://miro.com/app/board/uXjVP1yHbUU=/?share_link_id=229245606177)
 - Excalidraw
 - Google Calendar
 - Google Sheets
