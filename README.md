@@ -1,5 +1,7 @@
 # ![darkmode](https://user-images.githubusercontent.com/111753918/214645458-2a31bac6-a6bf-454a-afb1-fa52b6f380f6.svg)
 
+## Find the online version here :point_right: : https://stokka.netlify.app/
+> This app was designed for mobile interaction; we recommend you access it through your smartphone for the best performance.
 
 ![GitHub language count](https://img.shields.io/badge/Languages-3-yellowgreen)
 ![Frameworks](https://img.shields.io/badge/Frameworks-3-red)
@@ -37,12 +39,15 @@ The project is still under development and the next updates will focus on the fo
 - **Server**: Node.js, morgan, pg, nodemon, dotenv     
 - **Testing**: Jest, Supertest, Cypress, React Testing Library    
 - **Authentication & Authorisation**: Auth0    
-- **Deployment**: Render, Netlify    
-- **Tools**: Trello, Figma, Miro, Excalidraw   
+- **Deployment**: Render, Netlify
 
-
-
-
+## Documentation
+- Trello: https://trello.com/b/upXFkDhJ/month-project-oh-shift
+- Figma: https://www.figma.com/file/Jw7dR2AeXBnpYaAXe5yqtj/Oh-Shift?node-id=0%3A1&t=YmSDWY1KKBriYdmC-1
+- Miro: https://miro.com/app/board/uXjVP1yHbUU=/?share_link_id=229245606177
+- Excalidraw
+- Google Calendar
+- Google Sheets
 
 ### 🤝 Contributors
 
@@ -52,3 +57,6 @@ The project is still under development and the next updates will focus on the fo
 - Isaac Jeremy - [@sjmugi](https://github.com/sjmugi)
 - Ikram Zakaria - [@Ikram-Zak](https://github.com/Ikram-Zak)
 - Sophie Thornton - [@soph-th](https://github.com/soph-th)
+
+### Observations 
+> Stokka is our final project from the School of Code full-stack 16-week coding bootcamp. The project and its entire contents, including but not limited to the code, design, and documentation, are the property of the School of Code and its students. No part of this project may be reproduced, distributed, or transmitted in any form or by any means without the prior written permission of the School of Code. All rights reserved.
