@@ -9,8 +9,7 @@ function AddNewGame(){
     const [genres, setGenres] = useState([])
     const [genreList, setGenreList] = useState([])
     const [searchValue, setSearchValue] = useState('')
-
-    const [newGame, setNewGame] = ({title: '', year_published: '', quantity: '', minimum_players: '', maximum_players: '', genre: [], duration: '', difficulty: '', minimum_age: '', description: '', packaging_image_url: '', artwork_image_url: '', rules: '', barcode: '', location: '', video_rules: ''})
+    const [newGame, setNewGame] = useState({title: '', year_published: '', quantity: '', minimum_players: '', maximum_players: '', genre: [], duration: '', difficulty: '', minimum_age: '', description: '', packaging_image_url: '', artwork_image_url: '', rules: '', barcode: '', location: '', video_rules: ''})
 
 
     useEffect(()=>{
@@ -29,6 +28,21 @@ function AddNewGame(){
         }
         getGameBySearch(searchTerm)
       },[searchTerm])
+
+
+    useEffect(()=>{
+        async function postGame(newGame){
+            if (newGame.title.length > 1) {
+          await fetch('https://stokka.onrender.com/api/games', {
+            method: 'POST',
+            headers: {Accept: "application/json",
+                    'Content-Type': 'application/json'},
+            body: JSON.stringify(newGame)
+          })
+}
+      }
+    postGame(newGame)
+    },[newGame])
 
     function getGenre(genreId){
         let id = genreList.find(genreid => genreid.id === genreId);
@@ -58,8 +72,12 @@ function AddNewGame(){
     }
 
     function handleSubmit(){
-        alert('Submit has been clicked!')
-        setNewGame({title: gameInfo.name, year_published: gameInfo.year_published, quantity: 1, minimum_players: gameInfo.min_players, maximum_players: '', genre: [], duration: '', difficulty: '', minimum_age: '', description: '', packaging_image_url: '', artwork_image_url: '', rules: '', barcode: '', location: '', video_rules: ''})
+let genreArray = []
+
+        gameInfo.categories?.map((gameGenre) => {
+            genreArray.push(getGenre(gameGenre.id))
+          })
+        setNewGame({title: gameInfo.name, year_published: gameInfo.year_published, quantity: 1, minimum_players: gameInfo.min_players, maximum_players: gameInfo.max_players, genre: genreArray, duration: gameInfo.max_playtime, difficulty: getDifficulty(gameInfo.average_learning_complexity, gameInfo.average_strategy_complexity), minimum_age: gameInfo.min_age, description: gameInfo.description_preview, packaging_image_url: gameInfo.thumb_url, artwork_image_url: gameInfo.thumb_url, rules: gameInfo.rules_url, barcode: gameInfo.upc, location: generateLocation(gameInfo.name), video_rules: `https://www.youtube.com/results?search_query=how+to+play+${gameInfo.name}`})
     }
 
     function handleTextInput(e){

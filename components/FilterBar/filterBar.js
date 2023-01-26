@@ -24,10 +24,11 @@ function FilterBar() {
   const [selectedGenre, setSelectedGenre] = useState("");
   const [selectedPlayers, setSelectedPlayers] = useState("");
 
-  /** Adds on whatever selected difficulty filter value is */
-  const [response, error] = useGet(
-    `https://stokka.onrender.com/api/games${parameters}`
-  );
+  // /** Adds on whatever selected difficulty filter value is */
+  // // const [response, error] = useGet(
+  // //   `https://stokka.onrender.com/api/games${parameters}`
+  // // );
+
 
   useEffect(() => {
     setGames(response);

@@ -1,6 +1,6 @@
 import Badge from '../Badge/Badge.js'
 
-export default function NewGameCard({gameInfo, handleSubmit, getDifficulty, generateLocation, getGenre}){
+export default function NewGameCard({gameInfo, handleSubmit, getDifficulty, getGenre}){
 
     
     return <>
@@ -25,16 +25,17 @@ export default function NewGameCard({gameInfo, handleSubmit, getDifficulty, gene
               return <Badge key={getGenre(gameGenre.id)} label={getGenre(gameGenre.id)} />;
             })}
             </div>
+
+            <p>Year Published: {gameInfo.year_published}</p>
+    <a className="link link-accent" href={gameInfo.rules_url}>View rules</a>
+    <p>Barcode: {gameInfo.upc}</p>
+    <a className="link link-accent" href={`https://www.youtube.com/results?search_query=how+to+play+${gameInfo.name}`}>Video: How to play</a>
+    <p>Game Description: {gameInfo.description_preview}</p>
+
           </div>
 
 
    
-    <p>Year Published: {gameInfo.year_published}</p>
-    <a className="link link-accent" href={gameInfo.rules_url}>View rules</a>
-    <p>Barcode: {gameInfo.upc}</p>
-    <p>Location: {generateLocation(gameInfo.name)}</p>
-    <a className="link link-accent" href={`https://www.youtube.com/results?search_query=how+to+play+${gameInfo.name}`}>Video: How to play</a>
-    <p>Game Description: {gameInfo.description_preview}</p>
-  </div>
+
 </>
 }
