@@ -21,7 +21,7 @@ import Stars from "../../Stars/Stars";
 function Summary({ game }) {
   let { darkMode, setDarkMode } = useContext(DarkModeWrapper);
 
-  console.log(typeof game);
+  // console.log(typeof game);
 
   return (
     <div className="cardWrapper mx-auto" style={{ position: "relative" }}>

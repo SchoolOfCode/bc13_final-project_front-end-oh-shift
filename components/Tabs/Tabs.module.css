@@ -39,7 +39,8 @@ margin-top: 2rem;
   /* border: solid 0.2rem rgb(228 228 231); */
   border-bottom: none;
   border-radius: 10px 10px 0px 0px;
-  color: white
+  color: white;
+    width: 120px;
 }
 
 /* .input[type="radio"] {

@@ -59,6 +59,7 @@ function FilterBar() {
     label: "",
   });
   const [selectedSort, setSelectedSort] = useState({ value: "", label: "" });
+  const [sortClicked, setSortClicked] = useState(false)
 
   // States related to searching the game by title
   const [userInput, setUserInput] = useState("");
@@ -69,8 +70,35 @@ function FilterBar() {
     `https://stokka.onrender.com/api/games${parameters}`
   );
 
+  // const [response, error] = useGet(
+  //   `http://localhost:4000/api/games${parameters}`
+  // );
+
   //set games to the reponse every time the response change
   useEffect(() => {
+
+    response &&
+    response.map((game, index)=>{
+      if (game.average_rating==null) {
+        console.log(response[index].average_rating)
+        response[index].average_rating='0'
+        console.log(response[index].average_rating)
+      }
+    })
+
+
+    function compare( a, b ) {
+      if ( a.average_rating > b.average_rating ){
+        return -1;
+      }
+      if ( a.average_rating < b.average_rating ){
+        return 1;
+      }
+      return 0;
+    }
+    
+    (response && selectedSort.value=='rating') && response.sort( compare );
+
     setGames(response);
     console.log("this is set games", games);
   }, [response]);
@@ -123,6 +151,9 @@ function FilterBar() {
 
   function handleSort(value, label) {
     setSelectedSort({ value: value, label: label });
+    setSortClicked(true)
+    console.log('sortclicked?', sortClicked)
+    setTimeout(()=> setSortClicked(false), 10)
     setSearchClicked(!searchClicked);
   }
 
@@ -165,7 +196,7 @@ function FilterBar() {
                     Filter By
                   </label>
 
-                  <SortByButton handleSort={handleSort} />
+                  <SortByButton onClick={()=> setSortClicked(false)} handleSort={handleSort} sortClicked={sortClicked}/>
                 </div>
               </a>
 
@@ -178,7 +209,7 @@ function FilterBar() {
               ></SearchBar>
             </div>
 
-            <div className="flex flex-wrap w-96" style={{ flexDirection: "Row",
+            <div id='filter-tags' className="flex flex-wrap w-96" style={{ flexDirection: "Row",
               // flexWrap: "wrap",
 
               gap: "0.2rem", marginTop: '1rem'}}>
