@@ -123,7 +123,8 @@ function Review({ title, id }) {
               className="mask mask-star-2 rating-xs"
               src="https://i.ibb.co/yVzvswy/F3-A712-1.png"
             />
-            {reviewData[0]?.average_rating}
+            {reviewData[0]?.average_rating>0 && reviewData[0]?.average_rating}
+            {reviewData[0]?.average_rating==0 && 'No ratings'}
           </h2>
           {user ? (
             <AddReview

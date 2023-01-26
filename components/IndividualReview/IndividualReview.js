@@ -30,9 +30,12 @@ export default function IndividualReview({ review, handleDelete }) {
         }}
         className={darkMode ? " text-white" : "text-black"}
       >
+
+
         <div className="avatar">
           <div className="w-8 mask mask-hexagon">
-            <img src={review?.user_picture} alt={review.user_given_name} />
+            <img src={review.user_picture} onError={({ currentTarget }) => {currentTarget.onerror = null; currentTarget.src="https://thispersondoesnotexist.com/image"}} alt={review.user_given_name} />
+            {console.log('user image info', review.user_picture)}
           </div>
         </div>
         <h5 style={{ paddingTop: "0.1rem" }}>
