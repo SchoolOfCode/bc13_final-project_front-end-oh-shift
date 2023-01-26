@@ -9,6 +9,7 @@ import SortByButton from "../SortByButton/SortByButton.js";
 import Badge from "../Badge/Badge.js";
 import Header from "../Header/Header.js";
 import Footer from "../Footer/Footer.js";
+import convertMinsHours from "../../functions/convertMinsHours.js";
 
 /**
  * it manages all the states and data inside the game page:
@@ -70,10 +71,6 @@ function FilterBar() {
     `https://stokka.onrender.com/api/games${parameters}`
   );
 
-  // const [response, error] = useGet(
-  //   `http://localhost:4000/api/games${parameters}`
-  // );
-
   //set games to the reponse every time the response change
   useEffect(() => {
 
@@ -86,7 +83,12 @@ function FilterBar() {
       }
     })
 
-
+    /**
+     * Orders games in order of star rating when needed, as un-rated items come from database as 'null'
+     * @param {*} a 
+     * @param {*} b 
+     * @returns 
+     */
     function compare( a, b ) {
       if ( a.average_rating > b.average_rating ){
         return -1;
@@ -130,13 +132,25 @@ function FilterBar() {
       const data = await response.json();
       let filters = data.payload;
       let options = [{ value: "", label: "All" }];
+      let value;
+      let capitalisedValue;
+      let newLabel;
       for (let i = 0; i < filters.length; i++) {
-        let value = filters[i][category];
-        let capitalisedValue = capitaliseWord(value);
-        options.push({ value: value, label: capitalisedValue });
-
-        state(options);
+         value = filters[i][category];
+         capitalisedValue = capitaliseWord(value);
+         console.log('this is category', category)
+         newLabel = (category=='duration') ? convertMinsHours(value): capitalisedValue;
+        options.push({ value: value, label: newLabel });
       }
+
+      console.log('checking convert function', convertMinsHours(120))
+      // if (state=='setDurationOptions') {
+      //   options.map((option, index)=> {option[index].label = convertMinsHours(option.value)})
+      // }
+      console.log('this is options!!', options)
+
+      state(options);
+
     }
     getFilterOptions("difficulty", setDifficultyOptions);
     getFilterOptions("duration", setDurationOptions);
@@ -156,6 +170,8 @@ function FilterBar() {
     setTimeout(()=> setSortClicked(false), 10)
     setSearchClicked(!searchClicked);
   }
+
+ 
 
   return (
     <>
@@ -233,7 +249,7 @@ function FilterBar() {
 
               {selectedDuration.label && (
                 <label htmlFor="my-drawer">
-                  <Badge label={`${selectedDuration.label} mins`} />
+                  <Badge label={selectedDuration.label} />
                 </label>
               )}
 
