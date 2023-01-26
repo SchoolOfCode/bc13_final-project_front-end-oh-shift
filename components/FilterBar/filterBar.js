@@ -25,9 +25,9 @@ function FilterBar() {
   const [selectedPlayers, setSelectedPlayers] = useState("");
 
   // /** Adds on whatever selected difficulty filter value is */
-  // // const [response, error] = useGet(
-  // //   `https://stokka.onrender.com/api/games${parameters}`
-  // // );
+  const [response, error] = useGet(
+    `https://stokka.onrender.com/api/games${parameters}`
+  );
 
 
   useEffect(() => {
