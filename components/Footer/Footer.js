@@ -69,7 +69,7 @@ export default function Footer() {
             STOKKA <br />
             Filter to your next adventure with Stokka.
           </p>
-          <p>Copyright © 2023 - All right reserved</p>
+          <p>Copyright © 2023 - All rights reserved</p>
         </div>
       </footer>
     </div>
