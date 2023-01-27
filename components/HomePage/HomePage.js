@@ -175,12 +175,13 @@ function HomePage() {
               paddingBottom: "1.5rem",
             }}
           >
+            <Link href="/Games">
             <button
               style={{ marginTop: "2rem", marginBottom: "1rem" }}
               className="btn btn-primary btn-outline rounded"
             >
-              <Link href="/Games">View Games</Link>
-            </button>
+              View Games
+            </button></Link>
           </div>
         </div>
         <Footer />
