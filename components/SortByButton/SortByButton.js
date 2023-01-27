@@ -8,7 +8,7 @@ import React from "react";
 
 function SortByButton({ handleSort, sortClicked }) {
   return (
-    <div id="sort-by-dropdown" className="dropdown dropdown-end">
+    <div id="sort-by-dropdown" className="dropdown dropdown-end" styles={{cursor: pointer}}>
       {/* <label tabIndex={0} className="btn btn-secondary drawer-button rounded">
             </label> */}
 
