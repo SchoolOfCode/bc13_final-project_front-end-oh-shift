@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import Badge from "../../Badge/Badge";
 import { DarkModeWrapper } from "../../../pages/_app";
+import convertMinsHours from "../../../functions/convertMinsHours";
 import Stars from "../../Stars/Stars";
 
 /**
@@ -21,7 +22,7 @@ import Stars from "../../Stars/Stars";
 function Summary({ game }) {
   let { darkMode, setDarkMode } = useContext(DarkModeWrapper);
 
-  console.log(typeof game);
+  // console.log(typeof game);
 
   return (
     <div className="cardWrapper mx-auto" style={{ position: "relative" }}>
@@ -73,7 +74,7 @@ function Summary({ game }) {
             />
             <Badge key={game.difficulty} label={game.difficulty} />
             <Badge key={game.minimum_age} label={`Age ${game.minimum_age}+`} />
-            <Badge key={game.duration} label={`${game.duration} mins`} />
+            <Badge key={game.duration} label={convertMinsHours(game.duration)} />
             {game.genre?.map((gameGenre) => {
               return <Badge key={gameGenre} label={gameGenre} />;
             })}

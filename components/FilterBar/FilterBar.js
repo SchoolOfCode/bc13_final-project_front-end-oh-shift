@@ -9,6 +9,7 @@ import SortByButton from "../SortByButton/SortByButton.js";
 import Badge from "../Badge/Badge.js";
 import Header from "../Header/Header.js";
 import Footer from "../Footer/Footer.js";
+import convertMinsHours from "../../functions/convertMinsHours.js";
 
 /**
  * it manages all the states and data inside the game page:
@@ -59,6 +60,7 @@ function FilterBar() {
     label: "",
   });
   const [selectedSort, setSelectedSort] = useState({ value: "", label: "" });
+  const [sortClicked, setSortClicked] = useState(false)
 
   // States related to searching the game by title
   const [userInput, setUserInput] = useState("");
@@ -71,6 +73,34 @@ function FilterBar() {
 
   //set games to the reponse every time the response change
   useEffect(() => {
+
+    response &&
+    response.map((game, index)=>{
+      if (game.average_rating==null) {
+        console.log(response[index].average_rating)
+        response[index].average_rating='0'
+        console.log(response[index].average_rating)
+      }
+    })
+
+    /**
+     * Orders games in order of star rating when needed, as un-rated items come from database as 'null'
+     * @param {*} a 
+     * @param {*} b 
+     * @returns 
+     */
+    function compare( a, b ) {
+      if ( a.average_rating > b.average_rating ){
+        return -1;
+      }
+      if ( a.average_rating < b.average_rating ){
+        return 1;
+      }
+      return 0;
+    }
+    
+    (response && selectedSort.value=='rating') && response.sort( compare );
+
     setGames(response);
     console.log("this is set games", games);
   }, [response]);
@@ -102,13 +132,25 @@ function FilterBar() {
       const data = await response.json();
       let filters = data.payload;
       let options = [{ value: "", label: "All" }];
+      let value;
+      let capitalisedValue;
+      let newLabel;
       for (let i = 0; i < filters.length; i++) {
-        let value = filters[i][category];
-        let capitalisedValue = capitaliseWord(value);
-        options.push({ value: value, label: capitalisedValue });
-
-        state(options);
+         value = filters[i][category];
+         capitalisedValue = capitaliseWord(value);
+         console.log('this is category', category)
+         newLabel = (category=='duration') ? convertMinsHours(value): capitalisedValue;
+        options.push({ value: value, label: newLabel });
       }
+
+      console.log('checking convert function', convertMinsHours(120))
+      // if (state=='setDurationOptions') {
+      //   options.map((option, index)=> {option[index].label = convertMinsHours(option.value)})
+      // }
+      console.log('this is options!!', options)
+
+      state(options);
+
     }
     getFilterOptions("difficulty", setDifficultyOptions);
     getFilterOptions("duration", setDurationOptions);
@@ -123,8 +165,13 @@ function FilterBar() {
 
   function handleSort(value, label) {
     setSelectedSort({ value: value, label: label });
+    setSortClicked(true)
+    console.log('sortclicked?', sortClicked)
+    setTimeout(()=> setSortClicked(false), 10)
     setSearchClicked(!searchClicked);
   }
+
+ 
 
   return (
     <>
@@ -165,7 +212,7 @@ function FilterBar() {
                     Filter By
                   </label>
 
-                  <SortByButton handleSort={handleSort} />
+                  <SortByButton onClick={()=> setSortClicked(false)} handleSort={handleSort} sortClicked={sortClicked}/>
                 </div>
               </a>
 
@@ -178,7 +225,7 @@ function FilterBar() {
               ></SearchBar>
             </div>
 
-            <div className="flex flex-wrap w-96" style={{ flexDirection: "Row",
+            <div id='filter-tags' className="flex flex-wrap w-96" style={{ flexDirection: "Row",
               // flexWrap: "wrap",
 
               gap: "0.2rem", marginTop: '1rem'}}>
@@ -202,7 +249,7 @@ function FilterBar() {
 
               {selectedDuration.label && (
                 <label htmlFor="my-drawer">
-                  <Badge label={`${selectedDuration.label} mins`} />
+                  <Badge label={selectedDuration.label} />
                 </label>
               )}
 
