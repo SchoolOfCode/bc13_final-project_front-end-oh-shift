@@ -36,11 +36,10 @@ function HomePage() {
         >
           <span className={darkMode ? "text-secondary" : "text-primary"}>
             NEW 
-          </span>
-<p> </p>
+          </span>{" "}
           <span className={darkMode ? "text-white" : "text-accent"}>
             IN
-          </span>{" "}
+          </span>
 
         </h1>
 
