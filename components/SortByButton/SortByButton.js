@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./sortByButton.module.css";
 
 /**
  *
@@ -8,7 +9,7 @@ import React from "react";
 
 function SortByButton({ handleSort, sortClicked }) {
   return (
-    <div id="sort-by-dropdown" className="dropdown dropdown-end" styles={{cursor: pointer}}>
+    <div id="sort-by-dropdown" className="dropdown dropdown-end">
       {/* <label tabIndex={0} className="btn btn-secondary drawer-button rounded">
             </label> */}
 
