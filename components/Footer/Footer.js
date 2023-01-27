@@ -66,7 +66,7 @@ export default function Footer() {
 
 
           <p className="font-bold ">
-            STOKKA Ltd. <br />
+            STOKKA <br />
             Filter to your next adventure with Stokka.
           </p>
           <p>Copyright © 2023 - All right reserved</p>
