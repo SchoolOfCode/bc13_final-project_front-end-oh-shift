@@ -35,7 +35,7 @@ function HomePage() {
           style={{ color: "#00272B", textAlign: "center", paddingTop: "2rem" }}
         >
           <span className={darkMode ? "text-secondary" : "text-primary"}>
-            NEW
+            NEW 
           </span>
           <span className={darkMode ? "text-white" : "text-accent"}>
             IN
