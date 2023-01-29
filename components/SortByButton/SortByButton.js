@@ -17,7 +17,7 @@ function SortByButton({ handleSort, sortClicked }) {
       </button>
 
 
-{!sortClicked && 
+{/* {!sortClicked &&  */}
       <ul
         tabIndex={0}
         className="dropdown-content menu p-4 shadow bg-base-100 rounded-box w-40"
@@ -47,7 +47,8 @@ function SortByButton({ handleSort, sortClicked }) {
           Oldest
         </li>
         <li onClick={() => handleSort("rating", "Top Rated")}>Top Rated</li>
-      </ul>}
+      </ul>
+      {/* } */}
     </div>
   );
 }
