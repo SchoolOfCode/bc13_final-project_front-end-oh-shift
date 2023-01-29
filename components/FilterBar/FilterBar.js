@@ -5,7 +5,7 @@ import { useGet } from "../customHooks/useGet.js";
 import { DarkModeWrapper } from "../../pages/_app";
 import capitaliseWord from "../../functions/capitaliseWord";
 import SearchBar from "../Searchbar/SearchBar.js";
-import SortByButton, { SortButton } from "../SortByButton/SortByButton.js";
+import SortByButton from "../SortByButton/SortByButton.js";
 import Badge from "../Badge/Badge.js";
 import Header from "../Header/Header.js";
 import Footer from "../Footer/Footer.js";
@@ -60,7 +60,7 @@ function FilterBar() {
     label: "",
   });
   const [selectedSort, setSelectedSort] = useState({ value: "", label: "" });
-  const [sortClicked, setSortClicked] = useState(true)
+  const [sortClicked, setSortClicked] = useState(false)
 
   // States related to searching the game by title
   const [userInput, setUserInput] = useState("");
@@ -211,8 +211,6 @@ function FilterBar() {
                   >
                     Filter By
                   </label>
-
-                  <SortButton />
 
                   <SortByButton onClick={()=> setSortClicked(false)} handleSort={handleSort} sortClicked={sortClicked}/>
                 </div>
