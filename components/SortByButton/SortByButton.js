@@ -7,32 +7,22 @@ import React from "react";
  */
 
 
-function SortButton (){
-  return (
-    <div className="dropdown dropdown-bottom dropdown-end">
-  <label tabIndex={0} className="btn m-1">Click</label>
-  <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-    <li><a>Item 1</a></li>
-    <li><a>Item 2</a></li>
-  </ul>
-</div>
-  )
-}
 
 
 
 function SortByButton({ handleSort, sortClicked }) {
   return (
     <div id="sort-by-dropdown" className="dropdown dropdown-end">
-      {/* <label tabIndex={0} className="btn btn-secondary drawer-button rounded">
-            </label> */}
+      <label tabIndex={0} className="btn btn-secondary drawer-button rounded w-40">
+            Sort By
+            </label>
 
-      <button className="btn btn-secondary drawer-button rounded w-40" style={{cursor:'pointer'}}>
+      {/* <button className="btn btn-secondary drawer-button rounded w-40" style={{cursor:'pointer'}}>
         Sort By
-      </button>
+      </button> */}
 
 
-{/* {!sortClicked &&  */}
+{!sortClicked && 
       <ul
         tabIndex={0}
         className="dropdown-content menu p-4 shadow bg-base-100 rounded-box w-40"
@@ -63,10 +53,9 @@ function SortByButton({ handleSort, sortClicked }) {
         </li>
         <li onClick={() => handleSort("rating", "Top Rated")}>Top Rated</li>
       </ul>
-      {/* } */}
+      }
     </div>
   );
 }
 
 export default SortByButton;
-export {SortButton};
