@@ -17,10 +17,6 @@ function SortByButton({ handleSort, sortClicked }) {
             Sort By
             </label>
 
-      {/* <button className="btn btn-secondary drawer-button rounded w-40" style={{cursor:'pointer'}}>
-        Sort By
-      </button> */}
-
 
 {!sortClicked && 
       <ul
