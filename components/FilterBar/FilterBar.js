@@ -208,7 +208,7 @@ function FilterBar() {
                     htmlFor="my-drawer"
                     className="btn btn-secondary drawer-button rounded w-40"
                   >
-                    Filter By
+                    Filter By 
                   </label>
 
                   <SortByButton handleSortLabelClick={()=>setSortClicked(!sortClicked)} handleSort={handleSort} sortClicked={sortClicked}/>
