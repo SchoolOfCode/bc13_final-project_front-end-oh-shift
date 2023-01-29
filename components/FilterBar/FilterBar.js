@@ -5,7 +5,7 @@ import { useGet } from "../customHooks/useGet.js";
 import { DarkModeWrapper } from "../../pages/_app";
 import capitaliseWord from "../../functions/capitaliseWord";
 import SearchBar from "../Searchbar/SearchBar.js";
-import SortByButton from "../SortByButton/SortByButton.js";
+import SortByButton, { SortButton } from "../SortByButton/SortByButton.js";
 import Badge from "../Badge/Badge.js";
 import Header from "../Header/Header.js";
 import Footer from "../Footer/Footer.js";
@@ -212,13 +212,7 @@ function FilterBar() {
                     Filter By
                   </label>
 
-                  <label
-                    style={{ marginBottom: "2rem", height: "auto" }}
-                    htmlFor="my-drawer"
-                    className="btn btn-secondary drawer-button rounded w-40"
-                  >
-                    Sort By
-                  </label>
+                  <SortButton />
 
                   <SortByButton onClick={()=> setSortClicked(false)} handleSort={handleSort} sortClicked={sortClicked}/>
                 </div>
