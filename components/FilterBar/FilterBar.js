@@ -60,7 +60,7 @@ function FilterBar() {
     label: "",
   });
   const [selectedSort, setSelectedSort] = useState({ value: "", label: "" });
-  const [sortClicked, setSortClicked] = useState(false)
+  const [sortClicked, setSortClicked] = useState(true)
 
   // States related to searching the game by title
   const [userInput, setUserInput] = useState("");
@@ -210,6 +210,14 @@ function FilterBar() {
                     className="btn btn-secondary drawer-button rounded w-40"
                   >
                     Filter By
+                  </label>
+
+                  <label
+                    style={{ marginBottom: "2rem", height: "auto" }}
+                    htmlFor="my-drawer"
+                    className="btn btn-secondary drawer-button rounded w-40"
+                  >
+                    Sort By
                   </label>
 
                   <SortByButton onClick={()=> setSortClicked(false)} handleSort={handleSort} sortClicked={sortClicked}/>
