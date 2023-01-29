@@ -167,7 +167,6 @@ function FilterBar() {
     setSelectedSort({ value: value, label: label });
     setSortClicked(true)
     console.log('sortclicked?', sortClicked)
-    // setTimeout(()=> setSortClicked(false), 10)
     setSearchClicked(!searchClicked);
   }
 
