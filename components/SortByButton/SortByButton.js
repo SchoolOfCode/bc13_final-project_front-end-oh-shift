@@ -12,7 +12,7 @@ function SortByButton({ handleSort, sortClicked }) {
       {/* <label tabIndex={0} className="btn btn-secondary drawer-button rounded">
             </label> */}
 
-      <button className="btn btn-secondary drawer-button rounded w-40">
+      <button className="btn btn-secondary drawer-button rounded w-40" style={{cursor:'pointer'}}>
         Sort By
       </button>
 
