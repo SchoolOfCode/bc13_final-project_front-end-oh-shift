@@ -6,15 +6,18 @@ import React from "react";
  * @returns a drop-down with sorting options
  */
 
-function SortByButton({ handleSort, sortClicked }) {
+
+
+
+
+function SortByButton({ handleSort, sortClicked, handleSortLabelClick }) {
   return (
     <div id="sort-by-dropdown" className="dropdown dropdown-end">
-      {/* <label tabIndex={0} className="btn btn-secondary drawer-button rounded">
-            </label> */}
-
-      <button className="btn btn-secondary drawer-button rounded w-40">
-        Sort By
-      </button>
+      <label tabIndex={0} className="btn btn-secondary drawer-button rounded w-40" onClick={handleSortLabelClick}>
+            Sort By <span class="material-symbols-outlined">
+expand_more
+</span>
+            </label>
 
 
 {!sortClicked && 
@@ -47,7 +50,8 @@ function SortByButton({ handleSort, sortClicked }) {
           Oldest
         </li>
         <li onClick={() => handleSort("rating", "Top Rated")}>Top Rated</li>
-      </ul>}
+      </ul>
+      }
     </div>
   );
 }
