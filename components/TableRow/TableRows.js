@@ -5,6 +5,7 @@ export default function TableRow({handleDelete, game}){
     const [confirmDeletePopUpActive, setConfirmDeletePopUpActive] = useState(false)
     const [cancelDeleteClicked, setCancelDeleteClicked] = useState(false)
     const [editing, setEditing] = useState(false)
+    const [hovering, setHovering] = useState(false)
 
 useEffect(()=>{
   console.log('editing:', editing)
@@ -14,38 +15,31 @@ useEffect(()=>{
   console.log('confirmDeletePopUpActive:', confirmDeletePopUpActive)
 },[confirmDeletePopUpActive])
 
+
       //✅ 
       function handleCheck(){
-        console.log('handlecheck called')
-        console.log('confirmdeletepopupactive', confirmDeletePopUpActive)
-        console.log('editing', editing)
-        !confirmDeletePopUpActive && setEditing(!editing)
-        
+        setEditing(!editing)
       }
 
     //✅ 
     function handleCancel(){
-        console.log('handlecancel called')
-        setEditing(false)
         setConfirmDeletePopUpActive(false)
       }
 
       //✅ 
       function confirmDeletePrompt(){
-        console.log('confirmingdeleteprompt called')
        setConfirmDeletePopUpActive(true)
-       console.log('confirmdeletepopupactive', confirmDeletePopUpActive)
-       setEditing(true)
+       setTimeout(()=>setEditing(true), 1)
       }
 
 
     
     return(
 <>
-        <tr className="bg-red-100" onClick={handleCheck}>
+        <tr onClick={handleCheck} onMouseOver={()=>setHovering(true)} onMouseOut={()=>setHovering(false)}>
         <th>
           <label>
-            <input type="checkbox" className="checkbox" checked={editing} onClick={handleCheck}/>
+            <input type="checkbox" className={hovering? `checkbox visible` : editing? `checkbox visible` : `checkbox invisible`} checked={editing} onClick={handleCheck}/>
           </label>
         </th>
         <td>
@@ -65,11 +59,7 @@ useEffect(()=>{
         </td>
         <td>{game.quantity}</td>
         <th>
-        {editing && (
-        confirmDeletePopUpActive? (
-  <ConfirmDelete handleCancel={handleCancel} handleDelete={()=>handleDelete(game.id)}
-  />
-) : (
+        {(editing && !confirmDeletePopUpActive) && (
   <>
     <button className="btn btn-ghost btn-xs">
       <span class="material-symbols-outlined">
@@ -82,14 +72,24 @@ useEffect(()=>{
       </span>
     </button>
   </>
-))}
-
+)}
 {confirmDeletePopUpActive &&
+(
   <ConfirmDelete handleCancel={handleCancel} handleDelete={()=>handleDelete(game.id)}
   />
+)
 }
         </th>
       </tr>
+
+
+
+
+
+
+
+
+      
       </>
     
     )}
