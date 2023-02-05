@@ -1,4 +1,4 @@
-export default function ConfirmDelete(handleCancel, handleDelete){
+export default function ConfirmDelete({handleCancel, handleDelete}){
     return (
         <>
 <div>

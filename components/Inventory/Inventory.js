@@ -6,6 +6,7 @@ import TextInput from "../TextInput/TextInput.js";
 export default function Inventory(){
     const [headers, setHeaders] = useState([])
     const [games, setGames] = useState([]);
+    const [gamesListUpdated, setGamesListUpdated] = useState(false)
     const [parameters, setParameters] = useState('')
     const [response, error] = useGet(
     `https://stokka.onrender.com/api/games${parameters}`
@@ -14,14 +15,26 @@ export default function Inventory(){
   useEffect(() => {
     setGames(response);
     console.log('PARAMS>>', parameters)
-  }, [response, parameters]);
+  }, [response, parameters, gamesListUpdated]);
+
+  function handleDelete(id){
+    console.log('handledelete called')
+    console.log(id)
+    let gameIndex = games.findIndex(game => game.id===id)
+    console.log(gameIndex)
+    console.log(games.length)
+    games.splice(gameIndex, 1)
+    console.log(games.length)
+    setGamesListUpdated(!gamesListUpdated)
+  }
 
 
 return (
     <>
     <Table
-            headers={[<TextInput key='textInput' handleTextInput={(e)=>setParameters(`?title=${e.target.value}`)} placeholderText={'Search game library'}/>, 'Location', 'Quantity', 'Options']}
+            headers={[<TextInput key='textInput' handleTextInput={(e)=>setParameters(`?title=${e.target.value}`)} placeholderText={`Search ${games.length} games`}/>, 'Location', 'Quantity', 'Options']}
             games={games}
+            handleDelete={handleDelete}
         />
     </>
 )
