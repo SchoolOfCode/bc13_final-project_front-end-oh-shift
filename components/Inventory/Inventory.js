@@ -28,6 +28,10 @@ export default function Inventory(){
     setGamesListUpdated(!gamesListUpdated)
   }
 
+  function handleSave(){
+    alert('handle save!')
+  }
+
 
 return (
     <>
@@ -35,6 +39,7 @@ return (
             headers={[<TextInput key='textInput' handleTextInput={(e)=>setParameters(`?title=${e.target.value}`)} placeholderText={`Search ${games.length} games`}/>, 'Location', 'Quantity', 'Options']}
             games={games}
             handleDelete={handleDelete}
+            handleSave={handleSave}
         />
     </>
 )

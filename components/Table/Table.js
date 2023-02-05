@@ -1,7 +1,7 @@
 import { useState } from "react"
 import TableRow from "../TableRow/TableRows"
 
-export default function Table({handleDelete, headers, games}){
+export default function Table({handleDelete, handleSave, headers, games}){
 
   console.log('this is games', games)
 
@@ -10,8 +10,7 @@ export default function Table({handleDelete, headers, games}){
   
     return(
         <>
-<div className="overflow-x-auto w-full">
-  <table className="table w-full">
+  <table className="table table-auto w-full">
     <thead>
       <tr>
         <th>
@@ -29,7 +28,7 @@ export default function Table({handleDelete, headers, games}){
     <tbody>
 
     {games? (games.map((game)=> 
-    <TableRow game={game} key={game.id} handleDelete={handleDelete}/>))
+    <TableRow game={game} key={game.id} handleDelete={handleDelete} handleSave={handleSave}/>))
     :
     <p>Games loading...</p>}
       </tbody>
@@ -44,7 +43,6 @@ export default function Table({handleDelete, headers, games}){
     </tfoot>
     
   </table>
-</div>
         </>
     )
 }

@@ -1,11 +1,21 @@
 import { use, useEffect, useState } from "react"
+import YouTube from "react-youtube"
+import Badge from '../Badge/Badge.js'
 import ConfirmDelete from "../ConfirmDelete/ConfirmDelete"
 
-export default function TableRow({handleDelete, game}){
+export default function TableRow({handleDelete, handleSave, game}){
     const [confirmDeletePopUpActive, setConfirmDeletePopUpActive] = useState(false)
-    const [cancelDeleteClicked, setCancelDeleteClicked] = useState(false)
     const [editing, setEditing] = useState(false)
     const [hovering, setHovering] = useState(false)
+    const [showVideo, setShowVideo] = useState(false)
+    const [showEditValues, setShowEditValues] = useState(false)
+    
+console.log('this is game', game)
+
+function getVideoId(){
+  return game.video_rules.substring(game.video_rules.length - 11)
+}
+
 
 useEffect(()=>{
   console.log('editing:', editing)
@@ -24,6 +34,8 @@ useEffect(()=>{
     //✅ 
     function handleCancel(){
         setConfirmDeletePopUpActive(false)
+        setTimeout(()=>setEditing(true), 1)
+        setTimeout(()=>setShowEditValues(false), 1)
       }
 
       //✅ 
@@ -32,7 +44,11 @@ useEffect(()=>{
        setTimeout(()=>setEditing(true), 1)
       }
 
-
+      //✅ 
+      function handleEditClick(){
+        setShowEditValues(true)
+        setTimeout(()=>setEditing(true), 1)
+      }
     
     return(
 <>
@@ -58,10 +74,10 @@ useEffect(()=>{
           {game.location}
         </td>
         <td>{game.quantity}</td>
-        <th>
-        {(editing && !confirmDeletePopUpActive) && (
+        <td>
+        {(editing && !confirmDeletePopUpActive) ? (
   <>
-    <button className="btn btn-ghost btn-xs">
+    <button className="btn btn-ghost btn-xs" onClick={handleEditClick}>
       <span class="material-symbols-outlined">
         edit_note
       </span>
@@ -72,6 +88,20 @@ useEffect(()=>{
       </span>
     </button>
   </>
+) :
+(
+  <>
+    <button className="btn btn-ghost btn-xs invisible" onClick={handleEditClick}>
+      <span class="material-symbols-outlined">
+        edit_note
+      </span>
+    </button>
+    <button className="btn btn-ghost btn-xs invisible" onClick={confirmDeletePrompt}>
+      <span class="material-symbols-outlined">
+        delete
+      </span>
+    </button>
+    </>
 )}
 {confirmDeletePopUpActive &&
 (
@@ -79,17 +109,63 @@ useEffect(()=>{
   />
 )
 }
-        </th>
+        </td>
       </tr>
 
 
+{/* editable values within table go here */}
+{showEditValues &&
+<tr>
+  <td>
+  </td>
+  <td>
+ <textarea className="w-full h-36" defaultValue={game.description}>
+ </textarea>
+  </td>
+  <td>
+  <div>
+  <div className='w-full' >
+  <input type="url" defaultValue={game.video_rules}>
+  </input>
+  <button className="btn btn-xs" onClick={()=>setShowVideo(!showVideo)}>{showVideo ? 'Hide Video' : 'Show Video'}</button>
+  </div>
+  <div className={showVideo? "w-max" : "w-max invisible"}>
+  <YouTube
+        videoId={getVideoId(game.video_rules)}
+        opts={{
+          height: '80%',
+          width: '80%',
+          playerVars: {
+            autoplay: 0,
+            rel: 0,
+            controls: 0
+          }
+        }}
+      />
+      </div>
+      </div>
+  </td>
+  <td>
+  Info
+  </td>
+  <td>
+  <div>
+  <button className="btn btn-ghost btn-xs" onClick={handleSave}>
+      <span class="material-symbols-outlined">
+        save
+      </span>
+    </button>
+  <button className="btn btn-ghost btn-xs" onClick={handleCancel}>
+      <span class="material-symbols-outlined">
+        cancel
+      </span>
+    </button>
+
+  </div>
+  </td>
+</tr>}
 
 
-
-
-
-
-      
       </>
     
     )}
