@@ -96,12 +96,13 @@ console.log('handlesubmit function e', e)
             Add a New Game
         </h1>
         <TextInput placeholderText='Search for a game' handleTextInput={handleTextInput}/>
-        <button onClick={()=>{setSearchTerm(searchValue)}}>🔍</button>
+        {/* <button onClick={()=>{setSearchTerm(searchValue)}}>🔍</button> */}
+        <button onClick={()=>console.log('searching!')}>🔍</button>
             {gameInfo.length > 0 ?
             
              gameInfo?.map((game)=>
              <>
-            <NewGameCard gameInfo={game} handleSubmit={handleSubmit} genres={genres} getDifficulty={getDifficulty} generateLocation={generateLocation} getGenre={getGenre}/>          
+            <NewGameCard key={game.upc} gameInfo={game} handleSubmit={handleSubmit} genres={genres} getDifficulty={getDifficulty} generateLocation={generateLocation} getGenre={getGenre}/>          
             </>)
             :
             <>

@@ -2,6 +2,7 @@ import Table from "../Table/Table.js";
 import { useGet } from "../customHooks/useGet";
 import { useState, useEffect } from "react";
 import TextInput from "../TextInput/TextInput.js";
+import AddNewGameButton from '../AddNewGameButton/AddNewGameButton.js'
 
 export default function Inventory(){
     const [headers, setHeaders] = useState([])
@@ -33,10 +34,15 @@ export default function Inventory(){
   }
 
 
+
+
 return (
     <>
+
+
+    
     <Table
-            headers={[<TextInput key='textInput' handleTextInput={(e)=>setParameters(`?title=${e.target.value}`)} placeholderText={`Search ${games.length} games`}/>, 'Location', 'Quantity', 'Options']}
+            headers={[<TextInput key='textInput' handleTextInput={(e)=>setParameters(`?title=${e.target.value}`)} placeholderText={`Search ${games.length} games`}/>, 'Location', 'Quantity', <AddNewGameButton key='addNewGameButton'/>]}
             games={games}
             handleDelete={handleDelete}
             handleSave={handleSave}
@@ -45,3 +51,5 @@ return (
 )
 
 }
+
+
