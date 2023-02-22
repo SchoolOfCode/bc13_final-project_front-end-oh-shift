@@ -28,6 +28,7 @@ module.exports = {
           success: "#50ffb1",
           warning: "#F3A712",
           error: "#ff6201",
+          footer: "#4D4D4D",
         },
 
         screens: {      

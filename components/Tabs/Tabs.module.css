@@ -4,7 +4,7 @@
 
   height: auto;
   width: auto;
-
+margin-top: 2rem;
 }
  
 .tabButton  {
@@ -15,7 +15,7 @@
   padding: 1rem 2rem;
   margin-right: 0.2rem;
   cursor: pointer;
-  background-color: rgb(228, 228,231, 0.3);
+  background-color: rgb(228, 228,231);
   font-weight: bold;
   font-size: 0.8rem;
   transition: background ease 0.3s;
@@ -23,6 +23,24 @@
   border-bottom: none;
   border-radius: 10px 10px 0px 0px;
   width: 120px;
+}
+.tabButtonDark  {
+  order: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+  margin-right: 0.2rem;
+  cursor: pointer;
+  background-color: #00272B;
+  font-weight: bold;
+  font-size: 0.8rem;
+  transition: background ease 0.3s;
+  /* border: solid 0.2rem rgb(228 228 231); */
+  border-bottom: none;
+  border-radius: 10px 10px 0px 0px;
+  color: white;
+    width: 120px;
 }
 
 /* .input[type="radio"] {
@@ -37,6 +55,20 @@
 }
 
 .tabButton:hover  {
+  outline-color: transparent;
+  outline-style:solid;
+  border-bottom: none;
+  box-shadow: 0 0 0 0.1rem #FF6201;
+}
+.tabButtonDark:active  {
+  background-color:#00272B;
+}
+.tabButtonDark:focus  {
+  background-color: #00272B;
+  transition: 0.3s;
+}
+
+.tabButtonDark:hover  {
   outline-color: transparent;
   outline-style:solid;
   border-bottom: none;

@@ -1,9 +1,14 @@
 import React from "react";
 import Gamecard from "../Gamecard/gamecard";
 
-function GameCardList({ games }) {
-  //console.log('gamCardList', games)
+/**
+ *
+ * @param {Object} games
+ * @param {number} games.id
+ * @returns a list of games from the GameCard component
+ */
 
+function GameCardList({ games }) {
   return games ? (
     <>
       <div>

@@ -5,16 +5,18 @@ import { useGet } from "../customHooks/useGet";
 import Link from "next/link";
 import styles from "../../styles/HomePage.module.css";
 import Carousel from "../Carousel/Carousel.js";
-import {DarkModeWrapper} from '../../pages/_app'
+import { DarkModeWrapper } from "../../pages/_app";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
 
-
+/**
+ * @returns the base structure of the Home Page; all that comes underneath the Header.
+ */
 
 function HomePage() {
-  let {darkMode,setDarkMode}= useContext(DarkModeWrapper)
+  let { darkMode, setDarkMode } = useContext(DarkModeWrapper);
   const [games, setGames] = useState([]);
   const [response, error] = useGet(`https://stokka.onrender.com/api/games`);
-  
-
 
   useEffect(() => {
     setGames(response);
@@ -22,157 +24,170 @@ function HomePage() {
 
   return (
     <>
-      <div className={darkMode?"darkMode":"lightMode"} style={{ width: "100vw", height: "100vh" }}>
-      {/* <div className={styles.container}>
-      <div className={styles.box}>
-        <span className={styles.span} >
-          <i className={styles.i}>WHAT</i>
-          IS
-          <i className={styles.i}>NEW</i>
-        </span>
-        <span >
-          <i className={styles.i}>WHAT</i>
-          IS
-          <i className={styles.i}>NEW</i>
-        </span>
-        <span >
-          <i className={styles.i}>WHAT</i>
-          IS
-          <i className={styles.i}>NEW</i>
-        </span>
-        <span >
-          <i className={styles.i}>WHAT</i>
-          IS
-          <i className={styles.i}>NEW</i>
-        </span>
-        <span >
-          <i className={styles.i}>WHAT</i>
-          IS
-          <i className={styles.i}>NEW</i>
-        </span>
-        <span >
-          <i className={styles.i}>WHAT</i>
-          IS
-          <i className={styles.i}>NEW</i>
-        </span>
-        <span >
-          <i className={styles.i}>WHAT</i>
-          IS
-          <i className={styles.i}>NEW</i>
-        </span>
-        <span >
-          <i className={styles.i}>WHAT</i>
-          IS
-          <i className={styles.i}>NEW</i>
-        </span>
-        <span >
-          <i className={styles.i}>WHAT</i>
-          IS
-          <i className={styles.i}>NEW</i>
-        </span>
-        <span >
-          <i className={styles.i}>WHAT</i>
-          IS
-          <i className={styles.i}>NEW</i>
-        </span>
-      </div>
-    </div> */}
-    <button className={darkMode?"btn btn-primary":"btn btn-secondary"}
-        onClick={()=>setDarkMode(!darkMode)} changeBackground={()=>changeBackground}
-        >
-          Toggle</button>
-    <h1
-          className=" text-quicksand text-2xl font-bold"
-
-          style={{ color: "#00272B", textAlign:"center", marginTop:"2rem" }}
-        >
-      <span className={darkMode ? "text-white":"text-accent"}>What is</span> <span className={darkMode? "text-secondary" : "text-primary"}>NEW</span> 
-        </h1>
-       
-        <Carousel  games={games} />
-      
-
       <div
-        className={darkMode ? "bg-accent":"bg-white"}
-
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "20px",
-          // backgroundColor: "white",
-          // marginRight: "2.5rem",
-          marginTop: ".5rem",
-          padding: "0rem 2rem",
-        }}
+        className={darkMode ? "darkMode" : "lightMode"}
+        style={{ width: "100vw", height: "100vh" }}
       >
-        <h1
-          className="text-quicksand text-3xl font-bold"
+        <Header />
 
-          style={{ color: "#50FFB1", paddingTop:"1.5rem" }}
+        <h1
+          className=" text-quicksand text-2xl font-bold"
+          style={{ color: "#00272B", textAlign: "center", paddingTop: "2rem" }}
         >
-          Welcome to
+          <span className={darkMode ? "text-secondary" : "text-primary"}>
+            NEW 
+          </span>{" "}
+          <span className={darkMode ? "text-white" : "text-accent"}>
+            IN
+          </span>
+
         </h1>
-        <ul className={styles.ul}>
-  <li className={styles.li}>
-    <input className={darkMode?styles.inputDark:styles.input} type="checkbox" />
-    <div className={darkMode?styles.stokkanimationDark:styles.stokkanimation}>S</div>
-  </li>
-  <li className={styles.li}>
-    <input className={darkMode?styles.inputDark:styles.input} type="checkbox" />
-    <div className={darkMode?styles.stokkanimationDark:styles.stokkanimation}>T</div>
-  </li>
-  <li className={styles.li}>
-    <input className={darkMode?styles.inputDark:styles.input} type="checkbox" />
-    <div className={darkMode?styles.stokkanimationDark:styles.stokkanimation}>O</div>
-  </li>
-  <li className={styles.li}>
-    <input className={darkMode?styles.inputDark:styles.input} type="checkbox" />
-    <div className={darkMode?styles.stokkanimationDark:styles.stokkanimation}>K</div>
-  </li>
-  <li className={styles.li}>
-    <input className={darkMode?styles.inputDark:styles.input} type="checkbox" />
-    <div className={darkMode?styles.stokkanimationDark:styles.stokkanimation}>K</div>
-  </li>
-  <li className={styles.li}>
-    <input className={darkMode?styles.inputDark:styles.input} type="checkbox" />
-    <div className={darkMode?styles.stokkanimationDark:styles.stokkanimation}>A</div>
-  </li>
-</ul>
-        <h2
-          className= {darkMode ? "text-white text-quicksand":"text-accent text-quicksand"}
-          style={{
-            textAlign: "center",
-          }}
-        >
-          Are you looking for a board game to play?
-        </h2>
-        <h3
-          className={darkMode ? "text-white text-quicksand":"text-accent text-quicksand"}
-          style={{ textAlign: "center"}}
-        >
-          Stokka is an online board games library that will help you find the
-          perfect match for each occasion!
-        </h3>
+
+        <Carousel games={games} />
 
         <div
-          className="viewGames text-quicksand"
-          style={{ display: "flex", justifyContent: "center", paddingBottom:"1.5rem" }}
+          className={darkMode ? "bg-accent" : "bg-white"}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "20px",
+            // backgroundColor: "white",
+            // marginRight: "2.5rem",
+            marginTop: ".5rem",
+            padding: "0rem 2rem",
+          }}
         >
-          <button
-            style={{ marginTop: "2rem", marginBottom: "1rem" }}
-            className=
-            
-               "btn btn-primary btn-outline rounded"
-            
+          <h1
+            className="text-quicksand text-3xl font-bold"
+            style={{ color: "#50FFB1", paddingTop: "1.5rem" }}
           >
-            <Link href="/Games">View Games</Link>
-          </button>
+            Welcome to
+          </h1>
+          <ul className={styles.ul}>
+            <li className={styles.li}>
+              <input
+                className={darkMode ? styles.inputDark : styles.input}
+                type="checkbox"
+              />
+              <div
+                className={
+                  darkMode ? styles.stokkanimationDark : styles.stokkanimation
+                }
+              >
+                S
+              </div>
+            </li>
+            <li className={styles.li}>
+              <input
+                className={darkMode ? styles.inputDark : styles.input}
+                type="checkbox"
+              />
+              <div
+                className={
+                  darkMode ? styles.stokkanimationDark : styles.stokkanimation
+                }
+              >
+                T
+              </div>
+            </li>
+            <li className={styles.li}>
+              <input
+                className={darkMode ? styles.inputDark : styles.input}
+                type="checkbox"
+              />
+              <div
+                className={
+                  darkMode ? styles.stokkanimationDark : styles.stokkanimation
+                }
+              >
+                O
+              </div>
+            </li>
+            <li className={styles.li}>
+              <input
+                className={darkMode ? styles.inputDark : styles.input}
+                type="checkbox"
+              />
+              <div
+                className={
+                  darkMode ? styles.stokkanimationDark : styles.stokkanimation
+                }
+              >
+                K
+              </div>
+            </li>
+            <li className={styles.li}>
+              <input
+                className={darkMode ? styles.inputDark : styles.input}
+                type="checkbox"
+              />
+              <div
+                className={
+                  darkMode ? styles.stokkanimationDark : styles.stokkanimation
+                }
+              >
+                K
+              </div>
+            </li>
+            <li className={styles.li}>
+              <input
+                className={darkMode ? styles.inputDark : styles.input}
+                type="checkbox"
+              />
+              <div
+                className={
+                  darkMode ? styles.stokkanimationDark : styles.stokkanimation
+                }
+              >
+                A
+              </div>
+            </li>
+          </ul>
+          <h2
+            className={
+              darkMode
+                ? "text-white text-quicksand"
+                : "text-accent text-quicksand"
+            }
+            style={{
+              textAlign: "center",
+            }}
+          >
+            Are you looking for a board game to play?
+          </h2>
+          <h3
+            className={
+              darkMode
+                ? "text-white text-quicksand"
+                : "text-accent text-quicksand"
+            }
+            style={{ textAlign: "center" }}
+          >
+            Stokka is an online board games library that will help you find the
+            perfect match for any occasion!
+          </h3>
+
+          <div
+            className="viewGames text-quicksand"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              paddingBottom: "1.5rem",
+            }}
+          >
+            <Link href="/Games">
+            <button
+              style={{ marginTop: "2rem", marginBottom: "1rem" }}
+              className="btn btn-primary btn-outline rounded"
+            >
+              View Games
+            </button></Link>
+          </div>
         </div>
-      </div>
+        <Footer />
       </div>
     </>
-
   );
 }
 
