@@ -5,6 +5,7 @@ import { DarkModeWrapper } from "../../pages/_app";
 
 function Dropdown({ options, dropdownName, onChange, isMulti }) {
 	let {darkMode,setDarkMode}= useContext(DarkModeWrapper)
+	
 	return (
 		<div className={styles.dropdown} id='dropdown'>
 			<label htmlFor={dropdownName} id='dropdownLabel' className={darkMode? styles.dropdownLabelDark : styles.dropdownLabel}>
