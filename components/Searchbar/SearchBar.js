@@ -34,7 +34,7 @@ export default function SearchBar({
 
   return (
     <div
-      className="w-49 justify-center content-center searchInput mb-6"
+      className="w-49 justify-center content-center searchInput items-center"
       style={{
         display: "flex",
         flexDirection: "row",
