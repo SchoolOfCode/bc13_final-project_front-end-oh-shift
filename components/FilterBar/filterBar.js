@@ -190,21 +190,21 @@ function FilterBar() {
           }}
           className="drawer-content"
         >
-          <div>
-            <Header />
-            <div>
+          <div className="w-screen h-screen overflow-auto">
+          
+            <div className='flex flex-col sm:flex-row gap-10 justify-center content-center h-24 items-center mt-8'>
               <a id="top">
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    marginTop: "1rem",
-                    // padding: "0.5rem"
-                  }}
+                <div className='w-49 flex flex-row justify-center gap-16 items-center'
+                 
+                  //   display: "flex",
+                  //   flexDirection: "row",
+                  //   justifyContent: "space-around",
+                  //   marginTop: "1rem",
+                  //   // padding: "0.5rem"
+                 
                 >
                   <label
-                    style={{ marginBottom: "2rem", height: "auto" }}
+                    style={{  height: "auto" }}
                     htmlFor="my-drawer"
                     className="btn btn-secondary drawer-button rounded w-40"
                   >
@@ -312,7 +312,7 @@ function FilterBar() {
             )}
 
             {games && <GameCardList games={games} />}
-            <Footer />
+           
             <div style={{ position: "fixed", bottom: "6vh", left: " 80vw" }}>
               <a href="#top">
                 <button

@@ -27,8 +27,8 @@ module.exports = {
           info: "#000000",
           success: "#50ffb1",
           warning: "#F3A712",
-          error: "#ff6201",
-          footer: "#4D4D4D",
+          error: "#ff6271",
+
         },
 
         screens: {      
@@ -38,6 +38,13 @@ module.exports = {
         },
       },
   ],
+  },
+  theme: {
+    extend: {
+      colors: {
+          footer: '#d9d9d9',
+      }
+    },
   },
   plugins: [require("daisyui")],
 };  
