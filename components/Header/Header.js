@@ -8,9 +8,9 @@ import { DarkModeWrapper } from "../../pages/_app";
 
 function Header() {
   let { darkMode, setDarkMode } = useContext(DarkModeWrapper);
-  const { user, error, isLoading } = useUser();
+  const { user, error } = useUser();
 
-  if (isLoading) return <div>Loading...</div>;
+  //if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
   return (
     <div
