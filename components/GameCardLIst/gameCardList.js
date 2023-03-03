@@ -11,10 +11,11 @@ import Gamecard from "../Gamecard/gamecard";
 function GameCardList({ games }) {
   return games ? (
     <>
-      <div className="overflow-auto flex flex-wrap justify-around ">
+      <div className="bg-error flex flex-wrap content-center">
+
         {games.map((game) => (
           <>
-          <div >
+          <div className="bg-info " >
           <Gamecard game={game} key={game.id} />
           </div>
           </>

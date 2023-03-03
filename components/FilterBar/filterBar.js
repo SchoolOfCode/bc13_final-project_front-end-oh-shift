@@ -194,15 +194,7 @@ function FilterBar() {
           
             <div className='flex flex-col sm:flex-row gap-10 justify-center content-center h-24 items-center mt-8'>
               <a id="top">
-                <div className='w-49 flex flex-row justify-center gap-16 items-center'
-                 
-                  //   display: "flex",
-                  //   flexDirection: "row",
-                  //   justifyContent: "space-around",
-                  //   marginTop: "1rem",
-                  //   // padding: "0.5rem"
-                 
-                >
+                <div className='w-49 flex flex-row justify-center gap-16 items-center'>
                   <label
                     style={{  height: "auto" }}
                     htmlFor="my-drawer"
