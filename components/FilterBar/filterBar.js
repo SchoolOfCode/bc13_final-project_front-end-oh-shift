@@ -192,7 +192,7 @@ function FilterBar() {
         >
           <div className="w-screen h-screen overflow-auto">
           
-            <div className='flex flex-col sm:flex-row gap-10 justify-center content-center h-24 items-center mt-8'>
+            <div className='flex flex-col sm:flex-row gap-10 justify-center content-center h-24 items-center mt-8 mb-8 '>
               <a id="top">
                 <div className='w-49 flex flex-row justify-center gap-16 items-center'>
                   <label
@@ -216,10 +216,7 @@ function FilterBar() {
               ></SearchBar>
             </div>
 
-            <div id='filter-tags' className="flex flex-wrap w-96" style={{ flexDirection: "Row",
-              // flexWrap: "wrap",
-
-              gap: "0.2rem", marginTop: '1rem'}}>
+            <div id='filter-tags' className="flex flex-row flex-wrap justify-center gap-2 mt-12 align-middle w-auto" >
               {selectedPlayers.label && (
                 <label htmlFor="my-drawer">
                   <Badge label={`${selectedPlayers.label} players`} />
