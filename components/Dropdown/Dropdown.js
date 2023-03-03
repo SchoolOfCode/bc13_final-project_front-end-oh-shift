@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Select from "react-select";
+import Select, {components} from "react-select";
 import styles from "./Dropdown.module.css";
 import { DarkModeWrapper } from "../../pages/_app";
 
@@ -14,6 +14,8 @@ import { DarkModeWrapper } from "../../pages/_app";
  */
 function Dropdown({ options, dropdownName, onChange, isMulti, defaultValue }) {
   let { darkMode, setDarkMode } = useContext(DarkModeWrapper);
+  //customise react select component=>https://react-select.com/components
+  const Input = props => <components.Input {...props} maxLength={18}/>
   return (
     <div className={styles.dropdown} id="dropdown">
       <label
@@ -24,6 +26,7 @@ function Dropdown({ options, dropdownName, onChange, isMulti, defaultValue }) {
         {dropdownName}
       </label>
       <Select
+      components={{Input}}
         isMulti={isMulti}
         className={styles.dropdownSelect}
         id={dropdownName}
@@ -37,4 +40,4 @@ function Dropdown({ options, dropdownName, onChange, isMulti, defaultValue }) {
   );
 }
 
-export default Dropdown;
+export default Dropdown ;

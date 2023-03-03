@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import Dropdown from "../Dropdown/Dropdown.js";
+import Dropdown, {Input} from "../Dropdown/Dropdown.js";
 import GameCardList from "../GameCardLIst/gameCardList.js";
 import { useGet } from "../customHooks/useGet.js";
 import { DarkModeWrapper } from "../../pages/_app";
@@ -7,10 +7,7 @@ import capitaliseWord from "../../functions/capitaliseWord";
 import SearchBar from "../Searchbar/SearchBar.js";
 import SortByButton from "../SortByButton/SortByButton.js";
 import Badge from "../Badge/Badge.js";
-import Header from "../Header/Header.js";
-import Footer from "../Footer/Footer.js";
 import convertMinsHours from "../../functions/convertMinsHours.js";
-
 /**
  * it manages all the states and data inside the game page:
  *
@@ -374,6 +371,7 @@ function FilterBar() {
                   }
                 }}
                 isMulti={false}
+                components={{Input}}
               />
             </li>
             <li>
@@ -388,6 +386,7 @@ function FilterBar() {
                   }
                 }}
                 isMulti={false}
+                components={{Input}}
               />
             </li>
             <li>
@@ -408,6 +407,7 @@ function FilterBar() {
                   }
                 }}
                 isMulti={false}
+                components={{Input}}
               />
             </li>
             <li>
@@ -422,6 +422,7 @@ function FilterBar() {
                   }
                 }}
                 isMulti={false}
+                components={{Input}}
               />
             </li>
             <li>
@@ -436,6 +437,7 @@ function FilterBar() {
                   }
                 }}
                 isMulti={false}
+                components={{Input}}
               />
             </li>
             {/* <li>
