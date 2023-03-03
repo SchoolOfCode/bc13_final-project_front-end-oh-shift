@@ -436,7 +436,7 @@ function FilterBar() {
                     setSelectedGenre(inputValue);
                   }
                 }}
-                isMulti={true}
+                isMulti={false}
                 components={{Input}}
               />
             </li>
