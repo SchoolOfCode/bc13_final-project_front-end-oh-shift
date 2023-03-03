@@ -11,7 +11,9 @@ import Gamecard from "../Gamecard/gamecard";
 function GameCardList({ games }) {
   return games ? (
     <>
-      <div className="overflow-auto flex flex-wrap justify-around ">
+   {/* <div className='flex align-center justify-center content-center'>  */}
+      <div className=" flex flex-wrap justify-around m-0 p-0">
+
         {games.map((game) => (
           <>
           <div >
@@ -20,6 +22,7 @@ function GameCardList({ games }) {
           </>
         ))}
       </div>
+          {/* </div> */}
     </>
   ) : (
     ""
