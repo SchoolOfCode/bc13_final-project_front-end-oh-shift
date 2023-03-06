@@ -8,8 +8,7 @@ export default function Footer() {
   return (
     <div>
       <footer
-        className="footer footer-center p-10 text-black"
-        style={{ backgroundColor: "#E7E7E7" }}
+        className="footer footer-center p-10 text-black bg-footer"
       >
 
         <div>
@@ -66,10 +65,10 @@ export default function Footer() {
 
 
           <p className="font-bold ">
-            STOKKA Ltd. <br />
+            STOKKA <br />
             Filter to your next adventure with Stokka.
           </p>
-          <p>Copyright © 2023 - All right reserved</p>
+          <p>Copyright © 2023 - All rights reserved</p>
         </div>
       </footer>
     </div>
