@@ -11,8 +11,8 @@ function Header() {
   const { user, error } = useUser();
 
 
-  //if (error) return <div>{error.message}</div>;
   return (
+    <a href="#header">
     <div
       className={
         darkMode
@@ -232,6 +232,7 @@ function Header() {
         {user ? <Account user={user} /> : <NoAccount />}
       </div>
     </div>
+         </a>
   );
 }
 
