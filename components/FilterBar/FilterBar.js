@@ -300,7 +300,7 @@ function FilterBar() {
             {games && <GameCardList games={games} />}
            
             <div style={{ position: "fixed", bottom: "6vh", left: " 80vw" }}>
-              <a href="#header">
+              <a href="#top">
                 <button
                   style={{ position: "sticky", width: "6vh", height: "2vh" }}
                   className="btn btn-primary rounded border hover:bg-primary focus:outline-none font-medium text-sm p-2.5 text-center inline-flex items-center mr-2 dark:border-primary"
