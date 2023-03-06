@@ -12,7 +12,6 @@ function Header() {
 
 
   return (
-    <a href="#header">
     <div
       className={
         darkMode
@@ -232,7 +231,6 @@ function Header() {
         {user ? <Account user={user} /> : <NoAccount />}
       </div>
     </div>
-         </a>
   );
 }
 
