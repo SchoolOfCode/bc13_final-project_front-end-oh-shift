@@ -1,5 +1,5 @@
 import { Html, Head, Main, NextScript } from 'next/document'
-import AddNewGameFormModal from '../components/AddNewGameFormModal/AddNewGameFormModal.js'
+//import AddNewGameFormModal from '../components/AddNewGameFormModal/AddNewGameFormModal.js'
 
 export default function Document() {
   return (
