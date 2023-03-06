@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import Dropdown from "../Dropdown/Dropdown.js";
+import Dropdown, {Input} from "../Dropdown/Dropdown.js";
 import GameCardList from "../GameCardLIst/gameCardList.js";
 import { useGet } from "../customHooks/useGet.js";
 import { DarkModeWrapper } from "../../pages/_app";
@@ -7,10 +7,7 @@ import capitaliseWord from "../../functions/capitaliseWord";
 import SearchBar from "../Searchbar/SearchBar.js";
 import SortByButton from "../SortByButton/SortByButton.js";
 import Badge from "../Badge/Badge.js";
-import Header from "../Header/Header.js";
-import Footer from "../Footer/Footer.js";
 import convertMinsHours from "../../functions/convertMinsHours.js";
-
 /**
  * it manages all the states and data inside the game page:
  *
@@ -190,21 +187,13 @@ function FilterBar() {
           }}
           className="drawer-content"
         >
-          <div>
-            <Header />
-            <div>
+          <div className="w-screen h-screen overflow-auto">
+          
+            <div className='flex flex-col sm:flex-row gap-10 justify-center content-center h-24 items-center mt-8 mb-8 '>
               <a id="top">
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    marginTop: "1rem",
-                    // padding: "0.5rem"
-                  }}
-                >
+                <div className='w-49 flex flex-row justify-center gap-16 items-center'>
                   <label
-                    style={{ marginBottom: "2rem", height: "auto" }}
+                    style={{  height: "auto" }}
                     htmlFor="my-drawer"
                     className="btn btn-secondary drawer-button rounded w-40"
                   >
@@ -224,10 +213,7 @@ function FilterBar() {
               ></SearchBar>
             </div>
 
-            <div id='filter-tags' className="flex flex-wrap w-96" style={{ flexDirection: "Row",
-              // flexWrap: "wrap",
-
-              gap: "0.2rem", marginTop: '1rem'}}>
+            <div id='filter-tags' className="flex flex-row flex-wrap justify-center gap-2 mt-12 align-middle w-auto" >
               {selectedPlayers.label && (
                 <label htmlFor="my-drawer">
                   <Badge label={`${selectedPlayers.label} players`} />
@@ -312,7 +298,7 @@ function FilterBar() {
             )}
 
             {games && <GameCardList games={games} />}
-            <Footer />
+           
             <div style={{ position: "fixed", bottom: "6vh", left: " 80vw" }}>
               <a href="#top">
                 <button
@@ -385,6 +371,7 @@ function FilterBar() {
                   }
                 }}
                 isMulti={false}
+                components={{Input}}
               />
             </li>
             <li>
@@ -399,6 +386,7 @@ function FilterBar() {
                   }
                 }}
                 isMulti={false}
+                components={{Input}}
               />
             </li>
             <li>
@@ -419,6 +407,7 @@ function FilterBar() {
                   }
                 }}
                 isMulti={false}
+                components={{Input}}
               />
             </li>
             <li>
@@ -433,6 +422,7 @@ function FilterBar() {
                   }
                 }}
                 isMulti={false}
+                components={{Input}}
               />
             </li>
             <li>
@@ -447,6 +437,7 @@ function FilterBar() {
                   }
                 }}
                 isMulti={false}
+                components={{Input}}
               />
             </li>
             {/* <li>

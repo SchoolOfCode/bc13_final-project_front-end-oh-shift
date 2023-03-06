@@ -11,7 +11,7 @@ function Header() {
   const { user, error } = useUser();
 
 
-  if (error) return <div>{error.message}</div>;
+  //if (error) return <div>{error.message}</div>;
   return (
     <div
       className={
