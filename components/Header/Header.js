@@ -10,7 +10,7 @@ function Header() {
   let { darkMode, setDarkMode } = useContext(DarkModeWrapper);
   const { user, error } = useUser();
 
-  //if (isLoading) return <div>Loading...</div>;
+
   if (error) return <div>{error.message}</div>;
   return (
     <div
