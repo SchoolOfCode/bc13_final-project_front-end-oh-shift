@@ -10,6 +10,7 @@ function Header() {
   let { darkMode, setDarkMode } = useContext(DarkModeWrapper);
   const { user, error } = useUser();
 
+
   if (error) return <div>{error.message}</div>;
   return (
     <div
