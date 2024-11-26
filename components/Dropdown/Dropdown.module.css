@@ -1,0 +1,21 @@
+.dropdown {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.dropdownLabel {
+  display: flex;
+  color: #00272b;
+}
+
+.dropdownLabelDark {
+  display: flex;
+  color: white;
+}
+.dropdownSelect {
+  display: flex;
+  color: #00272b;
+  justify-content: center;
+  border-radius: 20px;
+}
